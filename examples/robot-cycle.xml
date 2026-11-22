@@ -1,0 +1,15 @@
+<!-- Deliberately broken authored example. -->
+<SLM:system>
+  <SLM:component name="sensor-hub">
+    <SLM:command>/opt/robot/bin/sensor-hub</SLM:command>
+    <SLM:depend state="session">motion-control</SLM:depend>
+  </SLM:component>
+  <SLM:component name="motion-control">
+    <SLM:command>/opt/robot/bin/motion-control</SLM:command>
+    <SLM:depend state="session">sensor-hub</SLM:depend>
+  </SLM:component>
+  <SLM:component name="dashboard">
+    <SLM:command>/opt/robot/bin/dashboard</SLM:command>
+    <SLM:depend state="stateless">io-sok</SLM:depend>
+  </SLM:component>
+</SLM:system>

@@ -1,0 +1,43 @@
+<!-- Authored example for static review. Robot binaries are illustrative, not supplied. -->
+<SLM:system>
+  <SLM:component name="slogger2">
+    <SLM:command>/sbin/slogger2</SLM:command>
+    <SLM:waitfor wait="pathname">/dev/slog2</SLM:waitfor>
+  </SLM:component>
+  <SLM:component name="io-sock">
+    <SLM:depend state="stateless">slogger2</SLM:depend>
+    <SLM:command>/sbin/io-sock</SLM:command>
+    <SLM:waitfor wait="pathname">/dev/socket</SLM:waitfor>
+  </SLM:component>
+  <SLM:component name="sensor-hub">
+    <SLM:depend state="stateless">slogger2</SLM:depend>
+    <SLM:command>/opt/robot/bin/sensor-hub</SLM:command>
+    <SLM:waitfor wait="pathname">/dev/robot/sensors</SLM:waitfor>
+  </SLM:component>
+  <SLM:component name="dashboard">
+    <SLM:depend state="session">io-sock</SLM:depend>
+    <SLM:depend state="stateless">sensor-hub</SLM:depend>
+    <SLM:command>/opt/robot/bin/dashboard</SLM:command>
+    <SLM:waitfor wait="pathname" polltime="100:10000">/dev/robot/dashboard</SLM:waitfor>
+    <SLM:repair backoff="2">restart</SLM:repair>
+  </SLM:component>
+  <SLM:component name="motion-control">
+    <SLM:depend state="session">sensor-hub</SLM:depend>
+    <!-- The controller starts independently of optional dashboard availability. -->
+    <SLM:command>/opt/robot/bin/motion-control</SLM:command>
+    <SLM:waitfor wait="pathname">/dev/robot/control</SLM:waitfor>
+  </SLM:component>
+  <SLM:component name="recorder">
+    <SLM:depend state="session">io-sock</SLM:depend>
+    <SLM:depend state="stateless">sensor-hub</SLM:depend>
+    <SLM:command>/opt/robot/bin/recorder</SLM:command>
+  </SLM:component>
+  <SLM:component name="operator-ui">
+    <SLM:depend state="session">dashboard</SLM:depend>
+    <SLM:depend state="session">motion-control</SLM:depend>
+    <SLM:command>/opt/robot/bin/operator-ui</SLM:command>
+  </SLM:component>
+  <SLM:module name="robot">
+    <SLM:member>*</SLM:member>
+  </SLM:module>
+</SLM:system>
