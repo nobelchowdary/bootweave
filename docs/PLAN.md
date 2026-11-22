@@ -24,6 +24,7 @@ The MVP runs entirely on the host. It has no C agent, cloud service, AI service,
 - Policy rejects newly introduced explicit **or possible** coupling to the protected component. Invalid/incomplete inputs cannot pass as clean graphs.
 - Current host suite: 39 passing tests. This is host verification only.
 - Public repository: [nobelchowdary/bootweave](https://github.com/nobelchowdary/bootweave).
+- GitHub host verification passes on Linux, macOS, and Windows. QNX SDP 8.0 noncommercial license access has been obtained and assigned to the project owner; SDK installation and native execution remain pending.
 - QNX target execution, real-world configuration feedback, tutorial, video, and Devpost submission remain pending.
 
 ## Schedule and acceptance gates
