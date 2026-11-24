@@ -2,7 +2,7 @@
 
 **Review QNX startup changes before they reach a device.**
 
-[Repository](https://github.com/nobelchowdary/bootweave) · [Host verification](https://github.com/nobelchowdary/bootweave/actions/workflows/review.yml) · [MIT license](LICENSE) · [Demo video and captions](docs/media/README.md)
+[Repository](https://github.com/nobelchowdary/bootweave) · [Host verification](https://github.com/nobelchowdary/bootweave/actions/workflows/review.yml) · [MIT license](LICENSE) · [YouTube demo](https://www.youtube.com/watch?v=m-SxmSBkiLo) · [Media and captions](docs/media/README.md)
 
 BootWeave is a host developer tool for QNX 8.0 System Launch and Monitor (SLM) configuration. Import SLM XML, explore prerequisites and recovery coupling, review source-linked diagnostics, and compare configuration changes. A CI guard detects new explicit or possible coupling to a component you protect.
 
@@ -64,7 +64,7 @@ Semantics are grounded in the [QNX 8.0 SLM reference](https://qnx.com/developers
 
 ## Hackathon status
 
-Working developer tool for **Developer Tooling & Host Tools**, published at [nobelchowdary/bootweave](https://github.com/nobelchowdary/bootweave). The host tool runs on macOS, Linux, and Windows with Python; this does not imply that QNX compiler tools run natively on each host. The [native application experiments](validation/evidence/native-demo/README.md) record automatic failure and plain manual restart separately for both configurations, with actual QNX message passing, independent process/heartbeat observations and verified cleanup. The [six-case validation matrix](validation/matrix/README.md) covers selected graph, module, readiness and unsupported-include cases. These scoped observations do not establish complete SLM compatibility, continuous availability or real-time performance. The [earlier restart-option discrepancy](validation/evidence/2026-11-24/README.md) remains explicit. The [2:33 demonstration and media sources](docs/media/README.md) are available; public YouTube publication and the final Devpost entry remain pending.
+Working developer tool for **Developer Tooling & Host Tools**, published at [nobelchowdary/bootweave](https://github.com/nobelchowdary/bootweave). The host tool runs on macOS, Linux, and Windows with Python; this does not imply that QNX compiler tools run natively on each host. The [native application experiments](validation/evidence/native-demo/README.md) record automatic failure and plain manual restart separately for both configurations, with actual QNX message passing, independent process/heartbeat observations and verified cleanup. The [six-case validation matrix](validation/matrix/README.md) covers selected graph, module, readiness and unsupported-include cases. These scoped observations do not establish complete SLM compatibility, continuous availability or real-time performance. The [earlier restart-option discrepancy](validation/evidence/2026-11-24/README.md) remains explicit. The [2:33 YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public, with signed-out playback verified November 24; [media sources and captions](docs/media/README.md) are available. The entrant's two personal feedback answers and final Devpost submission remain pending.
 
 See [idea research](docs/RESEARCH.md), [the build plan](docs/PLAN.md), [submission checklist](docs/SUBMISSION-CHECKLIST.md), [Ubuntu/AWS host setup](docs/AWS-QNX-HOST.md), [QNX validation procedure](docs/QNX-VALIDATION.md), [demo storyboard](docs/DEMO-SCRIPT.md), and [report schema](docs/report-schema.md).
 

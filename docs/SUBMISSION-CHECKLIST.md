@@ -22,9 +22,12 @@ Status below distinguishes prepared files from completed external submission. A 
 - [x] Two-file/protected-service review, property/module changes and imported-recording hash checks are implemented. [Browser release QA](BROWSER-QA.md) is complete for the listed interactions; matching evidence hashes do not authenticate origin.
 - [x] Final source, images, tutorial and reproduction instructions are public. [Fresh-checkout verification](RELEASE-CHECKS.md) and cross-platform CI retain the results; media is linked separately.
 - [x] Reconcile the [Devpost draft](DEVPOST-SUBMISSION.md) with the finished implementation. Specify the Python host runtime, actual QNX target/version, and native compiler if the native workload is included.
-- [ ] Record the functioning host product; upload an English video **under 3:00** to YouTube as **Public** and paste its working URL into Devpost. Check duration, visibility, audio and legibility while signed out. [Storyboard](DEMO-SCRIPT.md).
+- [x] Record the functioning host product in English, **2:33.45**, and upload it to [YouTube](https://www.youtube.com/watch?v=m-SxmSBkiLo) with its title, description and thumbnail. Captions are burned in and an SRT was uploaded. English (United States), AI-use disclosure and no paid promotion are recorded.
+- [x] Publish the YouTube video as **Public** and verify playback while signed out (November 24, 2026; 153.481-second player duration, no playback error). Selectable English (United States) captions rendered in the signed-out player; burned-in captions are also present. [Storyboard](DEMO-SCRIPT.md).
+- [x] Retain the verified public video URL in the saved Devpost entry; the project preview embeds `youtube.com/embed/m-SxmSBkiLo`. [Project page](https://devpost.com/software/bootweave-vilw4u) (final hackathon entry pending).
 - [x] Ensure submitted media uses owned or permitted material and contains no private account/host information.
 - [ ] Complete registration, team details and all Devpost fields; select exactly one category; check every submitted URL.
+- [ ] The entrant supplies the two personal feedback answers in the Devpost form.
 - [ ] At the final submission step, the entrant reviews the complete entry, verifies its ownership/contribution statements and confirms entry. The rules' opening states that submission constitutes agreement; the remaining decision belongs at that concrete final step, after media and links are ready.
 - [ ] Submit by **December 14** as our buffer; retain the actual submission receipt and revision. Keep code and media accessible through January 29, 2027.
 
@@ -39,4 +42,4 @@ These are product-quality goals, not additional universal eligibility requiremen
 - [x] [The tutorial](TUTORIAL.md) is public and its URL is entered in the saved Devpost draft for the optional tutorial bonus; final entry is pending.
 - [x] Capture a clear failing policy, its correction, an invalid input, and the distinction between static analysis and target observations.
 
-Final factual status: the host workflow, native application contrast and six matrix cases exist with retained evidence. Browser QA, the 2:33 demo and five images are prepared. Public YouTube publication, the entrant's two required feedback answers and final Devpost confirmation remain open. Further SLM coverage, including exits/blocks readiness and other utility builds, must not be described as complete.
+Final factual status: the host workflow, native application contrast and six matrix cases exist with retained evidence. Browser QA, the 2:33 demo and five images are prepared, and the [YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public with signed-out playback verified. The entrant's two personal feedback answers and final Devpost submission remain open. Further SLM coverage, including exits/blocks readiness and other utility builds, must not be described as complete.

@@ -1,6 +1,6 @@
 # BootWeave — Devpost draft
 
-**Submission draft — public YouTube URL and final entry still pending.** The implementation, browser QA, narrated 2:33 demo and five gallery images are prepared. See [media and captions](media/README.md) and [browser checks](BROWSER-QA.md).
+**Submission draft — final entry still pending.** The implementation, browser QA, narrated 2:33 demo and five gallery images are prepared. The [YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public, with signed-out playback verified November 24, 2026. Captions are burned in and an SRT was uploaded; selectable English (United States) captions were also verified in the signed-out player. The video URL is saved in Devpost and renders in the project preview. The entrant's two personal feedback answers and final Devpost submission remain pending. See [media and captions](media/README.md) and [browser checks](BROWSER-QA.md).
 
 ## Form fields
 
@@ -10,7 +10,8 @@
 | Tagline | Catch QNX lifecycle regressions before deployment. |
 | Category | Developer Tooling & Host Tools |
 | Source | https://github.com/nobelchowdary/bootweave |
-| Demonstration video | **PENDING — public YouTube URL, duration under 3:00** |
+| Devpost project | https://devpost.com/software/bootweave-vilw4u — final hackathon entry pending |
+| Demonstration video | https://www.youtube.com/watch?v=m-SxmSBkiLo — 2:33.45; public and signed-out playback verified November 24 |
 | Tutorial bonus URL | https://github.com/nobelchowdary/bootweave/blob/main/docs/TUTORIAL.md |
 | Built with — implemented source | Python, JavaScript, HTML, CSS, C, QNX 8.0 SLM, slmctl, QNX message passing, QEMU, Ubuntu |
 | Native workload toolchain | QNX `qcc -Vgcc_ntox86_64`, GCC 12.2.0 target toolchain, C11; compiled and executed on the recorded QNX x86-64 guest |
@@ -79,8 +80,9 @@ Native workload: QNX 8.0.0 x86-64 under QEMU 8.2.2/KVM, built using QNX `qcc -Vg
 
 ## Final editor checks — do not paste as project claims
 
-- Replace pending links with published, signed-out-tested links and add the demonstrated source revision.
-- Complete final browser QA and retain the actual result before recording the release video.
+- The verified public YouTube URL is saved in Devpost and embedded in its project preview. Burned-in captions and an uploaded SRT are present; selectable English (United States) captions rendered in the signed-out player.
+- Retain the completed browser QA and demonstrated source revision with the release media.
+- The entrant must supply the two personal feedback answers; do not invent answers on their behalf.
 - Preserve material limitations and the unresolved operation-specific discrepancy.
 - The entrant confirmed basic eligibility and individual entry. Confirm the completed entry and its final ownership/contribution statements at submission time.
 - Official [submission requirements and judging](https://qnx.devpost.com/rules) govern the entry. No placement or prize is guaranteed.
