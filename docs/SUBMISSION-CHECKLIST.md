@@ -19,11 +19,11 @@ Status below distinguishes prepared files from completed external submission. A 
 - [x] Basic entrant eligibility and individual entry confirmed by the entrant November 24; the final form must retain accurate ownership/contribution statements.
 - [x] Four [native three-service recordings](../validation/evidence/native-demo/README.md) cover risky/revised configurations with separate automatic-failure and plain-manual operations, independent PID/UDP instance checks, successful native IPC samples and verified cleanup.
 - [x] Six additional [matrix cases](../validation/matrix/README.md) retain missing/cyclic prerequisites, module glob startup, delay readiness, absent-path timeout and external-entity results. Coverage remains scoped to the recorded build/cases.
-- [x] Two-file/protected-service review, property/module changes and imported-recording hash checks are implemented. Browser release QA remains a final verification task; matching evidence hashes do not authenticate origin.
-- [ ] Publish the final source, assets, tutorial and complete reproduction instructions for the exact demonstrated revision; test a clean checkout.
-- [ ] Reconcile the [Devpost draft](DEVPOST-SUBMISSION.md) with the finished implementation. Specify the Python host runtime, actual QNX target/version, and native compiler if the native workload is included.
+- [x] Two-file/protected-service review, property/module changes and imported-recording hash checks are implemented. [Browser release QA](BROWSER-QA.md) is complete for the listed interactions; matching evidence hashes do not authenticate origin.
+- [x] Final source, images, tutorial and reproduction instructions are public. [Fresh-checkout verification](RELEASE-CHECKS.md) and cross-platform CI retain the results; media is linked separately.
+- [x] Reconcile the [Devpost draft](DEVPOST-SUBMISSION.md) with the finished implementation. Specify the Python host runtime, actual QNX target/version, and native compiler if the native workload is included.
 - [ ] Record the functioning host product; upload an English video **under 3:00** to YouTube as **Public** and paste its working URL into Devpost. Check duration, visibility, audio and legibility while signed out. [Storyboard](DEMO-SCRIPT.md).
-- [ ] Ensure submitted media uses owned or permitted material and contains no private account/host information.
+- [x] Ensure submitted media uses owned or permitted material and contains no private account/host information.
 - [ ] Complete registration, team details and all Devpost fields; select exactly one category; check every submitted URL.
 - [ ] At the final submission step, the entrant reviews the complete entry, verifies its ownership/contribution statements and confirms entry. The rules' opening states that submission constitutes agreement; the remaining decision belongs at that concrete final step, after media and links are ready.
 - [ ] Submit by **December 14** as our buffer; retain the actual submission receipt and revision. Keep code and media accessible through January 29, 2027.
@@ -34,9 +34,9 @@ These are product-quality goals, not additional universal eligibility requiremen
 
 - [x] Native three-service QNX message passing, source/build instructions and scoped before/after observations are retained. All four final bundles were checked against source/artifact hashes.
 - [x] Automatic SIGKILL-triggered recovery is recorded separately from plain manual restart in fresh dedicated SLM instances. The earlier inner-`-s` discrepancy remains unresolved and documented.
-- [ ] Complete final browser QA for file imports, protected-service policy, property/module changes, evidence mismatch/incomplete states, and bundle export.
+- [x] Complete final browser QA for file imports, protected-service policy, property/module changes, evidence mismatch/incomplete states, and bundle export.
 - [ ] Have another developer reproduce one review; collect specific feedback without inventing time savings.
-- [ ] Publish [the tutorial](TUTORIAL.md) and add its public URL if entering the optional tutorial bonus. A draft file alone does not complete bonus entry.
-- [ ] Capture a clear failing policy, its correction, an invalid input, and the distinction between static analysis and target observations.
+- [x] [The tutorial](TUTORIAL.md) is public and its URL is entered in the saved Devpost draft for the optional tutorial bonus; final entry is pending.
+- [x] Capture a clear failing policy, its correction, an invalid input, and the distinction between static analysis and target observations.
 
-Final factual status: the host workflow, native application contrast and six matrix cases exist with retained evidence. Final browser QA, media, public links and the actual Devpost entry remain open. Further SLM coverage, including exits/blocks readiness and other utility builds, must not be described as complete.
+Final factual status: the host workflow, native application contrast and six matrix cases exist with retained evidence. Browser QA, the 2:33 demo and five images are prepared. Public YouTube publication, the entrant's two required feedback answers and final Devpost confirmation remain open. Further SLM coverage, including exits/blocks readiness and other utility builds, must not be described as complete.

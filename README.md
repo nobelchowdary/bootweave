@@ -2,9 +2,9 @@
 
 **Review QNX startup changes before they reach a device.**
 
-[Repository](https://github.com/nobelchowdary/bootweave) · [Host verification](https://github.com/nobelchowdary/bootweave/actions/workflows/review.yml) · [MIT license](LICENSE)
+[Repository](https://github.com/nobelchowdary/bootweave) · [Host verification](https://github.com/nobelchowdary/bootweave/actions/workflows/review.yml) · [MIT license](LICENSE) · [Demo video and captions](docs/media/README.md)
 
-BootWeave is a host developer tool for QNX 8.0 System Launch and Monitor (SLM) configuration. Import SLM XML, explore prerequisites and recovery coupling, review source-linked diagnostics, and compare configuration changes. A CI guard detects new explicit session coupling to a component you protect.
+BootWeave is a host developer tool for QNX 8.0 System Launch and Monitor (SLM) configuration. Import SLM XML, explore prerequisites and recovery coupling, review source-linked diagnostics, and compare configuration changes. A CI guard detects new explicit or possible coupling to a component you protect.
 
 ![BootWeave configuration review workbench](docs/assets/workbench.jpg)
 
@@ -16,11 +16,11 @@ Python 3.11+ is the only dependency. From this repository:
 python3 -m bootweave serve
 ```
 
-Open http://127.0.0.1:8765. Choose **QNX demo · risky**, select `telemetry`, and inspect its explicit session path to `controller`. In **Change review**, compare the revised baseline against the risky candidate, protect `controller`, and run the check. The policy explains the newly introduced path. Swap the revisions to review the correction. Each revision can also be imported or edited independently.
+Open http://127.0.0.1:8765. Choose **native-risky.xml**, select `telemetry`, and inspect its explicit session path to `controller`. In **Change review**, compare the revised baseline against the risky candidate, protect `controller`, and run the check. The policy explains the newly introduced path. Swap the revisions to review the correction. Each revision can also be imported or edited independently.
 
 In **Configuration review**, choose the matching captured recording and check its binding to the active XML. The risky native experiment replaced the controller after optional telemetry failure; in the revised experiment, the controller kept its process instance and continued successful software-sensor IPC in the observed windows. The panel separates static relationships from imported observations. A matching hash does not authenticate the recording's origin or prove a fresh execution.
 
-The older **Overcoupled robot** and **Reviewed robot** examples remain illustrations: their robot executables are not included or represented as running. The supplied [three-service native workload](native/README.md) uses an authored software sensor, not physical hardware.
+The older **robot-risky.xml** and **robot-revised.xml** examples remain illustrations: their robot executables are not included or represented as running. The supplied [three-service native workload](native/README.md) uses an authored software sensor, not physical hardware.
 
 ## CLI and CI
 
@@ -64,7 +64,7 @@ Semantics are grounded in the [QNX 8.0 SLM reference](https://qnx.com/developers
 
 ## Hackathon status
 
-Working developer tool for **Developer Tooling & Host Tools**, published at [nobelchowdary/bootweave](https://github.com/nobelchowdary/bootweave). The host tool runs on macOS, Linux, and Windows with Python; this does not imply that QNX compiler tools run natively on each host. The [native application experiments](validation/evidence/native-demo/README.md) record automatic failure and plain manual restart separately for both configurations, with actual QNX message passing, independent process/heartbeat observations and verified cleanup. The [six-case validation matrix](validation/matrix/README.md) covers selected graph, module, readiness and unsupported-include cases. These scoped observations do not establish complete SLM compatibility, continuous availability or real-time performance. The [earlier restart-option discrepancy](validation/evidence/2026-11-24/README.md) remains explicit. The public video and final Devpost entry are being prepared.
+Working developer tool for **Developer Tooling & Host Tools**, published at [nobelchowdary/bootweave](https://github.com/nobelchowdary/bootweave). The host tool runs on macOS, Linux, and Windows with Python; this does not imply that QNX compiler tools run natively on each host. The [native application experiments](validation/evidence/native-demo/README.md) record automatic failure and plain manual restart separately for both configurations, with actual QNX message passing, independent process/heartbeat observations and verified cleanup. The [six-case validation matrix](validation/matrix/README.md) covers selected graph, module, readiness and unsupported-include cases. These scoped observations do not establish complete SLM compatibility, continuous availability or real-time performance. The [earlier restart-option discrepancy](validation/evidence/2026-11-24/README.md) remains explicit. The [2:33 demonstration and media sources](docs/media/README.md) are available; public YouTube publication and the final Devpost entry remain pending.
 
 See [idea research](docs/RESEARCH.md), [the build plan](docs/PLAN.md), [submission checklist](docs/SUBMISSION-CHECKLIST.md), [Ubuntu/AWS host setup](docs/AWS-QNX-HOST.md), [QNX validation procedure](docs/QNX-VALIDATION.md), [demo storyboard](docs/DEMO-SCRIPT.md), and [report schema](docs/report-schema.md).
 

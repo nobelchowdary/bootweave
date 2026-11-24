@@ -1,0 +1,15 @@
+{
+  "video_duration": 153.433333,
+  "audio_duration": 153.433,
+  "container_duration": 153.454362,
+  "video_frames": "4603",
+  "canvas": [
+    1440,
+    900
+  ],
+  "integrated_loudness_lufs": "-16.08",
+  "true_peak_dbtp": "-3.94",
+  "subtitle_cues": 32,
+  "visual_qa": "Final contact sheet plus full-size native, policy and binding frames inspected. Reserved caption band does not overlap UI; clean actual frame holds replace recorder-stop artifacts.",
+  "final_sha256": "2e03fa96b0acd1be1d11d636d02e9142815bb5e09f7393a958d40b3af5ee76f8"
+}

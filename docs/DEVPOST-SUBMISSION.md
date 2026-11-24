@@ -1,6 +1,6 @@
 # BootWeave — Devpost draft
 
-**DRAFT — final video and publication links still need completion.** The copy below describes the implemented host workflow, four captured native application experiments and six additional matrix cases. Final browser QA is in progress; reconcile the demonstrated revision and media links before submitting.
+**Submission draft — public YouTube URL and final entry still pending.** The implementation, browser QA, narrated 2:33 demo and five gallery images are prepared. See [media and captions](media/README.md) and [browser checks](BROWSER-QA.md).
 
 ## Form fields
 
@@ -11,7 +11,7 @@
 | Category | Developer Tooling & Host Tools |
 | Source | https://github.com/nobelchowdary/bootweave |
 | Demonstration video | **PENDING — public YouTube URL, duration under 3:00** |
-| Tutorial bonus URL | **PENDING publication check:** https://github.com/nobelchowdary/bootweave/blob/main/docs/TUTORIAL.md |
+| Tutorial bonus URL | https://github.com/nobelchowdary/bootweave/blob/main/docs/TUTORIAL.md |
 | Built with — implemented source | Python, JavaScript, HTML, CSS, C, QNX 8.0 SLM, slmctl, QNX message passing, QEMU, Ubuntu |
 | Native workload toolchain | QNX `qcc -Vgcc_ntox86_64`, GCC 12.2.0 target toolchain, C11; compiled and executed on the recorded QNX x86-64 guest |
 
