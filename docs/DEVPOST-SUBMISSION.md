@@ -7,7 +7,7 @@
 | Field | Draft value |
 | --- | --- |
 | Project name | BootWeave |
-| Tagline | Catch QNX lifecycle regressions before deployment. |
+| Tagline | Catch hidden QNX service dependencies before deployment. Review XML changes visually, protect essential services in CI, and inspect native QNX experiment results. |
 | Category | Developer Tooling & Host Tools |
 | Source | https://github.com/nobelchowdary/bootweave |
 | Devpost project | https://devpost.com/software/bootweave-vilw4u — final hackathon entry pending |
@@ -16,61 +16,71 @@
 | Built with — implemented source | Python, JavaScript, HTML, CSS, C, QNX 8.0 SLM, slmctl, QNX message passing, QEMU, Ubuntu |
 | Native workload toolchain | QNX `qcc -Vgcc_ntox86_64`, GCC 12.2.0 target toolchain, C11; compiled and executed on the recorded QNX x86-64 guest |
 
+## Public project story
+
+**[Watch the 2:33 demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo)** · [Source and instructions](https://github.com/nobelchowdary/bootweave) · [Tutorial](https://github.com/nobelchowdary/bootweave/blob/main/docs/TUTORIAL.md)
+
 ## Inspiration
 
-A configuration review can miss a consequential relationship: an essential service has quietly acquired a lifecycle dependency on an optional interface. The XML may look reasonable, yet the change can expand what must start first and what may need to stop when a prerequisite changes.
+One extra XML dependency made a controller restart when optional telemetry failed.
 
-We wanted that relationship to be visible during review. BootWeave brings QNX System Launch and Monitor configuration into a local workbench and a repeatable CI check, so a developer can ask a specific question: “What new prerequisites and lifecycle coupling does this edit introduce?”
+The controller's code only read the sensor. An unnecessary QNX SLM session dependency connected its lifecycle to telemetry anyway. BootWeave makes that configuration relationship visible before deployment.
+
+It is built for **QNX platform, integration and release engineers** who review startup changes and need an explainable CI guard.
 
 ## What it does
 
-BootWeave reads QNX 8.0 SLM XML and maps the configured services and prerequisites. Select a service to inspect startup reachability, explicit session coupling, and possible coupling through dependencies whose state was omitted. Diagnostics lead back to source lines and the relevant QNX documentation.
+BootWeave is a local review workbench for QNX 8.0 System Launch and Monitor XML. Import baseline and candidate files independently, select a protected service, and compare startup prerequisites, lifecycle coupling, service properties and module membership. Findings show the dependency path and source context.
 
-The workbench compares independently imported or edited baseline/candidate files, including service properties, module membership, dependencies, findings and newly introduced coupling paths. Select a protected component in the browser or CLI to reject new explicit or possible lifecycle exposure. In our native software lab, an unnecessary dependency on optional telemetry makes the controller vulnerable to the telemetry service's lifecycle. The guard rejects that regression and accepts its correction.
+Adding the telemetry dependency fails the protected-controller policy; removing it passes. The same Python engine drives the browser and CLI, so teams can use the review interactively and enforce it in CI. Invalid, cyclic and unsupported input stays visibly failed or incomplete.
 
-Imported target recordings can be checked against the active XML's configuration hash and shown alongside static analysis. Reports retain the operation, environment and observed process instances; export bundles preserve the imported record and check result. A matching hash confirms configuration association and envelope consistency, not trusted origin or a fresh target run.
+![Protected-service review shows the introduced controller coupling](https://raw.githubusercontent.com/nobelchowdary/bootweave/main/docs/assets/02-protected-service-review.jpg)
 
-JSON and self-contained HTML reports make the review portable. The Python host tool and browser interface run locally. The core application needs no account, proprietary SDK, target connection, cloud service or AI API to inspect a configuration.
+## Potential impact
 
-Malformed, incomplete, unsupported and cyclic inputs remain visible as failures or incomplete analyses. BootWeave does not substitute a clean-looking graph for a result it could not evaluate.
+The intended users are platform teams integrating QNX services in vehicles and industrial systems. An automotive team could review whether a diagnostics change adds a new prerequisite to a controller; an industrial team could check a telemetry update before integrating it with control software. BootWeave exposes the dependency path and makes the same check repeatable in CI.
+
+QNX provides native message passing and SLM process supervision. BootWeave adds a review layer for the configuration that connects those processes. The distinctive workflow links an XML change, an explained policy result and a retained native experiment.
 
 ## How we built it
 
-One Python engine supplies the CLI and local HTTP API. The browser renders the dependency map, source context and review findings; the policy uses the same graph relationships as the host report. Reproduction instructions and automated host checks live with the source in an MIT-licensed repository.
+The host tool uses Python 3.11+, JavaScript, HTML and CSS. It needs no target connection to analyze XML. Its QNX-specific model covers SLM dependency states, readiness settings and modules: the relationships platform engineers must inspect when a configuration change crosses service boundaries.
 
-The native reference workload has three small C services: sensor, controller and optional telemetry. The sensor uses `name_attach`, `MsgReceive` and `MsgReply`; clients use `name_open`, `MsgSend`, bounded waits through `TimerTimeout`, and reconnection handling. We compiled the sources with the QNX GCC 12.2.0 x86-64 toolchain and ran them on QNX. The controller consumes sensor messages and has no application dependency on telemetry, making the extra SLM relationship an intentionally authored configuration regression. An independent host receiver captures process-instance IDs and actual IPC counters emitted by the running services.
+We also wrote three C services using QNX `name_attach`, `MsgReceive`, `MsgReply`, `name_open`, `MsgSend` and `TimerTimeout`. We built with `qcc -Vgcc_ntox86_64` / GCC 12.2.0 and executed on QNX 8.0.0 x86-64 under QEMU/KVM.
 
-We grounded the model in QNX's SLM and slmctl references, then established a separate licensed QNX lab: Ubuntu 24.04 x86-64, QEMU 8.2.2, nested KVM, and a QNX 8.0.0 guest. The recorded guest kernel reports `2026/10/30-09:10:05EDT`. The SLM utility package is separately identified as `com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L`; a kernel date is not a substitute for its utility version.
+AI tools assisted development, research and documentation. The video uses disclosed synthetic narration. BootWeave's runtime analysis is deterministic and requires no AI model or API.
 
-## QNX connection and evidence
+## Demonstrated QNX behavior
 
-The meaningful connection is the supported artifact and analysis: QNX SLM component definitions, prerequisite states, readiness conditions, repair settings and module membership. The analyzer, examples, model contract and target fixtures identify that connection directly.
+We killed only the identified telemetry process and recorded SLM recovery, OS process queries and independent UDP process-instance/IPC observations.
 
-The [native application evidence](https://github.com/nobelchowdary/bootweave/tree/main/validation/evidence/native-demo) retains four final recordings. With the risky configuration, SIGKILL to the identified telemetry process caused SLM to replace both telemetry and controller. With the revised configuration, the same fault replaced telemetry while the controller retained its PID and process-instance ID and produced additional successful sensor IPC samples. The sensor instance remained unchanged in both. Separate plain-manual-restart experiments reproduced the same configuration contrast; each operation used a fresh dedicated SLM instance.
+| Observed after telemetry failure | Risky configuration | Revised configuration |
+| --- | --- | --- |
+| Telemetry instance | Replaced | Replaced |
+| Controller instance | Replaced | Retained; successful sensor IPC increased |
+| Sensor instance | Unchanged | Unchanged |
 
-The recorder corroborates SLM output with OS process queries and independent UDP observations, retains configuration/source/binary and raw-artifact hashes, and verifies cleanup. [Six additional matrix cases](https://github.com/nobelchowdary/bootweave/tree/main/validation/matrix) record native rejection of missing/cyclic prerequisites, wildcard module startup, delayed dependent startup, absent-path timeout and local external-entity acceptance. Host include support remains explicitly unsupported.
+Separate plain-manual-restart recordings showed the same configuration contrast. All four application recordings used fresh dedicated SLM instances and verified cleanup. The workbench imports these records, checks their XML hash association and exports the review with its evidence.
 
-An [earlier minimal experiment](https://github.com/nobelchowdary/bootweave/tree/main/validation/evidence/2026-11-24) found an inner-`-s` result different from the expectation derived from the current reference description. That observation remains unresolved; the four application experiments use automatic failure or plain manual restart, with no inner `-s`.
-
-These records establish the reported cases on the identified build. Sampled successful IPC and stable process identity do not prove uninterrupted availability, physical timing or production safety. The sensor is a software counter, not hardware. Older robot XML examples remain configuration illustrations; their robot executables are not supplied or represented as running.
+![Imported QNX recording with process and IPC observations](https://raw.githubusercontent.com/nobelchowdary/bootweave/main/docs/assets/04-native-qnx-evidence.jpg)
 
 ## Challenges we ran into
 
-The difficult part was deciding what the evidence supports. An omitted dependency state is not assigned a documented default in the reference we used, so BootWeave preserves it as possible coupling. A pathname becoming available is not proof of application health. Manual restarts and automatic repair are different operations. Native observations also depend on exact utility builds and launch options.
+We had to preserve uncertainty. Omitted dependency states remain possible coupling. Unsupported includes cannot silently disappear. An earlier inner-`-s` experiment differed from our reference-based expectation; that operation-specific discrepancy remains documented rather than explained away.
 
-That discipline shaped both the product and its reports: show the path, identify the assumption, and keep an unresolved result unresolved.
+## Accomplishments that we're proud of
 
-## Accomplishments
-
-We built a complete path from independent XML imports to an explainable policy result and a source-associated native recording. The real QNX message-passing workload makes the configuration contrast observable; 46 automated host tests cover the current backend, and the retained native experiments include independent process/IPC observations and verified cleanup. We also preserved a result that challenged our expectation. Static reasoning and native evidence remain separate and inspectable.
+We connected a reviewable configuration edit to a failing/passing CI policy and an observable native QNX application contrast. The repository includes **46 host tests**, browser checks, four application recordings, six native matrix cases and a tutorial.
 
 ## What we learned
 
-Lifecycle configuration deserves the same scrutiny as application code. Good tooling must explain its decision and expose uncertainty. Native experimentation is most useful when it can disagree with the model and retain enough context for another developer to investigate.
+Configuration deserves code-level scrutiny. A useful review tool shows why a change matters, while native experiments can challenge its assumptions. That combination makes decisions easier to inspect and reproduce.
 
-## What's next
+## What's next for BootWeave
 
-Test additional QNX/SLM utility builds, broaden readiness coverage to exits/blocks and pathname success, and review representative shareable configurations with QNX developers. Repeat experiments across fresh VM boots, investigate the inner-`-s` discrepancy, and measure developer usefulness from actual reproduction feedback. We do not claim complete SLM compatibility or measured time savings.
+Test more SLM builds and readiness modes, repeat across fresh VM boots, investigate the option discrepancy, improve large-graph reports, and collect reproduction feedback from QNX engineers. We have not measured customer adoption or time savings.
+
+**Scope:** Native evidence is recorded, not a live connection. These sampled experiments establish no safety, continuous-availability or timing guarantee. XML-hash agreement does not authenticate recording origin. The sensor produces software counters. [Exact builds, raw evidence, reproduction and qualifications](https://github.com/nobelchowdary/bootweave/tree/main/validation/evidence/native-demo) are public; licensed QNX tools are obtained separately. BootWeave is MIT licensed.
 
 ## Build and run field
 

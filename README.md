@@ -1,10 +1,14 @@
 # BootWeave
 
-**Review QNX startup changes before they reach a device.**
+**Catch hidden QNX service dependencies before deployment.**
 
 [Repository](https://github.com/nobelchowdary/bootweave) · [Host verification](https://github.com/nobelchowdary/bootweave/actions/workflows/review.yml) · [MIT license](LICENSE) · [YouTube demo](https://www.youtube.com/watch?v=m-SxmSBkiLo) · [Media and captions](docs/media/README.md)
 
-BootWeave is a host developer tool for QNX 8.0 System Launch and Monitor (SLM) configuration. Import SLM XML, explore prerequisites and recovery coupling, review source-linked diagnostics, and compare configuration changes. A CI guard detects new explicit or possible coupling to a component you protect.
+One extra XML dependency made a controller restart when optional telemetry failed in our QNX lab. The controller's code only read the sensor. BootWeave helps reviewers see that configuration relationship before deployment.
+
+Built for **QNX platform, integration and release engineers**, BootWeave compares QNX 8.0 System Launch and Monitor (SLM) configurations, explains new dependency paths and lets CI reject new explicit or possible coupling into services you protect. Imported recordings connect the review to retained native QNX experiments.
+
+For automotive and industrial platform teams, the intended use is concrete: review whether a diagnostics or telemetry change adds a new lifecycle prerequisite to a controller. QNX supplies native message passing and process supervision; BootWeave adds a review layer for the configurations that connect those processes. The evidence below comes from an authored software lab; production adoption and time savings have not been measured.
 
 ![BootWeave configuration review workbench](docs/assets/workbench.jpg)
 
