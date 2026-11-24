@@ -26,8 +26,8 @@ Status below distinguishes prepared files from completed external submission. A 
 - [x] Publish the YouTube video as **Public** and verify playback while signed out (November 24, 2026; 153.481-second player duration, no playback error). Selectable English (United States) captions rendered in the signed-out player; burned-in captions are also present. [Storyboard](DEMO-SCRIPT.md).
 - [x] Retain the verified public video URL in the saved Devpost entry; the project preview embeds `youtube.com/embed/m-SxmSBkiLo`. [Project page](https://devpost.com/software/bootweave-vilw4u) (final hackathon entry pending).
 - [x] Ensure submitted media uses owned or permitted material and contains no private account/host information.
-- [ ] Complete registration, team details and all Devpost fields; select exactly one category; check every submitted URL.
-- [ ] The entrant supplies the two personal feedback answers in the Devpost form.
+- [x] Registration, individual team details and required Devpost fields are saved; exactly one category is selected. Public source, video and tutorial links are verified; final agreement/submission remains separate.
+- [x] The entrant confirmed “Very likely” for QNX reuse and “Significantly” for skills learned; both are saved and verified in the Devpost form (November 24).
 - [ ] At the final submission step, the entrant reviews the complete entry, verifies its ownership/contribution statements and confirms entry. The rules' opening states that submission constitutes agreement; the remaining decision belongs at that concrete final step, after media and links are ready.
 - [ ] Submit by **December 14** as our buffer; retain the actual submission receipt and revision. Keep code and media accessible through January 29, 2027.
 
@@ -42,4 +42,4 @@ These are product-quality goals, not additional universal eligibility requiremen
 - [x] [The tutorial](TUTORIAL.md) is public and its URL is entered in the saved Devpost draft for the optional tutorial bonus; final entry is pending.
 - [x] Capture a clear failing policy, its correction, an invalid input, and the distinction between static analysis and target observations.
 
-Final factual status: the host workflow, native application contrast and six matrix cases exist with retained evidence. Browser QA, the 2:33 demo and five images are prepared, and the [YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public with signed-out playback verified. The entrant's two personal feedback answers and final Devpost submission remain open. Further SLM coverage, including exits/blocks readiness and other utility builds, must not be described as complete.
+Final factual status: the host workflow, native application contrast and six matrix cases exist with retained evidence. Browser QA, the 2:33 demo and five images are prepared, and the [YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public with signed-out playback verified. Both confirmed personal feedback answers are saved; final agreement and Devpost submission remain open. Further SLM coverage, including exits/blocks readiness and other utility builds, must not be described as complete.

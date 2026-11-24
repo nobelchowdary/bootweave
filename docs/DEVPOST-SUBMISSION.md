@@ -1,6 +1,6 @@
 # BootWeave — Devpost draft
 
-**Submission draft — final entry still pending.** The implementation, browser QA, narrated 2:33 demo and five gallery images are prepared. The [YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public, with signed-out playback verified November 24, 2026. Captions are burned in and an SRT was uploaded; selectable English (United States) captions were also verified in the signed-out player. The video URL is saved in Devpost and renders in the project preview. The entrant's two personal feedback answers and final Devpost submission remain pending. See [media and captions](media/README.md) and [browser checks](BROWSER-QA.md).
+**Submission draft — final entry still pending.** The implementation, browser QA, narrated 2:33 demo and five gallery images are prepared. The [YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public, with signed-out playback verified November 24, 2026. Captions are burned in and an SRT was uploaded; selectable English (United States) captions were also verified in the signed-out player. The video URL is saved in Devpost and renders in the project preview. Both entrant-confirmed personal feedback answers are saved in Devpost; the final agreement and submission remain pending. See [media and captions](media/README.md) and [browser checks](BROWSER-QA.md).
 
 ## Form fields
 
@@ -14,7 +14,7 @@
 | Demonstration video | https://www.youtube.com/watch?v=m-SxmSBkiLo — 2:33.45; public and signed-out playback verified November 24 |
 | Tutorial bonus URL | https://github.com/nobelchowdary/bootweave/blob/main/docs/TUTORIAL.md |
 | Built with — implemented source | Python, JavaScript, HTML, CSS, C, QNX 8.0 SLM, slmctl, QNX message passing, QEMU, Ubuntu |
-| Native workload toolchain | QNX `qcc -Vgcc_ntox86_64`, GCC 12.2.0 target toolchain, C11; compiled and executed on the recorded QNX x86-64 guest |
+| Native workload toolchain | QNX `qcc -Vgcc_ntox86_64`, GCC 12.2.0 target toolchain, C11; cross-compiled on Ubuntu and executed on the recorded QNX x86-64 guest |
 
 ## Public project story
 
@@ -22,7 +22,7 @@
 
 ## Inspiration
 
-One extra XML dependency made a controller restart when optional telemetry failed.
+One extra XML dependency made a controller restart when optional telemetry failed. We deliberately introduced it in our three-service QNX lab to demonstrate the risk and its correction.
 
 The controller's code only read the sensor. An unnecessary QNX SLM session dependency connected its lifecycle to telemetry anyway. BootWeave makes that configuration relationship visible before deployment.
 
@@ -34,7 +34,7 @@ BootWeave is a local review workbench for QNX 8.0 System Launch and Monitor XML.
 
 Adding the telemetry dependency fails the protected-controller policy; removing it passes. The same Python engine drives the browser and CLI, so teams can use the review interactively and enforce it in CI. Invalid, cyclic and unsupported input stays visibly failed or incomplete.
 
-![Protected-service review shows the introduced controller coupling](https://raw.githubusercontent.com/nobelchowdary/bootweave/main/docs/assets/02-protected-service-review.jpg)
+![Actual static review: the new controller dependency requires review, then its correction passes](https://raw.githubusercontent.com/nobelchowdary/bootweave/main/docs/assets/policy-review.gif)
 
 ## Potential impact
 
@@ -92,7 +92,7 @@ Native workload: QNX 8.0.0 x86-64 under QEMU 8.2.2/KVM, built using QNX `qcc -Vg
 
 - The verified public YouTube URL is saved in Devpost and embedded in its project preview. Burned-in captions and an uploaded SRT are present; selectable English (United States) captions rendered in the signed-out player.
 - Retain the completed browser QA and demonstrated source revision with the release media.
-- The entrant must supply the two personal feedback answers; do not invent answers on their behalf.
+- The entrant explicitly confirmed “Very likely” for QNX reuse and “Significantly” for skills learned; both were saved and verified in the live form November 24.
 - Preserve material limitations and the unresolved operation-specific discrepancy.
 - The entrant confirmed basic eligibility and individual entry. Confirm the completed entry and its final ownership/contribution statements at submission time.
 - Official [submission requirements and judging](https://qnx.devpost.com/rules) govern the entry. No placement or prize is guaranteed.

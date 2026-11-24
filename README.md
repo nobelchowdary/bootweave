@@ -1,30 +1,48 @@
 # BootWeave
 
-**Catch hidden QNX service dependencies before deployment.**
+**BootWeave explains which QNX startup edits introduce coupling to protected services, and can reject those changes in CI.**
 
-[Repository](https://github.com/nobelchowdary/bootweave) · [Host verification](https://github.com/nobelchowdary/bootweave/actions/workflows/review.yml) · [MIT license](LICENSE) · [YouTube demo](https://www.youtube.com/watch?v=m-SxmSBkiLo) · [Media and captions](docs/media/README.md)
+[Watch the narrated demo](https://www.youtube.com/watch?v=m-SxmSBkiLo) · [Tutorial](docs/TUTORIAL.md) · [Host checks](https://github.com/nobelchowdary/bootweave/actions/workflows/review.yml) · [MIT license](LICENSE)
 
-One extra XML dependency made a controller restart when optional telemetry failed in our QNX lab. The controller's code only read the sensor. BootWeave helps reviewers see that configuration relationship before deployment.
+<img src="docs/assets/policy-review.gif" alt="Actual static review: a new controller dependency fails the policy, then its correction passes" width="900">
 
-Built for **QNX platform, integration and release engineers**, BootWeave compares QNX 8.0 System Launch and Monitor (SLM) configurations, explains new dependency paths and lets CI reject new explicit or possible coupling into services you protect. Imported recordings connect the review to retained native QNX experiments.
+## Quick Start
 
-For automotive and industrial platform teams, the intended use is concrete: review whether a diagnostics or telemetry change adds a new lifecycle prerequisite to a controller. QNX supplies native message passing and process supervision; BootWeave adds a review layer for the configurations that connect those processes. The evidence below comes from an authored software lab; production adoption and time savings have not been measured.
-
-![BootWeave configuration review workbench](docs/assets/workbench.jpg)
-
-## Run the workbench
-
-Python 3.11+ is the only dependency. From this repository:
+With Git and Python 3.11+ installed:
 
 ```sh
+git clone https://github.com/nobelchowdary/bootweave.git
+cd bootweave
 python3 -m bootweave serve
 ```
 
-Open http://127.0.0.1:8765. Choose **native-risky.xml**, select `telemetry`, and inspect its explicit session path to `controller`. In **Change review**, compare the revised baseline against the risky candidate, protect `controller`, and run the check. The policy explains the newly introduced path. Swap the revisions to review the correction. Each revision can also be imported or edited independently.
+Open [localhost:8765](http://127.0.0.1:8765). On Windows, `py -3 -m bootweave serve` is the equivalent third command. The core review tool needs no account, SDK or target connection.
 
-In **Configuration review**, choose the matching captured recording and check its binding to the active XML. The risky native experiment replaced the controller after optional telemetry failure; in the revised experiment, the controller kept its process instance and continued successful software-sensor IPC in the observed windows. The panel separates static relationships from imported observations. A matching hash does not authenticate the recording's origin or prove a fresh execution.
+## Try the regression and its correction
 
-The older **robot-risky.xml** and **robot-revised.xml** examples remain illustrations: their robot executables are not included or represented as running. The supplied [three-service native workload](native/README.md) uses an authored software sensor, not physical hardware.
+1. Choose **native-risky.xml** and select `telemetry` to inspect its session path to `controller`.
+2. In **Change review**, compare the revised baseline against the risky candidate, protect `controller`, and run the check. The policy explains the new path; swap revisions to review the correction.
+3. In **Configuration review**, load the matching captured recording and check its association with the active XML. Export a review bundle to retain the static report, imported recording and current binding result.
+
+Each revision can also be imported or edited independently. The same Python engine supplies browser review and CLI/CI checks.
+
+## What the native experiment shows
+
+We deliberately added an unnecessary dependency in an authored three-service QNX lab. BootWeave flagged it, and recorded execution showed the controller restart when optional telemetry failed.
+
+| After the telemetry fault | Risky configuration | Revised configuration |
+| --- | --- | --- |
+| Telemetry instance | Replaced | Replaced |
+| Controller instance | Replaced | Retained, with further successful sensor IPC samples |
+| Sensor instance | Unchanged | Unchanged |
+
+The [native source and retained recordings](native/README.md) include exact configurations, process identities, IPC counters, raw artifacts and cleanup checks. Recordings are imported, not a live connection; matching XML hashes do not authenticate their origin. Sampled observations do not establish continuous availability or timing guarantees.
+
+## Who it is for
+
+BootWeave is built for **QNX platform, integration and release engineers** in automotive and industrial systems. The intended review is concrete: determine whether a diagnostics or telemetry change introduces a new lifecycle prerequisite to an essential service, then make that check repeatable in CI. QNX supplies native message passing and process supervision; BootWeave adds a review layer for the configurations that connect those processes. Production adoption and time savings have not been measured.
+
+The older **robot-risky.xml** and **robot-revised.xml** examples remain illustrations; their robot executables are not included. The supplied [native workload](native/README.md) uses a software sensor. Licensed QNX SDK tools are obtained separately for native reproduction.
 
 ## CLI and CI
 
@@ -68,7 +86,7 @@ Semantics are grounded in the [QNX 8.0 SLM reference](https://qnx.com/developers
 
 ## Hackathon status
 
-Working developer tool for **Developer Tooling & Host Tools**, published at [nobelchowdary/bootweave](https://github.com/nobelchowdary/bootweave). The host tool runs on macOS, Linux, and Windows with Python; this does not imply that QNX compiler tools run natively on each host. The [native application experiments](validation/evidence/native-demo/README.md) record automatic failure and plain manual restart separately for both configurations, with actual QNX message passing, independent process/heartbeat observations and verified cleanup. The [six-case validation matrix](validation/matrix/README.md) covers selected graph, module, readiness and unsupported-include cases. These scoped observations do not establish complete SLM compatibility, continuous availability or real-time performance. The [earlier restart-option discrepancy](validation/evidence/2026-11-24/README.md) remains explicit. The [2:33 YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public, with signed-out playback verified November 24; [media sources and captions](docs/media/README.md) are available. The entrant's two personal feedback answers and final Devpost submission remain pending.
+Working developer tool for **Developer Tooling & Host Tools**, published at [nobelchowdary/bootweave](https://github.com/nobelchowdary/bootweave). The host tool runs on macOS, Linux, and Windows with Python; this does not imply that QNX compiler tools run natively on each host. The [native application experiments](validation/evidence/native-demo/README.md) record automatic failure and plain manual restart separately for both configurations, with actual QNX message passing, independent process/heartbeat observations and verified cleanup. The [six-case validation matrix](validation/matrix/README.md) covers selected graph, module, readiness and unsupported-include cases. These scoped observations do not establish complete SLM compatibility, continuous availability or real-time performance. The [earlier restart-option discrepancy](validation/evidence/2026-11-24/README.md) remains explicit. The [2:33 YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public, with signed-out playback verified November 24; [media sources and captions](docs/media/README.md) are available. Both entrant-confirmed personal feedback answers are saved in Devpost; the final agreement and submission remain pending.
 
 See [idea research](docs/RESEARCH.md), [the build plan](docs/PLAN.md), [submission checklist](docs/SUBMISSION-CHECKLIST.md), [Ubuntu/AWS host setup](docs/AWS-QNX-HOST.md), [QNX validation procedure](docs/QNX-VALIDATION.md), [demo storyboard](docs/DEMO-SCRIPT.md), and [report schema](docs/report-schema.md).
 
