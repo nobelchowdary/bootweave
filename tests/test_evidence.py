@@ -38,6 +38,30 @@ class EvidenceBindingTests(unittest.TestCase):
         self.assertEqual(result["status"], "mismatch")
         self.assertFalse(result["configuration_matches"])
 
+    def test_optional_ipc_windows_allow_counter_reset_between_instances(self):
+        def window(label, first, last):
+            return {"component": "controller", "window": label,
+                    **{prefix + field: value for field in ("sequence", "ipc_successes", "ipc_errors", "sample")
+                       for prefix, value in (("first_", first), ("last_", last))}}
+        self.recording["ipc_observations"] = [window("before", 20, 30), window("after", 1, 5)]
+        result = check_evidence(self.xml, self.recording)
+        self.assertEqual(result["status"], "matched")
+        self.assertEqual(result["ipc_observations"], self.recording["ipc_observations"])
+        result["ipc_observations"][0]["last_sample"] = 99
+        self.assertEqual(self.recording["ipc_observations"][0]["last_sample"], 30)
+        for mutation in (
+            lambda rows: rows.append(deepcopy(rows[0])),
+            lambda rows: rows[0].update(component="unknown"),
+            lambda rows: rows[0].update(window="during"),
+            lambda rows: rows[0].update(first_sequence=True),
+            lambda rows: rows[0].update(last_ipc_successes=1),
+            lambda rows: rows[0].pop("first_ipc_errors"),
+        ):
+            with self.subTest(mutation=mutation):
+                recording = deepcopy(self.recording)
+                mutation(recording["ipc_observations"])
+                self.assertEqual(check_evidence(self.xml, recording)["status"], "invalid")
+
     def test_incomplete_and_malformed_recordings_cannot_match(self):
         for mutation in (
             lambda r: r.update(schema="other"),

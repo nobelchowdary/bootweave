@@ -866,3 +866,25 @@ body.busy #source-status::before { animation: pulse 1s infinite; }
   .page-heading > div:first-child { flex: 1; min-width: 180px; }
   .page-actions { margin-left: auto; }
 }
+
+/* Optional IPC samples are separate counters for each observation window. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.ipc-counter-section { margin-top: 19px; }
+.ipc-counter-section h3 { color: #6c879d; font-size: 12px; font-weight: 550; }
+.ipc-counter-section > p { margin-top: 5px; color: #91a5b7; font-size: 10px; line-height: 1.8; }
+.ipc-counter-section .evidence-table-scroll { margin-top: 10px; }
+.ipc-counter-table { min-width: 640px; }
+.ipc-counter-table th, .ipc-counter-table td { padding: 7px 10px; }
+.ipc-counter-table .counter-range { color: #7895aa; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ipc-counter-table .counter-range > span[aria-hidden] { color: #a7b8c6; padding: 0 3px; }
+.ipc-window { color: #8aa0b2; }

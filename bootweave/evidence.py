@@ -15,7 +15,7 @@ def check_evidence(xml, evidence):
     digest = hashlib.sha256(xml.encode("utf-8", errors="surrogatepass")).hexdigest()
     result = {"status": "invalid", "configuration_matches": False, "origin_authenticated": False,
               "configuration_sha256": digest, "recorded_sha256": None, "environment": {},
-              "experiment": {}, "observations": [], "issues": [], "notice": NOTICE}
+              "experiment": {}, "observations": [], "ipc_observations": [], "issues": [], "notice": NOTICE}
     issues = result["issues"]
     if not isinstance(evidence, dict) or evidence.get("schema") != SCHEMA:
         issues.append(f"Expected recording schema {SCHEMA}.")
@@ -62,6 +62,29 @@ def check_evidence(xml, evidence):
             names.add(name)
         else:
             result["observations"] = deepcopy(observations)
+    ipc = evidence.get("ipc_observations")
+    if ipc is not None:
+        fields = ("sequence", "ipc_successes", "ipc_errors", "sample")
+        known = {row["component"] for row in result["observations"]}
+        if not isinstance(ipc, list) or not 1 <= len(ipc) <= 500:
+            issues.append("IPC observations must contain 1–500 reported component windows.")
+        else:
+            windows = set()
+            for row in ipc:
+                if not isinstance(row, dict):
+                    issues.append("Every IPC observation must be an object.")
+                    break
+                key = (row.get("component"), row.get("window"))
+                if (not isinstance(key[0], str) or key[0] not in known
+                        or key[1] not in ("before", "after") or key in windows
+                        or any(type(row.get(prefix + field)) is not int or row[prefix + field] < 0
+                               for field in fields for prefix in ("first_", "last_"))
+                        or any(row["last_" + field] < row["first_" + field] for field in fields)):
+                    issues.append("IPC observations require unique known component windows and nonnegative, increasing counters within each window.")
+                    break
+                windows.add(key)
+            else:
+                result["ipc_observations"] = deepcopy(ipc)
     artifacts = evidence.get("artifacts", [])
     if not isinstance(artifacts, list) or len(artifacts) > 100 or any(
             not isinstance(a, dict) or not isinstance(a.get("name"), str) or not a["name"]

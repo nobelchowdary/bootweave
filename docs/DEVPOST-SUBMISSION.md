@@ -61,7 +61,7 @@ That discipline shaped both the product and its reports: show the path, identify
 
 ## Accomplishments
 
-We built a complete path from independent XML imports to an explainable policy result and a source-associated native recording. The real QNX message-passing workload makes the configuration contrast observable; 45 automated host tests cover the current backend, and the retained native experiments include independent process/IPC observations and verified cleanup. We also preserved a result that challenged our expectation. Static reasoning and native evidence remain separate and inspectable.
+We built a complete path from independent XML imports to an explainable policy result and a source-associated native recording. The real QNX message-passing workload makes the configuration contrast observable; 46 automated host tests cover the current backend, and the retained native experiments include independent process/IPC observations and verified cleanup. We also preserved a result that challenged our expectation. Static reasoning and native evidence remain separate and inspectable.
 
 ## What we learned
 
