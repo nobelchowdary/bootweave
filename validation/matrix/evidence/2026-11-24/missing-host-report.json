@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "missing.xml",
+    "sha256": "16451bc9d3cf66de5091dfbebf9e1ae94557132b7134679465c36abcad28ccb6"
+  },
+  "analysis_complete": true,
+  "components": [
+    {
+      "name": "bw-matrix-one",
+      "line": 2,
+      "command": "sleep",
+      "args": "901",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [
+        {
+          "name": "bw-matrix-absent",
+          "state": "session",
+          "line": 3
+        }
+      ],
+      "layer": null,
+      "properties": [
+        {
+          "name": "depend",
+          "value": "bw-matrix-absent",
+          "attributes": {
+            "state": "session"
+          },
+          "line": 3
+        },
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 4
+        },
+        {
+          "name": "args",
+          "value": "901",
+          "attributes": {},
+          "line": 4
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 5
+        }
+      ]
+    }
+  ],
+  "modules": [],
+  "edges": [
+    {
+      "source": "bw-matrix-absent",
+      "target": "bw-matrix-one",
+      "state": "session",
+      "line": 3
+    }
+  ],
+  "layers": [],
+  "findings": [
+    {
+      "id": "BW011",
+      "severity": "error",
+      "component": "bw-matrix-one",
+      "line": 3,
+      "title": "Missing prerequisite",
+      "detail": "'bw-matrix-one' depends on 'bw-matrix-absent', which is not a defined component.",
+      "recommendation": "Define the prerequisite component or correct the dependency name.",
+      "doc_url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/s/slm.html"
+    }
+  ],
+  "summary": {
+    "components": 1,
+    "dependencies": 1,
+    "errors": 1,
+    "warnings": 0,
+    "infos": 0,
+    "valid_graph": false
+  },
+  "impacts": {}
+}

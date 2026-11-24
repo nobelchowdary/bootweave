@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "cycle.xml",
+    "sha256": "5805ccf6039789c5f6cfd617a237eed1dae153fdccb1eec3ad6666054bb7c9ac"
+  },
+  "analysis_complete": true,
+  "components": [
+    {
+      "name": "bw-matrix-one",
+      "line": 2,
+      "command": "sleep",
+      "args": "901",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [
+        {
+          "name": "bw-matrix-two",
+          "state": "session",
+          "line": 3
+        }
+      ],
+      "layer": null,
+      "properties": [
+        {
+          "name": "depend",
+          "value": "bw-matrix-two",
+          "attributes": {
+            "state": "session"
+          },
+          "line": 3
+        },
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 4
+        },
+        {
+          "name": "args",
+          "value": "901",
+          "attributes": {},
+          "line": 4
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 5
+        }
+      ]
+    },
+    {
+      "name": "bw-matrix-two",
+      "line": 7,
+      "command": "sleep",
+      "args": "902",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [
+        {
+          "name": "bw-matrix-one",
+          "state": "session",
+          "line": 8
+        }
+      ],
+      "layer": null,
+      "properties": [
+        {
+          "name": "depend",
+          "value": "bw-matrix-one",
+          "attributes": {
+            "state": "session"
+          },
+          "line": 8
+        },
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 9
+        },
+        {
+          "name": "args",
+          "value": "902",
+          "attributes": {},
+          "line": 9
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 10
+        }
+      ]
+    }
+  ],
+  "modules": [],
+  "edges": [
+    {
+      "source": "bw-matrix-two",
+      "target": "bw-matrix-one",
+      "state": "session",
+      "line": 3
+    },
+    {
+      "source": "bw-matrix-one",
+      "target": "bw-matrix-two",
+      "state": "session",
+      "line": 8
+    }
+  ],
+  "layers": [],
+  "findings": [
+    {
+      "id": "BW013",
+      "severity": "error",
+      "component": "bw-matrix-one",
+      "line": 2,
+      "title": "Dependency cycle",
+      "detail": "Mutually dependent component group: bw-matrix-one, bw-matrix-two. SLM requires an acyclic startup graph.",
+      "recommendation": "Remove a dependency within this group; inspect all group edges rather than assuming a single cycle path.",
+      "doc_url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/s/slm.html"
+    },
+    {
+      "id": "BW019",
+      "severity": "warning",
+      "component": "bw-matrix-one",
+      "line": 2,
+      "title": "Review readiness before dependent launch",
+      "detail": "'bw-matrix-one' has dependents but no readiness wait. A launched process may or may not already be ready for clients.",
+      "recommendation": "Confirm immediate readiness or choose a suitable pathname, blocks or exits condition; absence alone is not a bug.",
+      "doc_url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/s/slm.html"
+    },
+    {
+      "id": "BW019",
+      "severity": "warning",
+      "component": "bw-matrix-two",
+      "line": 7,
+      "title": "Review readiness before dependent launch",
+      "detail": "'bw-matrix-two' has dependents but no readiness wait. A launched process may or may not already be ready for clients.",
+      "recommendation": "Confirm immediate readiness or choose a suitable pathname, blocks or exits condition; absence alone is not a bug.",
+      "doc_url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/s/slm.html"
+    }
+  ],
+  "summary": {
+    "components": 2,
+    "dependencies": 2,
+    "errors": 1,
+    "warnings": 2,
+    "infos": 0,
+    "valid_graph": false
+  },
+  "impacts": {}
+}

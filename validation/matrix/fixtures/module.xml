@@ -1,0 +1,9 @@
+<SLM:system>
+  <SLM:component name="bw-matrix-one">
+    <SLM:command>sleep</SLM:command><SLM:args>901</SLM:args><SLM:repair>none</SLM:repair>
+  </SLM:component>
+  <SLM:component name="bw-matrix-two">
+    <SLM:command>sleep</SLM:command><SLM:args>902</SLM:args><SLM:repair>none</SLM:repair>
+  </SLM:component>
+  <SLM:module name="bw-matrix-group"><SLM:member>bw-matrix-*</SLM:member></SLM:module>
+</SLM:system>

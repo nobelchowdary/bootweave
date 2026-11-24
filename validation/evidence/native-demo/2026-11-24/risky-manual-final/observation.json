@@ -1,0 +1,307 @@
+{
+  "schema": "bootweave.native-evidence.v1",
+  "configuration": {
+    "name": "risky.xml",
+    "sha256": "87218b2f180e19445a3b755a3ffee393a3511441693ad0b159a862ec387f13f9"
+  },
+  "environment": {
+    "host_platform": "Linux-7.0.0-1018-aws-x86_64-with-glibc2.39",
+    "host_python": "3.12.3",
+    "qnx_uname": "QNX bootweave-qnx 8.0.0 2026/10/30-09:10:05EDT x86pc x86_64",
+    "slm_build_id": "976c118ac0eb094859d3ec0c14ed8ee0",
+    "slm_sha256": "5678e6f1b943a0d53c79ecd1c7d048bc4aca84f9e3b6b03e20c4b3ef7218fa71",
+    "slmctl_build_id": "46598a81511405eb1226c5cb6d582f04",
+    "slmctl_sha256": "26d3dabd3603b997960f13696e162a9ae5b7fb52335d2b2bd1801d0848b69a93",
+    "sensor_binary_sha256": "28a67f5e27a7a807217faadfac034059bd89232396464a274c2c29e4bb4b4eb0",
+    "controller_binary_sha256": "5502a0a61681559039093e78fa04da1a811afcd2e0665cb4bba262c1e8bfc1f6",
+    "telemetry_binary_sha256": "1214046c646cade31d2f59e1458ea5c75c95c7b8dc55f56732285db462d2ff2f",
+    "sensor_build_id": "c904c2204a9dd3d662df9af211021d765f1495b2",
+    "controller_build_id": "7f35c6ed7a9c5aba776c6e5be106e37460515cd3",
+    "telemetry_build_id": "47f8a20366d85b72eb59f26f0af5d175c442997c",
+    "base_repository_revision": "42bff97c89a8ed38a57323620bd067cba82fc5bd",
+    "native_source_manifest_sha256": "50e74387d859444790091928678fe02d931b676c2c5e3a39b877b70342ad32d9"
+  },
+  "experiment": {
+    "operation": "manual-restart",
+    "subject": "telemetry",
+    "trigger": "restart telemetry",
+    "trigger_host_monotonic_ns": 3759957238788,
+    "exact_guest_operation": "restart telemetry"
+  },
+  "observations": [
+    {
+      "component": "sensor",
+      "before_instance": "666e951572efcc0a40216c7fd30ef5f9",
+      "after_instance": "666e951572efcc0a40216c7fd30ef5f9",
+      "before_pid": 18915350,
+      "after_pid": 18915350,
+      "restarted": false,
+      "old_pid_still_present": true,
+      "new_pid_present": true,
+      "heartbeats_before": 47,
+      "heartbeats_after": 56
+    },
+    {
+      "component": "controller",
+      "before_instance": "755e19902dc3712200d2b827413fdb6f",
+      "after_instance": "42626026f6f56526df2c5ecb926d71fd",
+      "before_pid": 18939927,
+      "after_pid": 19402775,
+      "restarted": true,
+      "old_pid_still_present": false,
+      "new_pid_present": true,
+      "heartbeats_before": 34,
+      "heartbeats_after": 40
+    },
+    {
+      "component": "telemetry",
+      "before_instance": "b1061c2b28b63f663fa8d17f1c80be4b",
+      "after_instance": "cfd21ee492ac05ae24716dd1a66866e0",
+      "before_pid": 18939922,
+      "after_pid": 19398674,
+      "restarted": true,
+      "old_pid_still_present": false,
+      "new_pid_present": true,
+      "heartbeats_before": 13,
+      "heartbeats_after": 16
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "authored-binary-builds.txt",
+      "sha256": "bfd125c1e4b2d9f0fef1185027b823bc607960e6b3be06caeeafe10857aaf6fa"
+    },
+    {
+      "name": "authored-source.tar",
+      "sha256": "8340bd8145bd370f51c9ff3c8c56d64bfeee55c73978783f0d8a37df99708dc2"
+    },
+    {
+      "name": "build-log.txt",
+      "sha256": "10c76dda796d53c25d93ab81460945d3a68eec5f5981f3d9fd602e3490f86668"
+    },
+    {
+      "name": "compiler-version.txt",
+      "sha256": "dd94a7eb3962080f34a5db389bcd2665cb91dec90c9c702bed78c3c561700e5c"
+    },
+    {
+      "name": "guest-command-audit.json",
+      "sha256": "ebdfe9b898a208ef987fb3284e1daffaf6f271cf3e1e21032a4691388ec2d503"
+    },
+    {
+      "name": "host-heartbeats.jsonl",
+      "sha256": "11f02d0b3c8779790756e28b2f319377450609b18f81a685256a69fe9f831c20"
+    },
+    {
+      "name": "qnx-utilities-build.txt",
+      "sha256": "bcb92585d6faeb124d14023c04cc2f65905fb5ce761b289fe907a68c186b8424"
+    },
+    {
+      "name": "risky.xml",
+      "sha256": "87218b2f180e19445a3b755a3ffee393a3511441693ad0b159a862ec387f13f9"
+    },
+    {
+      "name": "slm-console.txt",
+      "sha256": "3dbcfcb5580f364d44c04be0f55444ef28c89830807ed817a1f7f1bd42e3e223"
+    },
+    {
+      "name": "source-manifest.json",
+      "sha256": "50e74387d859444790091928678fe02d931b676c2c5e3a39b877b70342ad32d9"
+    }
+  ],
+  "completed": true,
+  "recorded_at_utc": "2026-11-24T17:48:29.834564+00:00",
+  "limitations": [
+    "Authored software-counter workload; no robot, actuator, medical device or hardware sensor.",
+    "Observed PID/instance behavior and sampled UDP messages do not prove continuous availability or hard real-time performance.",
+    "This recording is not cryptographically authenticated; artifact hashes establish internal consistency only.",
+    "Manual restart and automatic failure are separate experiments; inner -s is not used here."
+  ],
+  "snapshots": {
+    "before": {
+      "slm": {
+        "sensor": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 18915350
+        },
+        "telemetry": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 18939922
+        },
+        "controller": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 18939927
+        }
+      },
+      "independent_processes": {
+        "sensor": [
+          18915350
+        ],
+        "controller": [
+          18939927
+        ],
+        "telemetry": [
+          18939922
+        ]
+      }
+    },
+    "after": {
+      "slm": {
+        "sensor": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 18915350
+        },
+        "telemetry": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 19398674
+        },
+        "controller": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 19402775
+        }
+      },
+      "independent_processes": {
+        "sensor": [
+          18915350
+        ],
+        "controller": [
+          19402775
+        ],
+        "telemetry": [
+          19398674
+        ]
+      }
+    },
+    "after_observation_window": {
+      "slm": {
+        "sensor": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 18915350
+        },
+        "telemetry": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 19398674
+        },
+        "controller": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 19402775
+        }
+      },
+      "independent_processes": {
+        "sensor": [
+          18915350
+        ],
+        "controller": [
+          19402775
+        ],
+        "telemetry": [
+          19398674
+        ]
+      }
+    }
+  },
+  "heartbeat_windows": {
+    "before_start": 3756595319974,
+    "trigger": 3759957238788,
+    "after_start": 3761287166762,
+    "after_end": 3765287281876
+  },
+  "ipc_observations": [
+    {
+      "component": "sensor",
+      "window": "before",
+      "first_sequence": 17,
+      "last_sequence": 63,
+      "first_ipc_successes": 17,
+      "last_ipc_successes": 63,
+      "first_ipc_errors": 0,
+      "last_ipc_errors": 0,
+      "first_sample": 17,
+      "last_sample": 63
+    },
+    {
+      "component": "sensor",
+      "window": "after",
+      "first_sequence": 82,
+      "last_sequence": 137,
+      "first_ipc_successes": 82,
+      "last_ipc_successes": 137,
+      "first_ipc_errors": 0,
+      "last_ipc_errors": 0,
+      "first_sample": 82,
+      "last_sample": 137
+    },
+    {
+      "component": "controller",
+      "window": "before",
+      "first_sequence": 12,
+      "last_sequence": 45,
+      "first_ipc_successes": 12,
+      "last_ipc_successes": 45,
+      "first_ipc_errors": 0,
+      "last_ipc_errors": 0,
+      "first_sample": 17,
+      "last_sample": 63
+    },
+    {
+      "component": "controller",
+      "window": "after",
+      "first_sequence": 12,
+      "last_sequence": 51,
+      "first_ipc_successes": 12,
+      "last_ipc_successes": 51,
+      "first_ipc_errors": 0,
+      "last_ipc_errors": 0,
+      "first_sample": 82,
+      "last_sample": 137
+    },
+    {
+      "component": "telemetry",
+      "window": "before",
+      "first_sequence": 6,
+      "last_sequence": 18,
+      "first_ipc_successes": 6,
+      "last_ipc_successes": 18,
+      "first_ipc_errors": 0,
+      "last_ipc_errors": 0,
+      "first_sample": 19,
+      "last_sample": 61
+    },
+    {
+      "component": "telemetry",
+      "window": "after",
+      "first_sequence": 6,
+      "last_sequence": 21,
+      "first_ipc_successes": 6,
+      "last_ipc_successes": 21,
+      "first_ipc_errors": 0,
+      "last_ipc_errors": 0,
+      "first_sample": 84,
+      "last_sample": 136
+    }
+  ],
+  "authored_expectation": {
+    "sensor": false,
+    "telemetry": true,
+    "controller": true
+  },
+  "matches_authored_expectation": true,
+  "cleanup": {
+    "remaining_processes": {
+      "sensor": [],
+      "controller": [],
+      "telemetry": []
+    },
+    "endpoint_absent": true,
+    "sensor_name_absent": true,
+    "verified": true
+  }
+}

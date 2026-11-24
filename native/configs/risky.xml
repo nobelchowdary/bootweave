@@ -1,0 +1,25 @@
+<!-- Authored software lab. This extra telemetry prerequisite is unnecessary. -->
+<SLM:system>
+  <SLM:component name="sensor">
+    <SLM:command>/data/bootweave-demo/bw-sensor</SLM:command>
+    <SLM:args>10.0.2.2 19010</SLM:args>
+    <SLM:waitfor wait="pathname" polltime="100:10000">/dev/name/local/bootweave-demo-sensor</SLM:waitfor>
+    <SLM:repair>none</SLM:repair>
+    <SLM:stop timeout="1000">TERM</SLM:stop>
+  </SLM:component>
+  <SLM:component name="telemetry">
+    <SLM:depend state="stateless">sensor</SLM:depend>
+    <SLM:command>/data/bootweave-demo/bw-telemetry</SLM:command>
+    <SLM:args>10.0.2.2 19010</SLM:args>
+    <SLM:repair backoff="2">restart</SLM:repair>
+    <SLM:stop timeout="1000">TERM</SLM:stop>
+  </SLM:component>
+  <SLM:component name="controller">
+    <SLM:depend state="session">sensor</SLM:depend>
+    <SLM:depend state="session">telemetry</SLM:depend>
+    <SLM:command>/data/bootweave-demo/bw-controller</SLM:command>
+    <SLM:args>10.0.2.2 19010</SLM:args>
+    <SLM:repair backoff="2">restart</SLM:repair>
+    <SLM:stop timeout="1000">TERM</SLM:stop>
+  </SLM:component>
+</SLM:system>

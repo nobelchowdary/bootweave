@@ -1,0 +1,526 @@
+[
+  {
+    "host_monotonic_ns": 3700856291448,
+    "command": "uname -a",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "QNX bootweave-qnx 8.0.0 2026/10/30-09:10:05EDT x86pc x86_64\n"
+  },
+  {
+    "host_monotonic_ns": 3700976046921,
+    "command": "use -i /data/bootweave-lab/slm /data/bootweave-lab/slmctl",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "QNX_BUILDID=(GNU)976c118ac0eb094859d3ec0c14ed8ee0\nNAME=slm\nDESCRIPTION=QNX System Launch and Monitor\nDATE=2023/11/19-10:22:15-EST\nSTATE=lookup\nHOST=docker-n1.bts.rim.net\nUSER=builder\nVERSION=QNXOS_main\nTAGID=QNXOS_800-135\nPACKAGE=com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L\n\nQNX_BUILDID=(GNU)46598a81511405eb1226c5cb6d582f04\nNAME=slmctl\nDESCRIPTION=Service Launch and Monitor control utility\nDATE=2023/11/19-10:22:16-EST\nSTATE=lookup\nHOST=docker-n1.bts.rim.net\nUSER=builder\nVERSION=QNXOS_main\nTAGID=QNXOS_800-135\nPACKAGE=com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L\n\n"
+  },
+  {
+    "host_monotonic_ns": 3701097338506,
+    "command": "cat /data/bootweave-lab/slm",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout_sha256": "5678e6f1b943a0d53c79ecd1c7d048bc4aca84f9e3b6b03e20c4b3ef7218fa71",
+    "stdout_bytes": 107936
+  },
+  {
+    "host_monotonic_ns": 3701216911585,
+    "command": "cat /data/bootweave-lab/slmctl",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout_sha256": "26d3dabd3603b997960f13696e162a9ae5b7fb52335d2b2bd1801d0848b69a93",
+    "stdout_bytes": 14104
+  },
+  {
+    "host_monotonic_ns": 3701330772493,
+    "command": "test ! -e /dev/bootweave-demo-slm; echo $?",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "0\n"
+  },
+  {
+    "host_monotonic_ns": 3701450413452,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3701569554382,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3701687285241,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3701815965618,
+    "command": "mkdir -p /data/bootweave-demo && cat > /data/bootweave-demo/bw-sensor",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3701938377801,
+    "command": "chmod 755 /data/bootweave-demo/bw-sensor",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3702058502262,
+    "command": "cat /data/bootweave-demo/bw-sensor",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout_sha256": "28a67f5e27a7a807217faadfac034059bd89232396464a274c2c29e4bb4b4eb0",
+    "stdout_bytes": 14496
+  },
+  {
+    "host_monotonic_ns": 3702184576074,
+    "command": "mkdir -p /data/bootweave-demo && cat > /data/bootweave-demo/bw-controller",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3702303873476,
+    "command": "chmod 755 /data/bootweave-demo/bw-controller",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3702423496978,
+    "command": "cat /data/bootweave-demo/bw-controller",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout_sha256": "5502a0a61681559039093e78fa04da1a811afcd2e0665cb4bba262c1e8bfc1f6",
+    "stdout_bytes": 14464
+  },
+  {
+    "host_monotonic_ns": 3702551034280,
+    "command": "mkdir -p /data/bootweave-demo && cat > /data/bootweave-demo/bw-telemetry",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3702671565443,
+    "command": "chmod 755 /data/bootweave-demo/bw-telemetry",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3702792404669,
+    "command": "cat /data/bootweave-demo/bw-telemetry",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout_sha256": "1214046c646cade31d2f59e1458ea5c75c95c7b8dc55f56732285db462d2ff2f",
+    "stdout_bytes": 14464
+  },
+  {
+    "host_monotonic_ns": 3702911830410,
+    "command": "cat > /data/bootweave-demo/revised.xml",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3703030054035,
+    "command": "cat /data/bootweave-demo/revised.xml",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout_sha256": "4a85f3546c8b17358cdb94f665ee494cb56d0af5534decb38d69d70d0c656852",
+    "stdout_bytes": 1063
+  },
+  {
+    "host_monotonic_ns": 3703148884599,
+    "command": "/data/bootweave-lab/slm -n /dev/bootweave-demo-slm -s none -VVV /data/bootweave-demo/revised.xml > /data/bootweave-demo/slm-console.txt 2>&1 < /dev/null &",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3703266260337,
+    "command": "pidin -p slm ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n15994901 /data/bootweave-lab/slm -n /dev/bootweave-demo-slm -s none -VVV /data/bootweave-demo/revised.xml \n"
+  },
+  {
+    "host_monotonic_ns": 3703383623163,
+    "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-demo-slm 'start all'",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3703498091284,
+    "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-demo-slm 'listall -v'",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "sensor      /data/bootweave-demo/bw-sensor      ACTIVE    INITIALIZED  16076822\ntelemetry   /data/bootweave-demo/bw-telemetry   ACTIVE    INITIALIZED  16101396\ncontroller  /data/bootweave-demo/bw-controller  ACTIVE    INITIALIZED  16101400\n"
+  },
+  {
+    "host_monotonic_ns": 3703617678094,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3703735451140,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3703853116945,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101396 bw-telemetry 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3704221843787,
+    "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-demo-slm 'listall -v'",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "sensor      /data/bootweave-demo/bw-sensor      ACTIVE    INITIALIZED  16076822\ntelemetry   /data/bootweave-demo/bw-telemetry   ACTIVE    INITIALIZED  16101396\ncontroller  /data/bootweave-demo/bw-controller  ACTIVE    INITIALIZED  16101400\n"
+  },
+  {
+    "host_monotonic_ns": 3704340352603,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3704461421523,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3704581706259,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101396 bw-telemetry 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3707705664807,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3707825548345,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3707944808572,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101396 bw-telemetry 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3708058423012,
+    "command": "kill -9 16101396",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3708175632255,
+    "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-demo-slm 'listall -v'",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "sensor      /data/bootweave-demo/bw-sensor      ACTIVE    INITIALIZED  16076822\ntelemetry   /data/bootweave-demo/bw-telemetry   ACTIVE    STARTING     \ncontroller  /data/bootweave-demo/bw-controller  ACTIVE    INITIALIZED  16101400\n"
+  },
+  {
+    "host_monotonic_ns": 3708295471205,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3708415846970,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3708536636053,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3708905979152,
+    "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-demo-slm 'listall -v'",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "sensor      /data/bootweave-demo/bw-sensor      ACTIVE    INITIALIZED  16076822\ntelemetry   /data/bootweave-demo/bw-telemetry   ACTIVE    STARTING     \ncontroller  /data/bootweave-demo/bw-controller  ACTIVE    INITIALIZED  16101400\n"
+  },
+  {
+    "host_monotonic_ns": 3709024699332,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3709144161087,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3709263731052,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3709634042748,
+    "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-demo-slm 'listall -v'",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "sensor      /data/bootweave-demo/bw-sensor      ACTIVE    INITIALIZED  16076822\ntelemetry   /data/bootweave-demo/bw-telemetry   ACTIVE    STARTING     \ncontroller  /data/bootweave-demo/bw-controller  ACTIVE    INITIALIZED  16101400\n"
+  },
+  {
+    "host_monotonic_ns": 3709755503572,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3709874951142,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3709993526147,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3710362110504,
+    "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-demo-slm 'listall -v'",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "sensor      /data/bootweave-demo/bw-sensor      ACTIVE    INITIALIZED  16076822\ntelemetry   /data/bootweave-demo/bw-telemetry   ACTIVE    INITIALIZED  17002498\ncontroller  /data/bootweave-demo/bw-controller  ACTIVE    INITIALIZED  16101400\n"
+  },
+  {
+    "host_monotonic_ns": 3710483465954,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3710605046351,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3710723952066,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n17002498 bw-telemetry 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3711093627094,
+    "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-demo-slm 'listall -v'",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "sensor      /data/bootweave-demo/bw-sensor      ACTIVE    INITIALIZED  16076822\ntelemetry   /data/bootweave-demo/bw-telemetry   ACTIVE    INITIALIZED  17002498\ncontroller  /data/bootweave-demo/bw-controller  ACTIVE    INITIALIZED  16101400\n"
+  },
+  {
+    "host_monotonic_ns": 3711214638359,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3711333959983,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3711456124159,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n17002498 bw-telemetry 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3715578662087,
+    "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-demo-slm 'listall -v'",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "sensor      /data/bootweave-demo/bw-sensor      ACTIVE    INITIALIZED  16076822\ntelemetry   /data/bootweave-demo/bw-telemetry   ACTIVE    INITIALIZED  17002498\ncontroller  /data/bootweave-demo/bw-controller  ACTIVE    INITIALIZED  16101400\n"
+  },
+  {
+    "host_monotonic_ns": 3715697665315,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3715817661371,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3715937308633,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n17002498 bw-telemetry 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3716059642300,
+    "command": "cat /data/bootweave-demo/slm-console.txt",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: [COMMAND] startup 'none'\nslm: [COMMAND] start 'all'\nslm: Component 'sensor': Mark active\nslm: Set state of component 'sensor' to 'starting'\nslm: Component 'telemetry': Mark active\nslm: Component 'controller': Mark active\nslm: [START] Component 'sensor'\nslm: Component 'sensor': Spawned process with pid 16076822\nslm: Set state of component 'sensor' to 'waiting'\nslm: [WAITFOR] Component 'sensor'\nslm: Component 'sensor': Retry waitfor action\nsensor instance=e2c900d210a736ec9a0a51440166b7bc pid=16076822 name=bootweave-demo-sensor\nslm: [WAITFOR] Component 'sensor'\nslm: Component 'sensor': waitfor path '/dev/name/local/bootweave-demo-sensor' done\nslm: Set state of component 'sensor' to 'initialized'\nslm: Set state of component 'telemetry' to 'starting'\nslm: Set state of component 'controller' to 'starting'\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Spawned process with pid 16101396\nslm: Set state of component 'telemetry' to 'initialized'\nslm: [START] Component 'controller'\nslm: Component 'controller': Spawned process with pid 16101400\nslm: Set state of component 'controller' to 'initialized'\ntelemetry instance=0d8bed4dde19aa50d81d20e816b67f6c pid=16101396 sensor=bootweave-demo-sensor\ncontroller instance=309cdaaf3a5547c20c5134899abed4d7 pid=16101400 sensor=bootweave-demo-sensor\nslm: Component 'telemetry' (pid 16101396) died\nslm: [DEATH] Component 'telemetry'\nslm: Component 'telemetry' (pid 16101396) terminated by uncaught signal 9\nqh: slog2 config: 'high:pages=4,min_sev=warning,low:pages=8,default:pages=1' (defaults)\nslm: Component 'telemetry': repair restart\nslm: Set state of component 'telemetry' to 'stopping'\nslm: [STOP] Component 'telemetry'\nslm: Set state of component 'telemetry' to 'dead'\nslm: Set state of component 'telemetry' to 'starting'\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Retry start action\nslm: [START] Component 'telemetry'\nslm: Component 'telemetry': Spawned process with pid 17002498\nslm: Set state of component 'telemetry' to 'initialized'\ntelemetry instance=7099e01973d02349f401f014e65471fe pid=17002498 sensor=bootweave-demo-sensor\n"
+  },
+  {
+    "host_monotonic_ns": 3716173862848,
+    "command": "kill -9 15994901",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3716293374723,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16076822 bw-sensor 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3716411699641,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n16101400 bw-controller 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3716529797883,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n17002498 bw-telemetry 10.0.2.2 19010 \n"
+  },
+  {
+    "host_monotonic_ns": 3716642938148,
+    "command": "kill 16076822",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3716758081503,
+    "command": "kill 16101400",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3716872592095,
+    "command": "kill 17002498",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "host_monotonic_ns": 3717393666390,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3717513955594,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3717634635681,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3717954852864,
+    "command": "pidin -p bw-sensor ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3718073690099,
+    "command": "pidin -p bw-controller ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3718193256103,
+    "command": "pidin -p bw-telemetry ar",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "     pid Arguments\n"
+  },
+  {
+    "host_monotonic_ns": 3718306476370,
+    "command": "test ! -e /dev/bootweave-demo-slm; echo $?",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "0\n"
+  },
+  {
+    "host_monotonic_ns": 3718421944039,
+    "command": "test ! -e /dev/name/local/bootweave-demo-sensor; echo $?",
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "0\n"
+  }
+]

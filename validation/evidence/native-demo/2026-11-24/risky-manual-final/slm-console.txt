@@ -1,0 +1,65 @@
+qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice
+qh: context: qh:slog2=warning,stderr=info
+qh: context: slm:slog2=warning,stderr=info
+slm: [COMMAND] startup 'none'
+slm: [COMMAND] start 'all'
+slm: Component 'sensor': Mark active
+slm: Set state of component 'sensor' to 'starting'
+slm: Component 'telemetry': Mark active
+slm: Component 'controller': Mark active
+slm: [START] Component 'sensor'
+slm: Component 'sensor': Spawned process with pid 18915350
+slm: Set state of component 'sensor' to 'waiting'
+slm: [WAITFOR] Component 'sensor'
+slm: Component 'sensor': Retry waitfor action
+sensor instance=666e951572efcc0a40216c7fd30ef5f9 pid=18915350 name=bootweave-demo-sensor
+slm: [WAITFOR] Component 'sensor'
+slm: Component 'sensor': waitfor path '/dev/name/local/bootweave-demo-sensor' done
+slm: Set state of component 'sensor' to 'initialized'
+slm: Set state of component 'telemetry' to 'starting'
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Spawned process with pid 18939922
+slm: Set state of component 'telemetry' to 'initialized'
+slm: Set state of component 'controller' to 'starting'
+slm: [START] Component 'controller'
+slm: Component 'controller': Spawned process with pid 18939927
+slm: Set state of component 'controller' to 'initialized'
+telemetry instance=b1061c2b28b63f663fa8d17f1c80be4b pid=18939922 sensor=bootweave-demo-sensor
+controller instance=755e19902dc3712200d2b827413fdb6f pid=18939927 sensor=bootweave-demo-sensor
+slm: [COMMAND] restart 'telemetry'
+slm: Set state of component 'telemetry' to 'stopping'
+slm: Set state of component 'controller' to 'stopping'
+slm: [STOP] Component 'telemetry'
+slm: Cannot stop component 'telemetry' (component 'controller' is not dead)
+slm: Component 'telemetry': Retry stop action
+slm: [STOP] Component 'controller'
+slm: Component 'controller': Send signal 15 to pid 18939927
+slm: Component 'controller': Retry stop action
+slm: Component 'controller' (pid 18939927) died
+slm: [STOP] Component 'telemetry'
+slm: Cannot stop component 'telemetry' (component 'controller' is not dead)
+slm: Component 'telemetry': Retry stop action
+slm: [STOP] Component 'controller'
+slm: Component 'controller': Retry stop action
+slm: [DEATH] Component 'controller'
+slm: Component 'controller' (pid 18939927) terminated by SLM
+slm: Set state of component 'controller' to 'dead'
+slm: [STOP] Component 'telemetry'
+slm: Component 'telemetry': Send signal 15 to pid 18939922
+slm: Component 'telemetry': Retry stop action
+slm: Component 'telemetry' (pid 18939922) died
+slm: [STOP] Component 'telemetry'
+slm: Component 'telemetry': Retry stop action
+slm: [DEATH] Component 'telemetry'
+slm: Component 'telemetry' (pid 18939922) terminated by SLM
+slm: Set state of component 'telemetry' to 'dead'
+slm: Set state of component 'telemetry' to 'starting'
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Spawned process with pid 19398674
+slm: Set state of component 'telemetry' to 'initialized'
+slm: Set state of component 'controller' to 'starting'
+slm: [START] Component 'controller'
+slm: Component 'controller': Spawned process with pid 19402775
+slm: Set state of component 'controller' to 'initialized'
+telemetry instance=cfd21ee492ac05ae24716dd1a66866e0 pid=19398674 sensor=bootweave-demo-sensor
+controller instance=42626026f6f56526df2c5ecb926d71fd pid=19402775 sensor=bootweave-demo-sensor

@@ -1,0 +1,355 @@
+{
+  "case": "pathname",
+  "fixture": "fixtures/pathname.xml",
+  "fixture_sha256": "23b47ab28f5b58ec2942e0d95b02e9e2031b617097e495855f199b3258dbe325",
+  "recorder_sha256": "9b55a0d4a03ef09e2aaa32f24f94d92e57757d7407a5bdcc3d50f41e3872681c",
+  "endpoint": "/dev/bootweave-matrix-slm",
+  "completed": true,
+  "audit": [
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.114,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slm -n /dev/bootweave-matrix-slm -s none -t 50 -T 1200 -VVV /data/bootweave-matrix/pathname.xml > /data/bootweave-matrix/pathname-console.txt 2>&1 < /dev/null &",
+      "elapsed_seconds": 0.116,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n31571989 /data/bootweave-lab/slm -n /dev/bootweave-matrix-slm -s none -t 50 -T 1200 -VVV /data/bootweave-matrix/pathname.xml \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'start all'",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    WAITING      31649814\nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.121,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n31649814 sleep 901 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.115,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    WAITING      31649814\nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n31649814 sleep 901 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.121,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    WAITING      31649814\nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n31649814 sleep 901 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.115,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.122,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "cat /data/bootweave-matrix/pathname-console.txt",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: [COMMAND] startup 'none'\nslm: [COMMAND] start 'all'\nslm: Component 'bw-matrix-one': Mark active\nslm: Set state of component 'bw-matrix-one' to 'starting'\nslm: Component 'bw-matrix-two': Mark active\nslm: [START] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Spawned process with pid 31649814\nslm: Set state of component 'bw-matrix-one' to 'waiting'\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: [WAITFOR] Component 'bw-matrix-one' timed out\nslm: Set state of component 'bw-matrix-one' to 'stopping'\nslm: [STOP] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Send signal 15 to pid 31649814\nslm: Component 'bw-matrix-one': Retry stop action\nslm: Component 'bw-matrix-one' (pid 31649814) died\nslm: [STOP] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry stop action\nslm: [DEATH] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one' (pid 31649814) terminated by SLM due to waitfor timeout\nqh: slog2 config: 'high:pages=4,min_sev=warning,low:pages=8,default:pages=1' (defaults)\nslm: Component 'bw-matrix-one': repair none\nslm: Component 'bw-matrix-one': Mark inactive (repair none)\nslm: Set state of component 'bw-matrix-one' to 'dead'\n",
+      "stderr": ""
+    },
+    {
+      "command": "kill -9 31571989",
+      "elapsed_seconds": 0.114,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.115,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "snapshots": [
+    {
+      "seconds_since_control": 0.356,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.118,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    WAITING      31649814\nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.121,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n31649814 sleep 901 \n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {
+        "31649814": 901
+      }
+    },
+    {
+      "seconds_since_control": 0.738,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.115,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    WAITING      31649814\nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.117,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n31649814 sleep 901 \n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {
+        "31649814": 901
+      }
+    },
+    {
+      "seconds_since_control": 1.126,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.121,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    WAITING      31649814\nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.117,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n31649814 sleep 901 \n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {
+        "31649814": 901
+      }
+    },
+    {
+      "seconds_since_control": 1.515,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.12,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.119,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {}
+    },
+    {
+      "seconds_since_control": 1.903,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.118,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.12,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {}
+    },
+    {
+      "seconds_since_control": 2.292,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.119,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.119,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {}
+    },
+    {
+      "seconds_since_control": 2.674,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.115,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.117,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {}
+    },
+    {
+      "seconds_since_control": 3.064,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.122,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         INACTIVE  DEAD         \nbw-matrix-two  /proc/boot/sleep         ACTIVE    DEAD         \n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.117,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {}
+    }
+  ],
+  "daemon_identified": true,
+  "console": {
+    "command": "cat /data/bootweave-matrix/pathname-console.txt",
+    "elapsed_seconds": 0.12,
+    "exit_code": 0,
+    "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: [COMMAND] startup 'none'\nslm: [COMMAND] start 'all'\nslm: Component 'bw-matrix-one': Mark active\nslm: Set state of component 'bw-matrix-one' to 'starting'\nslm: Component 'bw-matrix-two': Mark active\nslm: [START] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Spawned process with pid 31649814\nslm: Set state of component 'bw-matrix-one' to 'waiting'\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry waitfor action\nslm: [WAITFOR] Component 'bw-matrix-one'\nslm: [WAITFOR] Component 'bw-matrix-one' timed out\nslm: Set state of component 'bw-matrix-one' to 'stopping'\nslm: [STOP] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Send signal 15 to pid 31649814\nslm: Component 'bw-matrix-one': Retry stop action\nslm: Component 'bw-matrix-one' (pid 31649814) died\nslm: [STOP] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Retry stop action\nslm: [DEATH] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one' (pid 31649814) terminated by SLM due to waitfor timeout\nqh: slog2 config: 'high:pages=4,min_sev=warning,low:pages=8,default:pages=1' (defaults)\nslm: Component 'bw-matrix-one': repair none\nslm: Component 'bw-matrix-one': Mark inactive (repair none)\nslm: Set state of component 'bw-matrix-one' to 'dead'\n",
+    "stderr": ""
+  },
+  "capture_completed": true,
+  "cleanup_verified": true,
+  "remaining_owned_processes": {}
+}

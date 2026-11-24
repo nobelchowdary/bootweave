@@ -1,0 +1,195 @@
+{
+  "case": "external",
+  "fixture": "fixtures/external.xml",
+  "fixture_sha256": "4268de6614c28e8bfec286732881ab26f1a4f27a9ddc83494767cdeaef214d89",
+  "recorder_sha256": "9b55a0d4a03ef09e2aaa32f24f94d92e57757d7407a5bdcc3d50f41e3872681c",
+  "endpoint": "/dev/bootweave-matrix-slm",
+  "completed": true,
+  "audit": [
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.114,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slm -n /dev/bootweave-matrix-slm -s bw-matrix-included -t 50 -T 1200 -VVV /data/bootweave-matrix/external.xml > /data/bootweave-matrix/external-console.txt 2>&1 < /dev/null &",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n32534549 /data/bootweave-lab/slm -n /dev/bootweave-matrix-slm -s bw-matrix-included -t 50 -T 1200 -VVV /data/bootweave-matrix/external.xml \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "bw-matrix-included  /proc/boot/sleep         ACTIVE    INITIALIZED  32550930\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n32550930 sleep 903 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "bw-matrix-included  /proc/boot/sleep         ACTIVE    INITIALIZED  32550930\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n32550930 sleep 903 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "bw-matrix-included  /proc/boot/sleep         ACTIVE    INITIALIZED  32550930\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n32550930 sleep 903 \n",
+      "stderr": ""
+    },
+    {
+      "command": "cat /data/bootweave-matrix/external-console.txt",
+      "elapsed_seconds": 0.123,
+      "exit_code": 0,
+      "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: [COMMAND] startup 'bw-matrix-included'\nslm: Component 'bw-matrix-included': Mark active\nslm: Set state of component 'bw-matrix-included' to 'starting'\nslm: [START] Component 'bw-matrix-included'\nslm: Component 'bw-matrix-included': Spawned process with pid 32550930\nslm: Set state of component 'bw-matrix-included' to 'initialized'\n",
+      "stderr": ""
+    },
+    {
+      "command": "kill -9 32534549",
+      "elapsed_seconds": 0.113,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n32550930 sleep 903 \n",
+      "stderr": ""
+    },
+    {
+      "command": "kill 32550930",
+      "elapsed_seconds": 0.115,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.113,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "snapshots": [
+    {
+      "seconds_since_control": 0.236,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.118,
+        "exit_code": 0,
+        "stdout": "bw-matrix-included  /proc/boot/sleep         ACTIVE    INITIALIZED  32550930\n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.118,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n32550930 sleep 903 \n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {
+        "32550930": 903
+      }
+    },
+    {
+      "seconds_since_control": 0.622,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.118,
+        "exit_code": 0,
+        "stdout": "bw-matrix-included  /proc/boot/sleep         ACTIVE    INITIALIZED  32550930\n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.117,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n32550930 sleep 903 \n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {
+        "32550930": 903
+      }
+    },
+    {
+      "seconds_since_control": 1.009,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.118,
+        "exit_code": 0,
+        "stdout": "bw-matrix-included  /proc/boot/sleep         ACTIVE    INITIALIZED  32550930\n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.119,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n32550930 sleep 903 \n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {
+        "32550930": 903
+      }
+    }
+  ],
+  "daemon_identified": true,
+  "console": {
+    "command": "cat /data/bootweave-matrix/external-console.txt",
+    "elapsed_seconds": 0.123,
+    "exit_code": 0,
+    "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: [COMMAND] startup 'bw-matrix-included'\nslm: Component 'bw-matrix-included': Mark active\nslm: Set state of component 'bw-matrix-included' to 'starting'\nslm: [START] Component 'bw-matrix-included'\nslm: Component 'bw-matrix-included': Spawned process with pid 32550930\nslm: Set state of component 'bw-matrix-included' to 'initialized'\n",
+    "stderr": ""
+  },
+  "capture_completed": true,
+  "cleanup_verified": true,
+  "remaining_owned_processes": {}
+}

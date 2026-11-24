@@ -2,24 +2,41 @@
 
 ## Official requirements summary
 
-Checked November 22, 2026 against the [official rules](https://qnx.devpost.com/rules) and [overview](https://qnx.devpost.com/). Recheck before submission; the rules prevail.
+Checked November 24, 2026 against the [official rules](https://qnx.devpost.com/rules) and [overview](https://qnx.devpost.com/). Recheck before submission; the rules prevail.
 
-Entrants must be 18+, meet residency restrictions, and avoid excluded sponsor/judge conflicts. Teams need an authorized representative. Register and submit by December 15, 2026, 11 AM Pacific. Work must be new or significantly updated during November 2–December 15. Select one category. A working host tool meaningfully supporting QNX 8.0 qualifies.
+Entrants must be 18+, meet residency restrictions, and avoid excluded sponsor/judge conflicts. Teams need an authorized representative. Register and submit by December 15, 2026, 1 PM Central / 2 PM Eastern. Work must be new or significantly updated during November 2–December 15. Select one category. A working host tool meaningfully supporting QNX 8.0 qualifies.
 
 Provide a public GitHub/GitLab/Bitbucket repository with all required source/assets, reproducible instructions, and a detectable open-source license. Explain and demonstrate the QNX connection. Specify QNX version, intended target, and toolchain. Include an English description and public YouTube demonstration under three minutes showing the intended platform; clear third-party rights. Keep judging access free and unrestricted through January 29, 2027.
 
 Ports require a new submission-period repository, upstream URL, and contribution files rather than an upstream fork. The tutorial bonus requires a tutorial authored during the submission period and its URL. A project may receive one Overall, one Bonus, and Community Choice award. No explicit entrant AI prohibition or disclosure clause was found.
 
-## Release work
+## Required release gates
 
-- [ ] Entrant confirms age, residency, conflicts, team representation, and ownership in Devpost.
-- [ ] Registration and category: **Developer Tooling & Host Tools**.
-- [ ] Pin the demonstrated repository revision; retain test and policy command output.
-- [ ] Complete [QNX validation](QNX-VALIDATION.md), or state its absence explicitly; never label host fixtures as target execution.
-- [ ] Ensure the MIT license is detected on the public repository page.
-- [ ] Try instructions from a clean checkout; verify exported reports and all links.
-- [ ] Label illustrative robot binaries and static assumptions in the description and video.
-- [ ] Review screenshots, logs, and files for credentials and personal information.
-- [ ] Publish tutorial if entering that bonus; rehearse a roughly 2:40 demo.
-- [ ] Fill Devpost fields; preview, submit by Dec 14, and retain confirmation.
-- [ ] Preserve the submitted artifact and accessible links through judging.
+Status below distinguishes prepared files from completed external submission. A written script is not an uploaded video; a local edit is not a published repository revision.
+
+- [x] Public [repository](https://github.com/nobelchowdary/bootweave) is accessible; GitHub displays **MIT license** in About (checked November 24).
+- [x] Source and host build/run instructions exist; intended category is **Developer Tooling & Host Tools**.
+- [x] Basic entrant eligibility and individual entry confirmed by the entrant November 24; the final form must retain accurate ownership/contribution statements.
+- [x] Four [native three-service recordings](../validation/evidence/native-demo/README.md) cover risky/revised configurations with separate automatic-failure and plain-manual operations, independent PID/UDP instance checks, successful native IPC samples and verified cleanup.
+- [x] Six additional [matrix cases](../validation/matrix/README.md) retain missing/cyclic prerequisites, module glob startup, delay readiness, absent-path timeout and external-entity results. Coverage remains scoped to the recorded build/cases.
+- [x] Two-file/protected-service review, property/module changes and imported-recording hash checks are implemented. Browser release QA remains a final verification task; matching evidence hashes do not authenticate origin.
+- [ ] Publish the final source, assets, tutorial and complete reproduction instructions for the exact demonstrated revision; test a clean checkout.
+- [ ] Reconcile the [Devpost draft](DEVPOST-SUBMISSION.md) with the finished implementation. Specify the Python host runtime, actual QNX target/version, and native compiler if the native workload is included.
+- [ ] Record the functioning host product; upload an English video **under 3:00** to YouTube as **Public** and paste its working URL into Devpost. Check duration, visibility, audio and legibility while signed out. [Storyboard](DEMO-SCRIPT.md).
+- [ ] Ensure submitted media uses owned or permitted material and contains no private account/host information.
+- [ ] Complete registration, team details and all Devpost fields; select exactly one category; check every submitted URL.
+- [ ] At the final submission step, the entrant reviews the complete entry, verifies its ownership/contribution statements and confirms entry. The rules' opening states that submission constitutes agreement; the remaining decision belongs at that concrete final step, after media and links are ready.
+- [ ] Submit by **December 14** as our buffer; retain the actual submission receipt and revision. Keep code and media accessible through January 29, 2027.
+
+## Evidence that strengthens the entry
+
+These are product-quality goals, not additional universal eligibility requirements for a host analyzer.
+
+- [x] Native three-service QNX message passing, source/build instructions and scoped before/after observations are retained. All four final bundles were checked against source/artifact hashes.
+- [x] Automatic SIGKILL-triggered recovery is recorded separately from plain manual restart in fresh dedicated SLM instances. The earlier inner-`-s` discrepancy remains unresolved and documented.
+- [ ] Complete final browser QA for file imports, protected-service policy, property/module changes, evidence mismatch/incomplete states, and bundle export.
+- [ ] Have another developer reproduce one review; collect specific feedback without inventing time savings.
+- [ ] Publish [the tutorial](TUTORIAL.md) and add its public URL if entering the optional tutorial bonus. A draft file alone does not complete bonus entry.
+- [ ] Capture a clear failing policy, its correction, an invalid input, and the distinction between static analysis and target observations.
+
+Final factual status: the host workflow, native application contrast and six matrix cases exist with retained evidence. Final browser QA, media, public links and the actual Devpost entry remain open. Further SLM coverage, including exits/blocks readiness and other utility builds, must not be described as complete.

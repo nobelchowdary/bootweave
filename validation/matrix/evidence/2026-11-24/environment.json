@@ -1,0 +1,49 @@
+{
+  "recorded_date": "2026-11-24",
+  "recorded_at_utc": "2026-11-24T17:55:57.243602+00:00",
+  "scope": "Isolated SLM matrix; no automatic failure recovery or timing guarantee",
+  "host_python": "Python 3.12.3",
+  "recorder_sha256": "9b55a0d4a03ef09e2aaa32f24f94d92e57757d7407a5bdcc3d50f41e3872681c",
+  "guest_uname": "QNX bootweave-qnx 8.0.0 2026/10/30-09:10:05EDT x86pc x86_64",
+  "utilities": [
+    {
+      "QNX_BUILDID": "(GNU)976c118ac0eb094859d3ec0c14ed8ee0",
+      "NAME": "slm",
+      "DATE": "2023/11/19-10:22:15-EST",
+      "TAGID": "QNXOS_800-135",
+      "PACKAGE": "com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L"
+    },
+    {
+      "QNX_BUILDID": "(GNU)46598a81511405eb1226c5cb6d582f04",
+      "NAME": "slmctl",
+      "DATE": "2023/11/19-10:22:16-EST",
+      "TAGID": "QNXOS_800-135",
+      "PACKAGE": "com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L"
+    }
+  ],
+  "preflight": [
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    }
+  ],
+  "fixture_sha256": {
+    "cycle.xml": "5805ccf6039789c5f6cfd617a237eed1dae153fdccb1eec3ad6666054bb7c9ac",
+    "delay.xml": "bbdb6f9965541dcaf194dab25d0b567556dfcdeb350a507104edabeff7194c53",
+    "external-components.xml": "b2457768939d9d7c7cb56b8e7eeeacd403ce5e0ad326afe18dfa8fabec09e387",
+    "external.xml": "4268de6614c28e8bfec286732881ab26f1a4f27a9ddc83494767cdeaef214d89",
+    "missing.xml": "16451bc9d3cf66de5091dfbebf9e1ae94557132b7134679465c36abcad28ccb6",
+    "module.xml": "21f65dcfdec39f624152f29bade18d6ae99978ba38be4a940023a78c2f550c65",
+    "pathname.xml": "23b47ab28f5b58ec2942e0d95b02e9e2031b617097e495855f199b3258dbe325"
+  }
+}

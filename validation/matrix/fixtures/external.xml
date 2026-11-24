@@ -1,0 +1,6 @@
+<!DOCTYPE SLM_system [
+  <!ENTITY matrixComponents SYSTEM '/data/bootweave-matrix/external-components.xml'>
+]>
+<SLM:system>
+  &matrixComponents;
+</SLM:system>

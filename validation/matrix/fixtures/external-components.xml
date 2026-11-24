@@ -1,0 +1,3 @@
+<SLM:component name="bw-matrix-included">
+  <SLM:command>sleep</SLM:command><SLM:args>903</SLM:args><SLM:repair>none</SLM:repair>
+</SLM:component>

@@ -1,0 +1,90 @@
+{
+  "base_repository_revision": "42bff97c89a8ed38a57323620bd067cba82fc5bd",
+  "provenance_note": "The base revision identifies the surrounding checkout. Exact authored source bytes are identified by this manifest and the per-run source snapshot; do not infer every source file was committed in that revision.",
+  "files": [
+    {
+      "name": "native/._Makefile",
+      "sha256": "65f695bb3303de1736820d3e6e1af90433c4a91309aedd5a246ce280961978c8"
+    },
+    {
+      "name": "native/._client.h",
+      "sha256": "65f695bb3303de1736820d3e6e1af90433c4a91309aedd5a246ce280961978c8"
+    },
+    {
+      "name": "native/._common.h",
+      "sha256": "65f695bb3303de1736820d3e6e1af90433c4a91309aedd5a246ce280961978c8"
+    },
+    {
+      "name": "native/._configs",
+      "sha256": "65f695bb3303de1736820d3e6e1af90433c4a91309aedd5a246ce280961978c8"
+    },
+    {
+      "name": "native/._controller.c",
+      "sha256": "65f695bb3303de1736820d3e6e1af90433c4a91309aedd5a246ce280961978c8"
+    },
+    {
+      "name": "native/._sensor.c",
+      "sha256": "65f695bb3303de1736820d3e6e1af90433c4a91309aedd5a246ce280961978c8"
+    },
+    {
+      "name": "native/._telemetry.c",
+      "sha256": "65f695bb3303de1736820d3e6e1af90433c4a91309aedd5a246ce280961978c8"
+    },
+    {
+      "name": "native/.gitignore",
+      "sha256": "0f5831388c8b511d8f6701614cbbd5c1fac0b01dccc88a2e8ea662fe9fa9e062"
+    },
+    {
+      "name": "native/Makefile",
+      "sha256": "aec295539ae67df8831100aa184a108a7a0fcf88473a6d31f46191ac85ec2ea8"
+    },
+    {
+      "name": "native/README.md",
+      "sha256": "652284baec2aba352d035f3b622697790d2019323042b833d380dc439722eb51"
+    },
+    {
+      "name": "native/client.h",
+      "sha256": "c1cb65c032310ef6d36a9e6183219484e243632f5dc918bc7b8fbd5524e77d25"
+    },
+    {
+      "name": "native/common.h",
+      "sha256": "edd88651cd3905b63d2512f196965ee6410d05ebfaa43c497bf3a2169b7951b0"
+    },
+    {
+      "name": "native/configs/._revised.xml",
+      "sha256": "65f695bb3303de1736820d3e6e1af90433c4a91309aedd5a246ce280961978c8"
+    },
+    {
+      "name": "native/configs/._risky.xml",
+      "sha256": "65f695bb3303de1736820d3e6e1af90433c4a91309aedd5a246ce280961978c8"
+    },
+    {
+      "name": "native/configs/revised.xml",
+      "sha256": "4a85f3546c8b17358cdb94f665ee494cb56d0af5534decb38d69d70d0c656852"
+    },
+    {
+      "name": "native/configs/risky.xml",
+      "sha256": "87218b2f180e19445a3b755a3ffee393a3511441693ad0b159a862ec387f13f9"
+    },
+    {
+      "name": "native/controller.c",
+      "sha256": "50425b227bf2c971e9530542627d0ade62462787f565c8c6b2d3b82f9948cbf2"
+    },
+    {
+      "name": "native/prepare.sh",
+      "sha256": "a2d276d97ee9484066cee7bf9f1eebc5c14998e9dd482369eb883543cc44c7c0"
+    },
+    {
+      "name": "native/record.py",
+      "sha256": "237c8f1a2e9ac2a6daefb774d7f345de4b8d100ed032884f84735007ae23c29d"
+    },
+    {
+      "name": "native/sensor.c",
+      "sha256": "688b6d40554b1d512718956b9ac492e8b93395d39e14f0c37a2fddf88d1bc189"
+    },
+    {
+      "name": "native/telemetry.c",
+      "sha256": "8d365cad49344d84a48606ec666383d08c76e79dbb3c21ce25fbce0c38d37ea0"
+    }
+  ]
+}

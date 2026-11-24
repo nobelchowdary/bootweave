@@ -1,24 +1,54 @@
 # BootWeave demo storyboard — 2 minutes 40 seconds
 
-Working draft. Record only behavior actually demonstrated in the final build. Use the BootWeave UI and your own terminal; no third-party artwork or music is needed. The intended platform for this submission is the host computer. Identify target verification separately when available.
+Recording plan, November 24, 2026. The host product, native application contrast and scoped evidence exist. Final browser QA, screen capture and public YouTube upload remain open. Use the verified release build, original title cards and English narration/captions; no music is needed.
 
-| Time | Show | Explain |
+The main example is now the **real authored QNX sensor/controller/optional-telemetry workload**. The sensor supplies software counters through native QNX request/reply IPC. It is not a physical robot or sensor. The independent receiver runs outside the tested SLM dependency graph.
+
+| Time | Show | Narration |
 | --- | --- | --- |
-| 0:00–0:15 | Workbench, risky configuration, dashboard selected | “A startup configuration is also a lifecycle contract. One misplaced dependency can connect an optional dashboard to a controller.” |
-| 0:15–0:45 | Highlight dashboard → motion-control → operator-ui, open exact XML line | “BootWeave reads QNX 8.0 SLM XML. It explains explicit session coupling and preserves uncertainty when a dependency state is omitted.” |
-| 0:45–1:10 | Change review: risky → reviewed | “Removing this optional prerequisite removes a startup dependency and its session coupling. Here are the component changes and the resolved fixed-delay review prompt.” |
-| 1:10–1:40 | Terminal CI commands below, actual exit status | “The same engine can guard a protected service during review. This regression fails; the correction passes.” |
-| 1:40–2:00 | Import malformed/cyclic example, visible errors | “Unsupported or broken configurations cannot receive a complete clean result.” |
-| 2:00–2:25 | Actual QNX validation evidence, if obtained; otherwise show host report export and source hash | State exactly what was tested. Until target validation exists: “This is a working host analyzer. Recovery sets are static graph analysis; native SLM validation is still outstanding.” |
-| 2:25–2:40 | Workbench plus repository and tutorial links when public | “Review startup dependencies before deployment. BootWeave is open source, local, and reproducible.” |
+| 0:00–0:15 | BootWeave; native risky configuration; telemetry selected, controller highlighted | “An optional telemetry process should not control a controller's lifecycle. This QNX software lab contains that exact configuration mistake. BootWeave makes the relationship visible before deployment.” |
+| 0:15–0:40 | Change review: revised baseline, risky candidate; protect `controller`; show FAIL and `telemetry → controller` source line | “Import baseline and candidate independently, then protect the controller. The policy finds the new session dependency and explains its path. The controller's C code needs sensor IPC, not telemetry.” |
+| 0:40–1:00 | Reverse to risky baseline/revised candidate; show PASS, source hashes and property/module diff affordances; briefly show CLI outputs | “Remove the unnecessary prerequisite and the review passes. The same engine checks files in CI, with source hashes and inspectable changes. Invalid or incomplete graphs cannot pass as clean results.” |
+| 1:00–1:35 | Actual QNX automatic-failure recording: environment/version, exact telemetry SIGKILL, independent instance/PID and successful IPC observations; risky then revised contrast | “We built and ran all three services on QNX. With the risky configuration, killing optional telemetry replaced both telemetry and controller. With the correction, telemetry restarted while the controller kept its instance and produced more successful sensor IPC samples. The sensor stayed unchanged.” |
+| 1:35–2:05 | Configuration review, native revised XML plus imported revised automatic recording; visible `matched` and origin notice; deliberately check against risky XML to show mismatch | “The workbench associates this recording with the exact XML hash. Change the configuration and it no longer matches. The result is imported evidence, not a live connection or proof of trusted origin. Raw records and reproduction steps stay available.” |
+| 2:05–2:25 | Evidence index: four named operations, six matrix cases, earlier unresolved `-s` note; export review bundle | “Automatic failure and plain manual restart have separate records and verified cleanup. Additional cases cover cycles, missing prerequisites, readiness and modules. We preserve an unresolved option discrepancy. These observations make no availability or timing guarantee.” |
+| 2:25–2:40 | Workbench export, public repository and published tutorial URLs | “BootWeave makes QNX lifecycle changes reviewable and explainable. It runs locally, is open source, and includes the source, tutorial and scoped native evidence needed to reproduce this review.” |
 
-Run each command from the repository in a POSIX shell. The first exit status should be 1, the second 0. Print the observed status, without editing outputs.
+## Exact host policy shots
+
+Run from the repository in a POSIX shell. Print the actual status immediately after each command; expected statuses are 1, then 0. Do not use `set -e` for the deliberate failure.
 
 ```sh
-python3 -m bootweave compare examples/robot-revised.xml examples/robot-risky.xml --protect motion-control
+python3 -m bootweave compare native/configs/revised.xml native/configs/risky.xml --protect controller
 echo "Exit status: $?"
-python3 -m bootweave compare examples/robot-risky.xml examples/robot-revised.xml --protect motion-control
+python3 -m bootweave compare native/configs/risky.xml native/configs/revised.xml --protect controller
 echo "Exit status: $?"
 ```
 
-Before recording, close unrelated tabs, hide personal paths or accounts, choose a readable viewport, and reset samples. The robot examples describe authored configurations; their executables are illustrative. Do not present them as running robot software. Do not describe the analyzer as a certification tool or claim measured boot/recovery timing.
+For the evidence shot, select native revised XML and `native/evidence/revised-automatic-evidence.json`. The equivalent CLI result is:
+
+```sh
+python3 -m bootweave evidence native/configs/revised.xml native/evidence/revised-automatic-evidence.json
+```
+
+Then choose risky XML with that same recording to demonstrate the actual mismatch. Keep **Origin not authenticated** visible. A matched result checks source association/envelope consistency, not every raw artifact's authenticity.
+
+## Native capture and editorial boundaries
+
+Use the actual [native recording procedure](../native/README.md) to capture fresh target footage, or visibly label the existing [November 24 records](../validation/evidence/native-demo/README.md) as **Recorded QNX experiment**. Never present replayed data as a live connection. Retain an uncut source capture and exact command output; edit pauses rather than outcomes.
+
+The automatic experiment sends SIGKILL to the identified demo telemetry PID and observes SLM recovery. The plain manual experiment is a distinct recording. Neither uses inner `-s`; its earlier discrepancy remains separately documented. Only claim the successful IPC samples and instance behavior actually captured. Avoid “uninterrupted,” “zero downtime,” “safe,” “microsecond recovery” or general SLM compatibility claims.
+
+The matrix includes one fixed-delay and one absent-path readiness case, not every readiness mode. Exits/blocks, additional utility versions and broader fresh-boot repetition remain outside the demonstrated coverage. The older robot XML still uses illustrative executables; do not mix it into native footage as though it ran.
+
+## Shot preparation and upload metadata
+
+Use a clean 16:9 viewport, readable source/terminal text, and no unrelated tabs, accounts, cloud consoles, notifications, desktop watermarks, third-party logos or music. Record the final browser-QA build and check the exported video is below 180 seconds with legible English narration/captions.
+
+Suggested title: **BootWeave | Review QNX startup dependencies before deployment**.
+
+Suggested description:
+
+> BootWeave is a local review workbench and CI guard for QNX 8.0 SLM configuration changes. This demonstration shows an authored three-service QNX message-passing lab, a failing/passing lifecycle policy, and imported native experiment records. Automatic-failure and manual-restart observations are separate. Static analysis and sampled target observations do not establish functional safety, continuous availability or real-time performance. Source and instructions: https://github.com/nobelchowdary/bootweave . Tutorial: https://github.com/nobelchowdary/bootweave/blob/main/docs/TUTORIAL.md .
+
+Upload to YouTube as **Public**, verify playback while signed out, and paste the actual URL into [the Devpost draft](DEVPOST-SUBMISSION.md). Check that the demonstrated revision, tutorial and evidence links are published. A local video file or storyboard is not the required public video link.

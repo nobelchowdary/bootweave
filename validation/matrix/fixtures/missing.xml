@@ -1,0 +1,7 @@
+<SLM:system>
+  <SLM:component name="bw-matrix-one">
+    <SLM:depend state="session">bw-matrix-absent</SLM:depend>
+    <SLM:command>sleep</SLM:command><SLM:args>901</SLM:args>
+    <SLM:repair>none</SLM:repair>
+  </SLM:component>
+</SLM:system>

@@ -14,3 +14,9 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - name: Guard the corrected sample
         run: python -m bootweave compare examples/robot-risky.xml examples/robot-revised.xml --protect motion-control
+      - name: Guard the native configuration correction
+        run: python -m bootweave compare native/configs/risky.xml native/configs/revised.xml --protect controller
+      - name: Check recorded configuration bindings (not fresh target execution)
+        run: |
+          python -m bootweave evidence native/configs/risky.xml native/evidence/risky-automatic-evidence.json
+          python -m bootweave evidence native/configs/revised.xml native/evidence/revised-automatic-evidence.json

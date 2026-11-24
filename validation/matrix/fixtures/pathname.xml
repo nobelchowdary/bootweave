@@ -1,0 +1,10 @@
+<SLM:system>
+  <SLM:component name="bw-matrix-one">
+    <SLM:command>sleep</SLM:command><SLM:args>901</SLM:args><SLM:repair>none</SLM:repair>
+    <SLM:waitfor wait="pathname" polltime="100:1000">/data/bootweave-matrix/never-created-ready</SLM:waitfor>
+  </SLM:component>
+  <SLM:component name="bw-matrix-two">
+    <SLM:depend state="session">bw-matrix-one</SLM:depend>
+    <SLM:command>sleep</SLM:command><SLM:args>902</SLM:args><SLM:repair>none</SLM:repair>
+  </SLM:component>
+</SLM:system>

@@ -1,0 +1,134 @@
+{
+  "case": "cycle",
+  "fixture": "fixtures/cycle.xml",
+  "fixture_sha256": "5805ccf6039789c5f6cfd617a237eed1dae153fdccb1eec3ad6666054bb7c9ac",
+  "recorder_sha256": "9b55a0d4a03ef09e2aaa32f24f94d92e57757d7407a5bdcc3d50f41e3872681c",
+  "endpoint": "/dev/bootweave-matrix-slm",
+  "completed": true,
+  "audit": [
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.113,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.121,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slm -n /dev/bootweave-matrix-slm -s none -t 50 -T 1200 -VVV /data/bootweave-matrix/cycle.xml > /data/bootweave-matrix/cycle-console.txt 2>&1 < /dev/null &",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.114,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.121,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.122,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "cat /data/bootweave-matrix/cycle-console.txt",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: Circular dependency detected\nqh: slog2 config: 'high:pages=4,min_sev=warning,low:pages=8,default:pages=1' (defaults)\nslm: - Component 'bw-matrix-two'\nslm: - Component 'bw-matrix-one'\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.123,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.112,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "snapshots": [],
+  "daemon_identified": false,
+  "console": {
+    "command": "cat /data/bootweave-matrix/cycle-console.txt",
+    "elapsed_seconds": 0.12,
+    "exit_code": 0,
+    "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: Circular dependency detected\nqh: slog2 config: 'high:pages=4,min_sev=warning,low:pages=8,default:pages=1' (defaults)\nslm: - Component 'bw-matrix-two'\nslm: - Component 'bw-matrix-one'\n",
+    "stderr": ""
+  },
+  "capture_completed": true,
+  "cleanup_verified": true,
+  "remaining_owned_processes": {}
+}

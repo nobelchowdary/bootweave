@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "pathname.xml",
+    "sha256": "23b47ab28f5b58ec2942e0d95b02e9e2031b617097e495855f199b3258dbe325"
+  },
+  "analysis_complete": true,
+  "components": [
+    {
+      "name": "bw-matrix-one",
+      "line": 2,
+      "command": "sleep",
+      "args": "901",
+      "launch": [],
+      "wait": {
+        "mode": "pathname",
+        "value": "/data/bootweave-matrix/never-created-ready",
+        "poll_ms": 100,
+        "timeout_ms": 1000
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [],
+      "layer": 0,
+      "properties": [
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 3
+        },
+        {
+          "name": "args",
+          "value": "901",
+          "attributes": {},
+          "line": 3
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 3
+        },
+        {
+          "name": "waitfor",
+          "value": "/data/bootweave-matrix/never-created-ready",
+          "attributes": {
+            "wait": "pathname",
+            "polltime": "100:1000"
+          },
+          "line": 4
+        }
+      ]
+    },
+    {
+      "name": "bw-matrix-two",
+      "line": 6,
+      "command": "sleep",
+      "args": "902",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [
+        {
+          "name": "bw-matrix-one",
+          "state": "session",
+          "line": 7
+        }
+      ],
+      "layer": 1,
+      "properties": [
+        {
+          "name": "depend",
+          "value": "bw-matrix-one",
+          "attributes": {
+            "state": "session"
+          },
+          "line": 7
+        },
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 8
+        },
+        {
+          "name": "args",
+          "value": "902",
+          "attributes": {},
+          "line": 8
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 8
+        }
+      ]
+    }
+  ],
+  "modules": [],
+  "edges": [
+    {
+      "source": "bw-matrix-one",
+      "target": "bw-matrix-two",
+      "state": "session",
+      "line": 7
+    }
+  ],
+  "layers": [
+    [
+      "bw-matrix-one"
+    ],
+    [
+      "bw-matrix-two"
+    ]
+  ],
+  "findings": [],
+  "summary": {
+    "components": 2,
+    "dependencies": 1,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "valid_graph": true
+  },
+  "impacts": {
+    "bw-matrix-one": {
+      "selected": "bw-matrix-one",
+      "startup_blocked": [
+        "bw-matrix-two"
+      ],
+      "coupled": [
+        "bw-matrix-two"
+      ],
+      "possible": [],
+      "independent": [],
+      "critical": false,
+      "paths": [
+        {
+          "component": "bw-matrix-two",
+          "path": [
+            "bw-matrix-one",
+            "bw-matrix-two"
+          ],
+          "certainty": "explicit-session"
+        }
+      ]
+    },
+    "bw-matrix-two": {
+      "selected": "bw-matrix-two",
+      "startup_blocked": [],
+      "coupled": [],
+      "possible": [],
+      "independent": [
+        "bw-matrix-one"
+      ],
+      "critical": false,
+      "paths": []
+    }
+  }
+}

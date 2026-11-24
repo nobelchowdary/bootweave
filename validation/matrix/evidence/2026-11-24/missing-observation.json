@@ -1,0 +1,134 @@
+{
+  "case": "missing",
+  "fixture": "fixtures/missing.xml",
+  "fixture_sha256": "16451bc9d3cf66de5091dfbebf9e1ae94557132b7134679465c36abcad28ccb6",
+  "recorder_sha256": "9b55a0d4a03ef09e2aaa32f24f94d92e57757d7407a5bdcc3d50f41e3872681c",
+  "endpoint": "/dev/bootweave-matrix-slm",
+  "completed": true,
+  "audit": [
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.113,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slm -n /dev/bootweave-matrix-slm -s none -t 50 -T 1200 -VVV /data/bootweave-matrix/missing.xml > /data/bootweave-matrix/missing-console.txt 2>&1 < /dev/null &",
+      "elapsed_seconds": 0.116,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.117,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.121,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "cat /data/bootweave-matrix/missing-console.txt",
+      "elapsed_seconds": 0.121,
+      "exit_code": 0,
+      "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: Component 'bw-matrix-one': Unknown dependency 'bw-matrix-absent'\nqh: slog2 config: 'high:pages=4,min_sev=warning,low:pages=8,default:pages=1' (defaults)\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.121,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.114,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "snapshots": [],
+  "daemon_identified": false,
+  "console": {
+    "command": "cat /data/bootweave-matrix/missing-console.txt",
+    "elapsed_seconds": 0.121,
+    "exit_code": 0,
+    "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: Component 'bw-matrix-one': Unknown dependency 'bw-matrix-absent'\nqh: slog2 config: 'high:pages=4,min_sev=warning,low:pages=8,default:pages=1' (defaults)\n",
+    "stderr": ""
+  },
+  "capture_completed": true,
+  "cleanup_verified": true,
+  "remaining_owned_processes": {}
+}

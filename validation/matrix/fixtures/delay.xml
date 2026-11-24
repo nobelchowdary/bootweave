@@ -1,0 +1,10 @@
+<SLM:system>
+  <SLM:component name="bw-matrix-one">
+    <SLM:command>sleep</SLM:command><SLM:args>901</SLM:args><SLM:repair>none</SLM:repair>
+    <SLM:waitfor wait="delay">2000</SLM:waitfor>
+  </SLM:component>
+  <SLM:component name="bw-matrix-two">
+    <SLM:depend state="session">bw-matrix-one</SLM:depend>
+    <SLM:command>sleep</SLM:command><SLM:args>902</SLM:args><SLM:repair>none</SLM:repair>
+  </SLM:component>
+</SLM:system>

@@ -1,0 +1,205 @@
+{
+  "case": "module",
+  "fixture": "fixtures/module.xml",
+  "fixture_sha256": "21f65dcfdec39f624152f29bade18d6ae99978ba38be4a940023a78c2f550c65",
+  "recorder_sha256": "9b55a0d4a03ef09e2aaa32f24f94d92e57757d7407a5bdcc3d50f41e3872681c",
+  "endpoint": "/dev/bootweave-matrix-slm",
+  "completed": true,
+  "audit": [
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.112,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slm -n /dev/bootweave-matrix-slm -s bw-matrix-group -t 50 -T 1200 -VVV /data/bootweave-matrix/module.xml > /data/bootweave-matrix/module-console.txt 2>&1 < /dev/null &",
+      "elapsed_seconds": 0.116,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n29851669 /data/bootweave-lab/slm -n /dev/bootweave-matrix-slm -s bw-matrix-group -t 50 -T 1200 -VVV /data/bootweave-matrix/module.xml \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    INITIALIZED  29868050\nbw-matrix-two  /proc/boot/sleep         ACTIVE    INITIALIZED  29868052\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.122,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n29868050 sleep 901 \n29868052 sleep 902 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    INITIALIZED  29868050\nbw-matrix-two  /proc/boot/sleep         ACTIVE    INITIALIZED  29868052\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n29868050 sleep 901 \n29868052 sleep 902 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+      "elapsed_seconds": 0.118,
+      "exit_code": 0,
+      "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    INITIALIZED  29868050\nbw-matrix-two  /proc/boot/sleep         ACTIVE    INITIALIZED  29868052\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n29868050 sleep 901 \n29868052 sleep 902 \n",
+      "stderr": ""
+    },
+    {
+      "command": "cat /data/bootweave-matrix/module-console.txt",
+      "elapsed_seconds": 0.121,
+      "exit_code": 0,
+      "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: [COMMAND] startup 'bw-matrix-group'\nslm: Component 'bw-matrix-one': Mark active\nslm: Set state of component 'bw-matrix-one' to 'starting'\nslm: Component 'bw-matrix-two': Mark active\nslm: Set state of component 'bw-matrix-two' to 'starting'\nslm: [START] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Spawned process with pid 29868050\nslm: Set state of component 'bw-matrix-one' to 'initialized'\nslm: [START] Component 'bw-matrix-two'\nslm: Component 'bw-matrix-two': Spawned process with pid 29868052\nslm: Set state of component 'bw-matrix-two' to 'initialized'\n",
+      "stderr": ""
+    },
+    {
+      "command": "kill -9 29851669",
+      "elapsed_seconds": 0.113,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.119,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n29868050 sleep 901 \n29868052 sleep 902 \n",
+      "stderr": ""
+    },
+    {
+      "command": "kill 29868050",
+      "elapsed_seconds": 0.112,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "kill 29868052",
+      "elapsed_seconds": 0.114,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "elapsed_seconds": 0.12,
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "test ! -e /dev/bootweave-matrix-slm",
+      "elapsed_seconds": 0.113,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "snapshots": [
+    {
+      "seconds_since_control": 0.241,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.119,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    INITIALIZED  29868050\nbw-matrix-two  /proc/boot/sleep         ACTIVE    INITIALIZED  29868052\n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.122,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n29868050 sleep 901 \n29868052 sleep 902 \n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {
+        "29868050": 901,
+        "29868052": 902
+      }
+    },
+    {
+      "seconds_since_control": 0.629,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.119,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    INITIALIZED  29868050\nbw-matrix-two  /proc/boot/sleep         ACTIVE    INITIALIZED  29868052\n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.119,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n29868050 sleep 901 \n29868052 sleep 902 \n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {
+        "29868050": 901,
+        "29868052": 902
+      }
+    },
+    {
+      "seconds_since_control": 1.017,
+      "slm": {
+        "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-matrix-slm 'listall -v'",
+        "elapsed_seconds": 0.118,
+        "exit_code": 0,
+        "stdout": "bw-matrix-one  /proc/boot/sleep         ACTIVE    INITIALIZED  29868050\nbw-matrix-two  /proc/boot/sleep         ACTIVE    INITIALIZED  29868052\n",
+        "stderr": ""
+      },
+      "os_processes": {
+        "command": "pidin -p sleep ar",
+        "elapsed_seconds": 0.12,
+        "exit_code": 0,
+        "stdout": "     pid Arguments\n29868050 sleep 901 \n29868052 sleep 902 \n",
+        "stderr": ""
+      },
+      "owned_sleep_processes": {
+        "29868050": 901,
+        "29868052": 902
+      }
+    }
+  ],
+  "daemon_identified": true,
+  "console": {
+    "command": "cat /data/bootweave-matrix/module-console.txt",
+    "elapsed_seconds": 0.121,
+    "exit_code": 0,
+    "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: [COMMAND] startup 'bw-matrix-group'\nslm: Component 'bw-matrix-one': Mark active\nslm: Set state of component 'bw-matrix-one' to 'starting'\nslm: Component 'bw-matrix-two': Mark active\nslm: Set state of component 'bw-matrix-two' to 'starting'\nslm: [START] Component 'bw-matrix-one'\nslm: Component 'bw-matrix-one': Spawned process with pid 29868050\nslm: Set state of component 'bw-matrix-one' to 'initialized'\nslm: [START] Component 'bw-matrix-two'\nslm: Component 'bw-matrix-two': Spawned process with pid 29868052\nslm: Set state of component 'bw-matrix-two' to 'initialized'\n",
+    "stderr": ""
+  },
+  "capture_completed": true,
+  "cleanup_verified": true,
+  "remaining_owned_processes": {}
+}

@@ -1,0 +1,124 @@
+{
+  "analysis_engine_sha256": "60d8a06e91d7dda64e269f861debf1955522bfbe2feb4108be089cef8ad31a8a",
+  "checkout_head": "5ba3c45f6a134d68616893db54cf1bdb9773df81",
+  "working_tree_note": "Host reports generated with the current working-tree analyzer; source digest above identifies its bytes.",
+  "native_recorder_sha256": "9b55a0d4a03ef09e2aaa32f24f94d92e57757d7407a5bdcc3d50f41e3872681c",
+  "cases": {
+    "missing": {
+      "source_sha256": "16451bc9d3cf66de5091dfbebf9e1ae94557132b7134679465c36abcad28ccb6",
+      "analysis_complete": true,
+      "summary": {
+        "components": 1,
+        "dependencies": 1,
+        "errors": 1,
+        "warnings": 0,
+        "infos": 0,
+        "valid_graph": false
+      },
+      "findings": [
+        {
+          "id": "BW011",
+          "title": "Missing prerequisite"
+        }
+      ]
+    },
+    "cycle": {
+      "source_sha256": "5805ccf6039789c5f6cfd617a237eed1dae153fdccb1eec3ad6666054bb7c9ac",
+      "analysis_complete": true,
+      "summary": {
+        "components": 2,
+        "dependencies": 2,
+        "errors": 1,
+        "warnings": 2,
+        "infos": 0,
+        "valid_graph": false
+      },
+      "findings": [
+        {
+          "id": "BW013",
+          "title": "Dependency cycle"
+        },
+        {
+          "id": "BW019",
+          "title": "Review readiness before dependent launch"
+        },
+        {
+          "id": "BW019",
+          "title": "Review readiness before dependent launch"
+        }
+      ]
+    },
+    "module": {
+      "source_sha256": "21f65dcfdec39f624152f29bade18d6ae99978ba38be4a940023a78c2f550c65",
+      "analysis_complete": true,
+      "summary": {
+        "components": 2,
+        "dependencies": 0,
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0,
+        "valid_graph": true
+      },
+      "findings": [],
+      "expanded_modules": [
+        {
+          "name": "bw-matrix-group",
+          "line": 8,
+          "members": [
+            "bw-matrix-one",
+            "bw-matrix-two"
+          ]
+        }
+      ]
+    },
+    "delay": {
+      "source_sha256": "bbdb6f9965541dcaf194dab25d0b567556dfcdeb350a507104edabeff7194c53",
+      "analysis_complete": true,
+      "summary": {
+        "components": 2,
+        "dependencies": 1,
+        "errors": 0,
+        "warnings": 0,
+        "infos": 1,
+        "valid_graph": true
+      },
+      "findings": [
+        {
+          "id": "BW019",
+          "title": "Readiness uses a fixed delay"
+        }
+      ]
+    },
+    "pathname": {
+      "source_sha256": "23b47ab28f5b58ec2942e0d95b02e9e2031b617097e495855f199b3258dbe325",
+      "analysis_complete": true,
+      "summary": {
+        "components": 2,
+        "dependencies": 1,
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0,
+        "valid_graph": true
+      },
+      "findings": []
+    },
+    "external": {
+      "source_sha256": "4268de6614c28e8bfec286732881ab26f1a4f27a9ddc83494767cdeaef214d89",
+      "analysis_complete": false,
+      "summary": {
+        "components": 0,
+        "dependencies": 0,
+        "errors": 1,
+        "warnings": 0,
+        "infos": 0,
+        "valid_graph": false
+      },
+      "findings": [
+        {
+          "id": "BW002",
+          "title": "Unsupported XML feature"
+        }
+      ]
+    }
+  }
+}

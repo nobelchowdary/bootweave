@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "external.xml",
+    "sha256": "4268de6614c28e8bfec286732881ab26f1a4f27a9ddc83494767cdeaef214d89"
+  },
+  "analysis_complete": false,
+  "components": [],
+  "modules": [],
+  "edges": [],
+  "layers": [],
+  "findings": [
+    {
+      "id": "BW002",
+      "severity": "error",
+      "component": null,
+      "line": 1,
+      "title": "Unsupported XML feature",
+      "detail": "DOCTYPE declarations, processing instructions and XML entities/includes are unsupported; provide a self-contained SLM document.",
+      "recommendation": "Inline the reviewed component/module definitions and remove declarations or processing instructions.",
+      "doc_url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/s/slm.html"
+    }
+  ],
+  "summary": {
+    "components": 0,
+    "dependencies": 0,
+    "errors": 1,
+    "warnings": 0,
+    "infos": 0,
+    "valid_graph": false
+  },
+  "impacts": {}
+}

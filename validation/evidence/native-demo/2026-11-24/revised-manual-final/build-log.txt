@@ -1,0 +1,7 @@
+make: Entering directory '/home/ubuntu/bootweave-native-demo/native'
+rm -rf "build"
+mkdir -p "build"
+qcc -Vgcc_ntox86_64 -std=c11 -D_QNX_SOURCE -O2 -Wall -Wextra -Werror -Wl,--build-id=sha1 sensor.c -o "build/bw-sensor" -lsocket
+qcc -Vgcc_ntox86_64 -std=c11 -D_QNX_SOURCE -O2 -Wall -Wextra -Werror -Wl,--build-id=sha1 controller.c -o "build/bw-controller" -lsocket
+qcc -Vgcc_ntox86_64 -std=c11 -D_QNX_SOURCE -O2 -Wall -Wextra -Werror -Wl,--build-id=sha1 telemetry.c -o "build/bw-telemetry" -lsocket
+make: Leaving directory '/home/ubuntu/bootweave-native-demo/native'

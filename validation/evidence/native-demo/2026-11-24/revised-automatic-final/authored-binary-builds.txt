@@ -1,0 +1,41 @@
+COMPONENT=sensor
+
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: c904c2204a9dd3d662df9af211021d765f1495b2
+
+Displaying notes found in: .note
+  Owner                Data size 	Description
+  QNX                  0x0000000c	QNX stack
+   Stack Size: 0x0
+   Stack allocated: 1000
+   Executable: no
+
+COMPONENT=controller
+
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: 7f35c6ed7a9c5aba776c6e5be106e37460515cd3
+
+Displaying notes found in: .note
+  Owner                Data size 	Description
+  QNX                  0x0000000c	QNX stack
+   Stack Size: 0x0
+   Stack allocated: 1000
+   Executable: no
+
+COMPONENT=telemetry
+
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: 47f8a20366d85b72eb59f26f0af5d175c442997c
+
+Displaying notes found in: .note
+  Owner                Data size 	Description
+  QNX                  0x0000000c	QNX stack
+   Stack Size: 0x0
+   Stack allocated: 1000
+   Executable: no

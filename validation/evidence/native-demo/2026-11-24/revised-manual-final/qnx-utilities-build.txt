@@ -1,0 +1,22 @@
+QNX_BUILDID=(GNU)976c118ac0eb094859d3ec0c14ed8ee0
+NAME=slm
+DESCRIPTION=QNX System Launch and Monitor
+DATE=2023/11/19-10:22:15-EST
+STATE=lookup
+HOST=docker-n1.bts.rim.net
+USER=builder
+VERSION=QNXOS_main
+TAGID=QNXOS_800-135
+PACKAGE=com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L
+
+QNX_BUILDID=(GNU)46598a81511405eb1226c5cb6d582f04
+NAME=slmctl
+DESCRIPTION=Service Launch and Monitor control utility
+DATE=2023/11/19-10:22:16-EST
+STATE=lookup
+HOST=docker-n1.bts.rim.net
+USER=builder
+VERSION=QNXOS_main
+TAGID=QNXOS_800-135
+PACKAGE=com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L
+

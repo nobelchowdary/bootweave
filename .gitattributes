@@ -1,0 +1,10 @@
+# Keep bundled configuration hashes stable on every checkout platform.
+* text=auto eol=lf
+*.jpg -text
+*.png -text
+*.tar -text
+
+# Captured artifacts retain their exact original bytes and formatting.
+validation/evidence/** -text
+validation/matrix/evidence/** -text
+validation/evidence/native-demo/**/qnx-utilities-build.txt -whitespace

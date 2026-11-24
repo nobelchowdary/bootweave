@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "module.xml",
+    "sha256": "21f65dcfdec39f624152f29bade18d6ae99978ba38be4a940023a78c2f550c65"
+  },
+  "analysis_complete": true,
+  "components": [
+    {
+      "name": "bw-matrix-one",
+      "line": 2,
+      "command": "sleep",
+      "args": "901",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [],
+      "layer": 0,
+      "properties": [
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 3
+        },
+        {
+          "name": "args",
+          "value": "901",
+          "attributes": {},
+          "line": 3
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 3
+        }
+      ]
+    },
+    {
+      "name": "bw-matrix-two",
+      "line": 5,
+      "command": "sleep",
+      "args": "902",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [],
+      "layer": 0,
+      "properties": [
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 6
+        },
+        {
+          "name": "args",
+          "value": "902",
+          "attributes": {},
+          "line": 6
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 6
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "name": "bw-matrix-group",
+      "line": 8,
+      "members": [
+        "bw-matrix-one",
+        "bw-matrix-two"
+      ]
+    }
+  ],
+  "edges": [],
+  "layers": [
+    [
+      "bw-matrix-one",
+      "bw-matrix-two"
+    ]
+  ],
+  "findings": [],
+  "summary": {
+    "components": 2,
+    "dependencies": 0,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "valid_graph": true
+  },
+  "impacts": {
+    "bw-matrix-one": {
+      "selected": "bw-matrix-one",
+      "startup_blocked": [],
+      "coupled": [],
+      "possible": [],
+      "independent": [
+        "bw-matrix-two"
+      ],
+      "critical": false,
+      "paths": []
+    },
+    "bw-matrix-two": {
+      "selected": "bw-matrix-two",
+      "startup_blocked": [],
+      "coupled": [],
+      "possible": [],
+      "independent": [
+        "bw-matrix-one"
+      ],
+      "critical": false,
+      "paths": []
+    }
+  }
+}

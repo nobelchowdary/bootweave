@@ -1,0 +1,81 @@
+qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice
+qh: context: qh:slog2=warning,stderr=info
+qh: context: slm:slog2=warning,stderr=info
+slm: [COMMAND] startup 'none'
+slm: [COMMAND] start 'all'
+slm: Component 'sensor': Mark active
+slm: Set state of component 'sensor' to 'starting'
+slm: Component 'telemetry': Mark active
+slm: Component 'controller': Mark active
+slm: [START] Component 'sensor'
+slm: Component 'sensor': Spawned process with pid 16076822
+slm: Set state of component 'sensor' to 'waiting'
+slm: [WAITFOR] Component 'sensor'
+slm: Component 'sensor': Retry waitfor action
+sensor instance=e2c900d210a736ec9a0a51440166b7bc pid=16076822 name=bootweave-demo-sensor
+slm: [WAITFOR] Component 'sensor'
+slm: Component 'sensor': waitfor path '/dev/name/local/bootweave-demo-sensor' done
+slm: Set state of component 'sensor' to 'initialized'
+slm: Set state of component 'telemetry' to 'starting'
+slm: Set state of component 'controller' to 'starting'
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Spawned process with pid 16101396
+slm: Set state of component 'telemetry' to 'initialized'
+slm: [START] Component 'controller'
+slm: Component 'controller': Spawned process with pid 16101400
+slm: Set state of component 'controller' to 'initialized'
+telemetry instance=0d8bed4dde19aa50d81d20e816b67f6c pid=16101396 sensor=bootweave-demo-sensor
+controller instance=309cdaaf3a5547c20c5134899abed4d7 pid=16101400 sensor=bootweave-demo-sensor
+slm: Component 'telemetry' (pid 16101396) died
+slm: [DEATH] Component 'telemetry'
+slm: Component 'telemetry' (pid 16101396) terminated by uncaught signal 9
+qh: slog2 config: 'high:pages=4,min_sev=warning,low:pages=8,default:pages=1' (defaults)
+slm: Component 'telemetry': repair restart
+slm: Set state of component 'telemetry' to 'stopping'
+slm: [STOP] Component 'telemetry'
+slm: Set state of component 'telemetry' to 'dead'
+slm: Set state of component 'telemetry' to 'starting'
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Retry start action
+slm: [START] Component 'telemetry'
+slm: Component 'telemetry': Spawned process with pid 17002498
+slm: Set state of component 'telemetry' to 'initialized'
+telemetry instance=7099e01973d02349f401f014e65471fe pid=17002498 sensor=bootweave-demo-sensor
