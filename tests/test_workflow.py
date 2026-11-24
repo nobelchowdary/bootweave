@@ -38,7 +38,7 @@ class ReviewWorkflowTests(unittest.TestCase):
         after = analyze("\n\n" + self.risky)
         changes = compare_reports(before, after)["changes"]
         for key, values in changes.items():
-            self.assertEqual(values, [], key)
+            self.assertEqual(values, {"added": [], "removed": [], "changed": []} if key == "modules" else [], key)
 
     def test_unknown_protected_name_cannot_pass(self):
         report = analyze(self.risky)
@@ -65,7 +65,19 @@ class ReviewWorkflowTests(unittest.TestCase):
         after = after.replace('<SLM:type>service_t</SLM:type><SLM:priority>10r</SLM:priority>', '<SLM:priority>10r</SLM:priority><SLM:type>service_t</SLM:type>')
         changes = compare_reports(analyze(before), analyze(after))["changes"]
         for key, values in changes.items():
-            self.assertEqual(values, [], key)
+            self.assertEqual(values, {"added": [], "removed": [], "changed": []} if key == "modules" else [], key)
+
+    def test_property_diff_retains_semantic_values_and_module_only_changes(self):
+        before = '<SLM:system><SLM:component name="a"><SLM:command>/bin/a</SLM:command><SLM:priority>10r</SLM:priority></SLM:component><SLM:component name="b"><SLM:command>/bin/b</SLM:command></SLM:component><SLM:module name="boot"><SLM:member>a</SLM:member></SLM:module></SLM:system>'
+        after = before.replace('10r', '20r').replace('<SLM:member>a</SLM:member>', '<SLM:member>b</SLM:member>')
+        changes = compare_reports(analyze(before), analyze(after))["changes"]
+        self.assertEqual(changes["changed_components"], ["a"])
+        fields = changes["component_changes"][0]["fields"]
+        self.assertEqual([f["field"] for f in fields], ["properties"])
+        self.assertEqual(fields[0]["before"][0]["value"], '10r')
+        self.assertEqual(fields[0]["after"][0]["value"], '20r')
+        self.assertNotIn('line', fields[0]["before"][0])
+        self.assertEqual(changes["modules"]["changed"], [{"name": "boot", "before": {"name": "boot", "members": ["a"]}, "after": {"name": "boot", "members": ["b"]}}])
 
     def test_repeated_envvar_order_is_preserved_for_comparison(self):
         before = '<SLM:system><SLM:component name="a"><SLM:command>/bin/a</SLM:command><SLM:envvar>A=first</SLM:envvar><SLM:envvar>A=last</SLM:envvar></SLM:component></SLM:system>'
@@ -148,12 +160,13 @@ class APIWorkflowTests(unittest.TestCase):
     def test_example_to_report_roundtrip(self):
         with urlopen(self.url + "/api/examples") as response:
             examples = json.load(response)
-        self.assertEqual({e["id"] for e in examples}, {"risky", "revised", "cycle"})
-        with self.post("/api/analyze", examples[0]) as response:
+        examples = {e["id"]: e for e in examples}
+        self.assertTrue({"risky", "revised", "cycle"} <= examples.keys())
+        with self.post("/api/analyze", examples["risky"]) as response:
             report = json.load(response)
         self.assertTrue(report["analysis_complete"])
         self.assertIn("motion-control", report["impacts"]["dashboard"]["coupled"])
-        with self.post("/api/compare", {"before": examples[1]["xml"], "after": examples[0]["xml"], "protected": ["motion-control"]}) as response:
+        with self.post("/api/compare", {"before": examples["revised"]["xml"], "after": examples["risky"]["xml"], "protected": ["motion-control"]}) as response:
             result = json.load(response)
         self.assertFalse(result["policy"]["passed"])
 

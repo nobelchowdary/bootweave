@@ -7,9 +7,10 @@ import mimetypes
 
 from .analyzer import analyze
 from .compare import compare_reports
+from .evidence import check_evidence
 
 ROOT = Path(__file__).resolve().parent.parent
-MAX_BODY = 1_048_576
+MAX_BODY = 4_500_000
 EXAMPLES = [
     ("risky", "Overcoupled robot", "Authored example: an explicit session dependency couples the dashboard and motion controller.", "robot-risky.xml"),
     ("revised", "Reviewed robot", "Authored example: removing the optional dashboard prerequisite removes that coupling.", "robot-revised.xml"),
@@ -37,7 +38,29 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         path = self.path.split("?", 1)[0]
         if path == "/api/examples":
-            self.send([{"id": i, "name": n, "description": d, "filename": f, "xml": (ROOT / "examples" / f).read_text()} for i, n, d, f in EXAMPLES])
+            examples = [{"id": i, "name": n, "description": d, "filename": f, "xml": (ROOT / "examples" / f).read_text()} for i, n, d, f in EXAMPLES]
+            native = []
+            for revision in ("risky", "revised"):
+                file = ROOT / "native" / "configs" / f"{revision}.xml"
+                if file.is_file():
+                    native.append({"id": f"native-{revision}", "name": f"QNX demo · {revision}",
+                                   "description": "Authored native sensor/controller/telemetry configuration. Static review does not execute services.",
+                                   "filename": f"native-{revision}.xml", "xml": file.read_text()})
+            self.send(native + examples)
+        elif path == "/api/evidence/examples":
+            examples = []
+            directory = ROOT / "native" / "evidence"
+            if directory.is_dir():
+                for file in sorted(directory.rglob("*-evidence.json")):
+                    try:
+                        if file.stat().st_size <= 2_000_000:
+                            recording = json.loads(file.read_text())
+                            if isinstance(recording, dict) and recording.get("schema") == "bootweave.native-evidence.v1":
+                                examples.append({"id": file.stem, "name": file.stem.replace("-", " "),
+                                                 "filename": file.name, "evidence": recording})
+                    except (OSError, ValueError):
+                        continue
+            self.send(examples)
         elif path in {"/", "/index.html", "/app.js", "/style.css"}:
             file = ROOT / "web" / ("index.html" if path == "/" else path[1:])
             if not file.exists():
@@ -61,7 +84,7 @@ class Handler(BaseHTTPRequestHandler):
         try:
             length = int(self.headers.get("Content-Length", "0"))
             if not 0 < length <= MAX_BODY:
-                self.send({"error": "Request must be 1 byte to 1 MiB"}, 413)
+                self.send({"error": "Request must be 1 byte to 4.5 MB"}, 413)
                 return
             data = json.loads(self.rfile.read(length))
             if not isinstance(data, dict):
@@ -77,6 +100,10 @@ class Handler(BaseHTTPRequestHandler):
                 if not isinstance(protected, list) or not all(isinstance(p, str) for p in protected):
                     raise ValueError("protected must be a list of component names")
                 self.send(compare_reports(analyze(data["before"], str(data.get("before_name", "before.xml"))), analyze(data["after"], str(data.get("after_name", "after.xml"))), protected))
+            elif self.path == "/api/evidence":
+                if not isinstance(data.get("xml"), str):
+                    raise ValueError("xml must be text")
+                self.send(check_evidence(data["xml"], data.get("evidence")))
             else:
                 self.send({"error": "Not found"}, 404)
         except (ValueError, UnicodeError) as exc:

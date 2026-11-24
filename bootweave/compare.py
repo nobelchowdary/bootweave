@@ -56,10 +56,28 @@ def compare_reports(before, after, protected=()):
     protected = sorted(set(protected))
     unknown_protected = [name for name in protected if name not in new]
     violations = [e for e in expansions + possible_expansions if e["target"] in protected]
+    component_changes = []
+    for name in sorted(old.keys() & new.keys()):
+        previous, current = _component_semantic(old[name]), _component_semantic(new[name])
+        fields = [{"field": field, "before": deepcopy(previous.get(field)), "after": deepcopy(current.get(field))}
+                  for field in sorted(previous.keys() | current.keys())
+                  if previous.get(field) != current.get(field)]
+        if fields:
+            component_changes.append({"name": name, "fields": fields})
+    old_modules = {m["name"]: _semantic(m) for m in before.get("modules", [])}
+    new_modules = {m["name"]: _semantic(m) for m in after.get("modules", [])}
     changes = {
         "added_components": sorted(new.keys() - old.keys()),
         "removed_components": sorted(old.keys() - new.keys()),
         "changed_components": sorted(name for name in old.keys() & new.keys() if _component_semantic(old[name]) != _component_semantic(new[name])),
+        "component_changes": component_changes,
+        "modules": {
+            "added": sorted(new_modules.keys() - old_modules.keys()),
+            "removed": sorted(old_modules.keys() - new_modules.keys()),
+            "changed": [{"name": name, "before": deepcopy(old_modules[name]), "after": deepcopy(new_modules[name])}
+                        for name in sorted(old_modules.keys() & new_modules.keys())
+                        if old_modules[name] != new_modules[name]],
+        },
         "added_edges": [deepcopy(new_edges[k]) for k in sorted(new_edges.keys() - old_edges.keys())],
         "removed_edges": [deepcopy(old_edges[k]) for k in sorted(old_edges.keys() - new_edges.keys())],
         "resolved_findings": [deepcopy(f) for k, f in old_findings.items() if k not in new_findings],

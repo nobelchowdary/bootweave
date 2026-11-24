@@ -37,7 +37,7 @@
     <div class="page-content">
       <section class="page-heading">
         <div><h1 id="page-title">Configuration review</h1><p id="page-subtitle">Inspect startup dependencies and recovery coupling in QNX SLM XML.</p></div>
-        <button class="button button-dark" id="upload-button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3m-4 4 4-4 4 4M3 12v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>Import XML</button>
+        <div class="page-actions"><button class="button button-outline" id="export-button" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v11m-4-4 4 4 4-4M3 13v4h14v-4"/></svg><span id="export-label">Export report</span></button><button class="button button-dark" id="upload-button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3m-4 4 4-4 4 4M3 12v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>Import XML</button></div>
         <input id="file-input" type="file" accept=".xml,text/xml,application/xml" hidden>
       </section>
 
@@ -45,7 +45,7 @@
         <div class="file-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8l-5-5Z"/><path d="M14 3v5h5M9 12l-2 2 2 2m6-4 2 2-2 2m-2-5-2 6"/></svg></div>
         <div class="source-picker"><label for="example-select">Configuration</label><select id="example-select" aria-label="Example configuration"><option value="">Loading examples…</option></select></div>
         <div id="source-status" class="status-chip neutral">Awaiting analysis</div>
-        <div class="source-actions"><button class="button button-quiet" id="edit-source"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 6-4 4 4 4m8-8 4 4-4 4m-3-10-2 12"/></svg>Edit XML</button><span class="action-divider"></span><button class="button button-quiet" id="export-button" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v11m-4-4 4 4 4-4M3 13v4h14v-4"/></svg>Export report</button></div>
+        <div class="source-actions"><button class="button button-quiet" id="edit-source"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 6-4 4 4 4m8-8 4 4-4 4m-3-10-2 12"/></svg>Edit XML</button></div>
       </section>
 
       <div class="source-context" id="source-context"><span class="source-context-label">Host review</span><span>Import QNX SLM XML to inspect its dependency contract.</span></div>
@@ -72,11 +72,35 @@
           <div class="panel-heading"><div><h2>Findings <span id="findings-count" class="subtle-count"></span></h2></div><div class="filter-tabs" role="group" aria-label="Filter findings"><button class="active" data-filter="all">All</button><button data-filter="error">Errors</button><button data-filter="warning">Warnings</button><button data-filter="info">Info</button></div></div>
           <div id="findings-list" class="findings-list"><div class="findings-empty">Analyze a configuration to see review findings.</div></div>
         </section>
+        <section class="evidence-panel panel" aria-labelledby="evidence-heading">
+          <div class="panel-heading"><div><h2 id="evidence-heading">Imported recording <span class="subtle-count">Optional</span></h2><p>Check a recording's configuration hash against the active XML.</p></div><span id="evidence-status" class="evidence-status">No recording</span></div>
+          <div class="evidence-toolbar"><label for="evidence-example">Captured recording<select id="evidence-example" aria-label="Captured recording"><option value="">Import a JSON recording…</option></select></label><button class="button button-outline" id="import-evidence"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3m-4 4 4-4 4 4M3 12v5h14v-5"/></svg>Import recording JSON</button><button class="button button-quiet" id="check-evidence" disabled>Check active XML</button><button class="text-button" id="clear-evidence" hidden>Remove</button></div>
+          <input id="evidence-file" type="file" accept=".json,application/json" aria-label="Import native recording JSON" hidden>
+          <div class="evidence-notice"><span aria-hidden="true">i</span><p>A matching hash links a recording to these XML bytes. Imported recordings do not authenticate their origin or prove a fresh QNX execution.</p></div>
+          <div id="evidence-error" class="evidence-error" role="alert" hidden></div>
+          <div id="evidence-content" class="evidence-content"><p class="evidence-empty">No recording loaded. Static analysis remains available without a recording.</p></div>
+        </section>
       </section>
 
       <section id="compare-view" class="view-panel" hidden>
-        <div class="compare-intro"><div><h2>Compare revisions</h2><p>Review service, dependency, and coupling changes between two configurations.</p></div></div>
-        <div class="compare-controls panel"><label>Before<select id="compare-before"></select></label><span class="compare-arrow">→</span><label>After<select id="compare-after"></select></label><button class="button button-dark" id="run-compare">Compare revisions</button></div>
+        <div class="compare-intro"><div><h2>Compare revisions</h2><p>Load two XML files, choose the services to protect, and review the change.</p></div><button class="button button-quiet" id="swap-revisions" title="Swap baseline and candidate"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6h14m-3-3 3 3-3 3M17 14H3m3-3-3 3 3 3"/></svg>Swap revisions</button></div>
+        <div class="revision-sources">
+          <section class="revision-card panel" aria-label="Baseline configuration">
+            <div class="revision-card-heading"><div><span class="revision-step">01</span><h3>Baseline</h3></div><span class="revision-status" id="before-status">Not loaded</span></div>
+            <div class="revision-card-body"><label for="compare-before">Configuration</label><select id="compare-before" aria-label="Baseline configuration"></select><div class="revision-source-detail" id="before-detail">Choose an example or import your baseline XML.</div><div class="revision-card-actions"><button class="button button-outline" data-import-revision="before"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3m-4 4 4-4 4 4M3 12v5h14v-5"/></svg>Import baseline XML</button><button class="button button-quiet" data-edit-revision="before">Edit XML</button><button class="button button-quiet" data-inspect-revision="before">View map ↗</button></div></div>
+          </section>
+          <section class="revision-card panel" aria-label="Candidate configuration">
+            <div class="revision-card-heading"><div><span class="revision-step">02</span><h3>Candidate</h3></div><span class="revision-status" id="after-status">Not loaded</span></div>
+            <div class="revision-card-body"><label for="compare-after">Configuration</label><select id="compare-after" aria-label="Candidate configuration"></select><div class="revision-source-detail" id="after-detail">Choose an example or import your candidate XML.</div><div class="revision-card-actions"><button class="button button-outline" data-import-revision="after"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3m-4 4 4-4 4 4M3 12v5h14v-5"/></svg>Import candidate XML</button><button class="button button-quiet" data-edit-revision="after">Edit XML</button><button class="button button-quiet" data-inspect-revision="after">View map ↗</button></div></div>
+          </section>
+        </div>
+        <input id="revision-file-before" type="file" accept=".xml,text/xml,application/xml" aria-label="Import baseline XML" hidden>
+        <input id="revision-file-after" type="file" accept=".xml,text/xml,application/xml" aria-label="Import candidate XML" hidden>
+        <section class="protection-panel panel" aria-labelledby="protection-heading">
+          <div class="panel-heading"><div><h2 id="protection-heading">Protected services <span class="subtle-count" id="protected-count">0 selected</span></h2><p>Flag newly introduced session or uncertain coupling into selected services.</p></div><button class="text-button" id="clear-protected">Clear selection</button></div>
+          <div class="protection-body"><label class="protection-search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><input id="protected-search" type="search" placeholder="Find a service" aria-label="Find a protected service"></label><div id="protected-services" class="protected-services"><p class="change-empty">Load a revision to select services.</p></div><p class="protection-note">Selections stay in this review if a service is removed. Static checks do not establish runtime safety.</p></div>
+          <div class="compare-run-bar"><span id="comparison-ready" role="status">Load both revisions to compare.</span><button class="button button-dark" id="run-compare" disabled>Compare revisions</button></div>
+        </section>
         <div id="compare-results"><div class="compare-placeholder"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 8v32m16-32v32M10 14l6-6 6 6m4 20 6 6 6-6"/></svg><h3>No comparison yet</h3><p>Select two configurations, then run the comparison.</p></div></div>
       </section>
 
@@ -85,7 +109,7 @@
   </main>
 
   <dialog id="source-dialog" class="source-dialog">
-    <form method="dialog" class="dialog-heading"><div><h2>Edit configuration</h2><p>QNX 8.0 SLM XML</p></div><button class="icon-button" value="cancel" aria-label="Close source editor">✕</button></form>
+    <form method="dialog" class="dialog-heading"><div><h2 id="editor-title">Edit configuration</h2><p id="editor-subtitle">QNX 8.0 SLM XML</p></div><button class="icon-button" value="cancel" aria-label="Close source editor">✕</button></form>
     <div class="editor-file"><span class="mono">&lt;/&gt;</span><input id="source-filename" aria-label="Source filename" value="config.xml"><span>QNX SLM XML</span></div>
     <div id="editor-error" class="app-error" role="alert" hidden></div>
     <div class="editor-wrap"><pre id="line-numbers" aria-hidden="true">1</pre><textarea id="source-editor" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="QNX SLM XML source" placeholder="Paste your &lt;SLM:system&gt; configuration here…"></textarea></div>

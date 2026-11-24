@@ -31,6 +31,15 @@ def render_comparison(comparison):
     lines = ["BootWeave · configuration comparison"]
     for label in ("added_components", "removed_components", "changed_components"):
         lines.append(f"{label.replace('_', ' ').capitalize()}: {', '.join(c[label]) or 'none'}")
+    for component in c.get("component_changes", []):
+        for field in component["fields"]:
+            lines.append(f"CHANGE {component['name']}.{field['field']}: "
+                         f"{json.dumps(field['before'], ensure_ascii=False)} -> {json.dumps(field['after'], ensure_ascii=False)}")
+    modules = c.get("modules", {})
+    for kind in ("added", "removed", "changed"):
+        if modules.get(kind):
+            names = [m["name"] if isinstance(m, dict) else m for m in modules[kind]]
+            lines.append(f"Modules {kind}: {', '.join(names)}")
     lines.append(f"Findings: {len(c['new_findings'])} new, {len(c['resolved_findings'])} resolved")
     for v in c["new_couplings"]:
         lines.append("NEW SESSION COUPLING: " + " → ".join(v["path"]))

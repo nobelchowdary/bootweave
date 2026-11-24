@@ -7,6 +7,7 @@ import sys
 
 from .analyzer import analyze
 from .compare import compare_reports
+from .evidence import check_evidence
 from .render import render_html, render_text, render_comparison
 
 
@@ -26,6 +27,10 @@ def main(argv=None):
     diff.add_argument("--format", choices=("text", "json"), default="text")
     diff.add_argument("--output", type=Path)
     diff.add_argument("--protect", action="append", default=[], metavar="COMPONENT", help="Fail on new explicit session or possible unspecified-state exposure to this service; repeatable")
+    evidence = sub.add_parser("evidence", help="Check an imported recording's configuration hash; does not authenticate its origin")
+    evidence.add_argument("file", type=Path)
+    evidence.add_argument("recording", type=Path)
+    evidence.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
     try:
         if args.command == "serve":
@@ -33,12 +38,16 @@ def main(argv=None):
             serve(args.port)
             return 0
         if args.command == "analyze":
-            report = analyze(args.file.read_text(encoding="utf-8"), args.file.name)
+            report = analyze(args.file.read_bytes().decode("utf-8"), args.file.name)
             output = json.dumps(report, indent=2, ensure_ascii=False) + "\n" if args.format == "json" else (render_html(report) if args.format == "html" else render_text(report))
             invalid = not report["analysis_complete"] or not report["summary"]["valid_graph"]
             code = int(args.fail_on != "never" and (invalid or report["summary"]["errors"] > 0 or (args.fail_on == "warning" and report["summary"]["warnings"] > 0)))
+        elif args.command == "evidence":
+            result = check_evidence(args.file.read_bytes().decode("utf-8"), json.loads(args.recording.read_text(encoding="utf-8")))
+            output = json.dumps(result, indent=2, ensure_ascii=False) + "\n"
+            code = int(result["status"] != "matched")
         else:
-            result = compare_reports(analyze(args.before.read_text(encoding="utf-8"), args.before.name), analyze(args.after.read_text(encoding="utf-8"), args.after.name), args.protect)
+            result = compare_reports(analyze(args.before.read_bytes().decode("utf-8"), args.before.name), analyze(args.after.read_bytes().decode("utf-8"), args.after.name), args.protect)
             output = json.dumps(result, indent=2, ensure_ascii=False) + "\n" if args.format == "json" else render_comparison(result)
             code = int(not result["policy"]["passed"] or result["after"]["summary"]["errors"] > 0)
         if args.output:
@@ -53,7 +62,7 @@ def main(argv=None):
                 output = output.encode(encoding, errors="backslashreplace").decode(encoding)
             print(output, end="")
         return code
-    except (OSError, UnicodeError, RecursionError) as exc:
+    except (OSError, UnicodeError, RecursionError, json.JSONDecodeError) as exc:
         print(f"BootWeave: {exc}", file=sys.stderr)
         return 2
 
