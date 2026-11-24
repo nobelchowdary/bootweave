@@ -1,6 +1,6 @@
 # QNX 8.0 validation procedure
 
-**Status: NOT YET VALIDATED ON A QNX TARGET.** No commands or expected results below constitute captured evidence. Host tests establish analyzer behavior; they do not establish SLM behavior. The shipped robot XML names illustrative executables and must not be presented as a running robot.
+**Status: INITIAL TARGET OBSERVATIONS CAPTURED; VALIDATION INCOMPLETE.** The [November 24 evidence](../validation/evidence/2026-11-24/README.md) records QNX 8.0.0 boot and isolated manual restarts, including independent process checks and an unresolved difference from the documented `-s` option description. The remaining procedure below is a validation plan, not evidence of execution. Host tests establish analyzer behavior; they do not establish SLM behavior. The shipped robot XML names illustrative executables and must not be presented as a running robot.
 
 ## Environment gate
 
@@ -56,16 +56,16 @@ slmctl -n /dev/bootweave-slm "listall -v"
 slmctl -n /dev/bootweave-slm "stop all"
 ```
 
-Record dependent PIDs before/after each restart. The inner `-s` means stateless dependencies are ignored while stopping. A plain manual restart is a separate operation from automatic failure recovery; never use its result as proof of the latter. Capture SLM console/log output too: control commands need not print their actions in `slmctl` output. Stop the dedicated instance through its own console after cleanup.
+Record dependent PIDs before/after each restart, corroborate each PID against the OS process table, and wait for settled states. The current reference describes inner `-s` as ignoring stateless dependencies while stopping; the recorded SLM build behaved differently from that expectation. Preserve both operations and their version-specific observations rather than assuming either behavior. A plain manual restart is a separate operation from automatic failure recovery; never use its result as proof of the latter. Capture SLM console/log output too: control commands need not print their actions in `slmctl` output. Stop the dedicated instance and verify that its fixture processes and endpoint are gone. SLM daemonizes; a shell background PID is not sufficient to identify its daemon.
 
 ## Validation matrix
 
-All rows are **TODO**. Recreate the dedicated instance for each edited fixture and retain exact XML, analyzer JSON, launch options, console output, and observations.
+Only the limited explicit-edge/manual-restart observation below has initial evidence. Recreate the dedicated instance for each edited fixture and retain exact XML, analyzer JSON, launch options, console output, and observations. All other rows remain **NOT RUN**.
 
 | Case | Procedure and acceptance evidence |
 | --- | --- |
-| Explicit edges | Check `needs`/`usedby` against BootWeave edges. Inspect PID changes for manual restart with and without inner `-s`. |
-| Omitted state | Compare `bw-unspecified` with explicit clients. Record behavior for this exact version only; retain BootWeave's uncertainty until a documented/versioned default is established. |
+| Explicit edges — PARTIAL | Initial fixture/manual-restart evidence is captured; the `-s` description discrepancy remains unresolved. Broader graphs and repeated fresh-boot validation remain open. |
+| Omitted state — PARTIAL | The observed client restarted with the explicit-session client on the recorded build. This does not establish a portable default; BootWeave retains uncertainty. |
 | Automatic recovery | In a separate fixture, change prerequisite duration to `5` and its repair to `restart`; retain clients at `600`. Observe natural prerequisite exit and subsequent PIDs/logs. Repeat with explicit states. Distinguish this from the manual command test. |
 | Readiness | Add a prerequisite delay of `3000`; observe dependent startup ordering, without claiming precise elapsed-time guarantees. Test a pathname wait against a deliberately absent scratch path and retain timeout logs. |
 | Invalid graph | Introduce a missing prerequisite, then a two-component cycle. Record native acceptance/error behavior and compare diagnostics; do not invent expected error text. |

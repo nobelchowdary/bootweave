@@ -1,0 +1,27 @@
+{
+  "host_os": "Linux-7.0.0-1018-aws-x86_64-with-glibc2.39",
+  "host_architecture": "x86_64",
+  "host_python": "3.12.3",
+  "qemu_version": "QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)",
+  "bootweave_revision": "198025d61d24d23de1c08b867432c7bd40ce14b8",
+  "qnx_utilities_sha256": {
+    "slm": "5678e6f1b943a0d53c79ecd1c7d048bc4aca84f9e3b6b03e20c4b3ef7218fa71",
+    "slmctl": "26d3dabd3603b997960f13696e162a9ae5b7fb52335d2b2bd1801d0848b69a93",
+    "slogger2": "b1a6fa6140328cd4b88c29aa56ab08547d76c3b9b2b35270c6ad6016513a4624"
+  },
+  "fixture_sha256": "b8c348f670c27df6f1fbcbf455869b3bd69735f6ac771acf809365313b98860b",
+  "guest_vcpus": 2,
+  "guest_ram": "2G",
+  "qemu_machine": "pc",
+  "qemu_cpu": "host,host-phys-bits-limit=39,amx-tile=off,amx-int8=off,amx-bf16=off",
+  "acceleration": "kvm",
+  "network": "QEMU user networking; guest SSH forwarded only to host loopback:2222",
+  "qnx_uname": "QNX bootweave-qnx 8.0.0 2026/10/30-09:10:05EDT x86pc x86_64",
+  "host_distribution": "Ubuntu 24.04.5 LTS",
+  "fixture": "validation/fixtures/lifecycle-distinct.xml",
+  "slm_package": "com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L",
+  "slm_build_id": "976c118ac0eb094859d3ec0c14ed8ee0",
+  "slmctl_build_id": "46598a81511405eb1226c5cb6d582f04",
+  "scope": "Two isolated manual-restart observations; automatic recovery and wider validation not run.",
+  "guest_binary_hashes_verified_via_ssh": true
+}

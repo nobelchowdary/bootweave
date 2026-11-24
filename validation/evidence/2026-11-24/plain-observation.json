@@ -1,0 +1,253 @@
+{
+  "operation": "plain",
+  "fixture_sha256": "b8c348f670c27df6f1fbcbf455869b3bd69735f6ac771acf809365313b98860b",
+  "recorder_sha256": "0a14303b8efbbe11dab2debcf257eb91c86da72b401d995ee7717ecf68be4f57",
+  "snapshots": {
+    "before": {
+      "slm": {
+        "bw-prerequisite": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 2932758
+        },
+        "bw-session": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 2936852
+        },
+        "bw-stateless": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 2940946
+        },
+        "bw-unspecified": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 2940952
+        }
+      },
+      "os_sleep_processes": {
+        "2932758": 600,
+        "2936852": 601,
+        "2940946": 602,
+        "2940952": 603
+      }
+    },
+    "after": {
+      "slm": {
+        "bw-prerequisite": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 3153942
+        },
+        "bw-session": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 3153943
+        },
+        "bw-stateless": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 2940946
+        },
+        "bw-unspecified": {
+          "active": "ACTIVE",
+          "state": "INITIALIZED",
+          "pid": 3153944
+        }
+      },
+      "os_sleep_processes": {
+        "2940946": 602,
+        "3153942": 600,
+        "3153943": 601,
+        "3153944": 603
+      }
+    }
+  },
+  "audit": [
+    {
+      "command": "uname -a",
+      "exit_code": 0,
+      "stdout": "QNX bootweave-qnx 8.0.0 2026/10/30-09:10:05EDT x86pc x86_64\n",
+      "stderr": ""
+    },
+    {
+      "command": "use -i /data/bootweave-lab/slm /data/bootweave-lab/slmctl",
+      "exit_code": 0,
+      "stdout": "QNX_BUILDID=(GNU)976c118ac0eb094859d3ec0c14ed8ee0\nNAME=slm\nDESCRIPTION=QNX System Launch and Monitor\nDATE=2023/11/19-10:22:15-EST\nSTATE=lookup\nHOST=docker-n1.bts.rim.net\nUSER=builder\nVERSION=QNXOS_main\nTAGID=QNXOS_800-135\nPACKAGE=com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L\n\nQNX_BUILDID=(GNU)46598a81511405eb1226c5cb6d582f04\nNAME=slmctl\nDESCRIPTION=Service Launch and Monitor control utility\nDATE=2023/11/19-10:22:16-EST\nSTATE=lookup\nHOST=docker-n1.bts.rim.net\nUSER=builder\nVERSION=QNXOS_main\nTAGID=QNXOS_800-135\nPACKAGE=com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L\n\n",
+      "stderr": ""
+    },
+    {
+      "command": "test -e /dev/bootweave-slm-observe; echo $?",
+      "exit_code": 0,
+      "stdout": "1\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slm -n /dev/bootweave-slm-observe -s none -VVV /data/bootweave-lab/lifecycle-distinct.xml > /data/bootweave-lab/observe-console.txt 2>&1 < /dev/null &",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p slm ar",
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n 2854933 /data/bootweave-lab/slm -n /dev/bootweave-slm-observe -s none -VVV /data/bootweave-lab/lifecycle-distinct.xml \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-slm-observe 'start all'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-slm-observe 'listall -v'",
+      "exit_code": 0,
+      "stdout": "bw-prerequisite  /proc/boot/sleep         ACTIVE    INITIALIZED  2932758\nbw-session       /proc/boot/sleep         ACTIVE    INITIALIZED  2936852\nbw-stateless     /proc/boot/sleep         ACTIVE    INITIALIZED  2940946\nbw-unspecified   /proc/boot/sleep         ACTIVE    INITIALIZED  2940952\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n 2932758 sleep 600 \n 2936852 sleep 601 \n 2940946 sleep 602 \n 2940952 sleep 603 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-slm-observe 'listall -v'",
+      "exit_code": 0,
+      "stdout": "bw-prerequisite  /proc/boot/sleep         ACTIVE    INITIALIZED  2932758\nbw-session       /proc/boot/sleep         ACTIVE    INITIALIZED  2936852\nbw-stateless     /proc/boot/sleep         ACTIVE    INITIALIZED  2940946\nbw-unspecified   /proc/boot/sleep         ACTIVE    INITIALIZED  2940952\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n 2932758 sleep 600 \n 2936852 sleep 601 \n 2940946 sleep 602 \n 2940952 sleep 603 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-slm-observe 'restart bw-prerequisite'",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-slm-observe 'listall -v'",
+      "exit_code": 0,
+      "stdout": "bw-prerequisite  /proc/boot/sleep         ACTIVE    INITIALIZED  3153942\nbw-session       /proc/boot/sleep         ACTIVE    INITIALIZED  3153943\nbw-stateless     /proc/boot/sleep         ACTIVE    INITIALIZED  2940946\nbw-unspecified   /proc/boot/sleep         ACTIVE    INITIALIZED  3153944\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n 2940946 sleep 602 \n 3153942 sleep 600 \n 3153943 sleep 601 \n 3153944 sleep 603 \n",
+      "stderr": ""
+    },
+    {
+      "command": "/data/bootweave-lab/slmctl -n /dev/bootweave-slm-observe 'listall -v'",
+      "exit_code": 0,
+      "stdout": "bw-prerequisite  /proc/boot/sleep         ACTIVE    INITIALIZED  3153942\nbw-session       /proc/boot/sleep         ACTIVE    INITIALIZED  3153943\nbw-stateless     /proc/boot/sleep         ACTIVE    INITIALIZED  2940946\nbw-unspecified   /proc/boot/sleep         ACTIVE    INITIALIZED  3153944\n",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n 2940946 sleep 602 \n 3153942 sleep 600 \n 3153943 sleep 601 \n 3153944 sleep 603 \n",
+      "stderr": ""
+    },
+    {
+      "command": "cat /data/bootweave-lab/observe-console.txt",
+      "exit_code": 0,
+      "stdout": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: [COMMAND] startup 'none'\nslm: [COMMAND] start 'all'\nslm: Component 'bw-prerequisite': Mark active\nslm: Set state of component 'bw-prerequisite' to 'starting'\nslm: Component 'bw-session': Mark active\nslm: Component 'bw-stateless': Mark active\nslm: Component 'bw-unspecified': Mark active\nslm: [START] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite': Spawned process with pid 2932758\nslm: Set state of component 'bw-prerequisite' to 'initialized'\nslm: Set state of component 'bw-session' to 'starting'\nslm: Set state of component 'bw-stateless' to 'starting'\nslm: Set state of component 'bw-unspecified' to 'starting'\nslm: [START] Component 'bw-session'\nslm: Component 'bw-session': Spawned process with pid 2936852\nslm: Set state of component 'bw-session' to 'initialized'\nslm: [START] Component 'bw-stateless'\nslm: Component 'bw-stateless': Spawned process with pid 2940946\nslm: Set state of component 'bw-stateless' to 'initialized'\nslm: [START] Component 'bw-unspecified'\nslm: Component 'bw-unspecified': Spawned process with pid 2940952\nslm: Set state of component 'bw-unspecified' to 'initialized'\nslm: [COMMAND] restart 'bw-prerequisite'\nslm: Set state of component 'bw-prerequisite' to 'stopping'\nslm: Set state of component 'bw-session' to 'stopping'\nslm: Set state of component 'bw-unspecified' to 'stopping'\nslm: [STOP] Component 'bw-prerequisite'\nslm: Cannot stop component 'bw-prerequisite' (component 'bw-session' is not dead)\nslm: Component 'bw-prerequisite': Retry stop action\nslm: [STOP] Component 'bw-session'\nslm: Component 'bw-session': Send signal 15 to pid 2936852\nslm: Component 'bw-session': Retry stop action\nslm: Component 'bw-session' (pid 2936852) died\nslm: [STOP] Component 'bw-unspecified'\nslm: Component 'bw-unspecified': Send signal 15 to pid 2940952\nslm: Component 'bw-unspecified': Retry stop action\nslm: Component 'bw-unspecified' (pid 2940952) died\nslm: [DEATH] Component 'bw-session'\nslm: Component 'bw-session' (pid 2936852) terminated by SLM\nslm: Set state of component 'bw-session' to 'dead'\nslm: [DEATH] Component 'bw-unspecified'\nslm: Component 'bw-unspecified' (pid 2940952) terminated by SLM\nslm: Set state of component 'bw-unspecified' to 'dead'\nslm: [STOP] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite': Send signal 15 to pid 2932758\nslm: Component 'bw-prerequisite': Retry stop action\nslm: Component 'bw-prerequisite' (pid 2932758) died\nslm: [STOP] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite': Retry stop action\nslm: [DEATH] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite' (pid 2932758) terminated by SLM\nslm: Set state of component 'bw-prerequisite' to 'dead'\nslm: Set state of component 'bw-prerequisite' to 'starting'\nslm: [START] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite': Spawned process with pid 3153942\nslm: Set state of component 'bw-prerequisite' to 'initialized'\nslm: Set state of component 'bw-session' to 'starting'\nslm: Set state of component 'bw-unspecified' to 'starting'\nslm: [START] Component 'bw-session'\nslm: Component 'bw-session': Spawned process with pid 3153943\nslm: Set state of component 'bw-session' to 'initialized'\nslm: [START] Component 'bw-unspecified'\nslm: Component 'bw-unspecified': Spawned process with pid 3153944\nslm: Set state of component 'bw-unspecified' to 'initialized'\n",
+      "stderr": ""
+    },
+    {
+      "command": "kill -9 2854933",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n 2940946 sleep 602 \n 3153942 sleep 600 \n 3153943 sleep 601 \n 3153944 sleep 603 \n",
+      "stderr": ""
+    },
+    {
+      "command": "kill 2940946",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "kill 3153942",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "kill 3153943",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "kill 3153944",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "pidin -p sleep ar",
+      "exit_code": 0,
+      "stdout": "     pid Arguments\n",
+      "stderr": ""
+    },
+    {
+      "command": "test ! -e /dev/bootweave-slm-observe; echo $?",
+      "exit_code": 0,
+      "stdout": "0\n",
+      "stderr": ""
+    }
+  ],
+  "completed": true,
+  "qnx_uname": "QNX bootweave-qnx 8.0.0 2026/10/30-09:10:05EDT x86pc x86_64",
+  "utility_builds": "QNX_BUILDID=(GNU)976c118ac0eb094859d3ec0c14ed8ee0\nNAME=slm\nDESCRIPTION=QNX System Launch and Monitor\nDATE=2023/11/19-10:22:15-EST\nSTATE=lookup\nHOST=docker-n1.bts.rim.net\nUSER=builder\nVERSION=QNXOS_main\nTAGID=QNXOS_800-135\nPACKAGE=com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L\n\nQNX_BUILDID=(GNU)46598a81511405eb1226c5cb6d582f04\nNAME=slmctl\nDESCRIPTION=Service Launch and Monitor control utility\nDATE=2023/11/19-10:22:16-EST\nSTATE=lookup\nHOST=docker-n1.bts.rim.net\nUSER=builder\nVERSION=QNXOS_main\nTAGID=QNXOS_800-135\nPACKAGE=com.qnx.qnx800.target.base.slm/0.0.1.00135T202311191043L\n\n",
+  "exact_operation": "restart bw-prerequisite",
+  "pid_observations": {
+    "bw-prerequisite": {
+      "old_pid": 2932758,
+      "new_pid": 3153942,
+      "old_pid_still_present": false,
+      "new_pid_present": true
+    },
+    "bw-session": {
+      "old_pid": 2936852,
+      "new_pid": 3153943,
+      "old_pid_still_present": false,
+      "new_pid_present": true
+    },
+    "bw-stateless": {
+      "old_pid": 2940946,
+      "new_pid": 2940946,
+      "old_pid_still_present": true,
+      "new_pid_present": true
+    },
+    "bw-unspecified": {
+      "old_pid": 2940952,
+      "new_pid": 3153944,
+      "old_pid_still_present": false,
+      "new_pid_present": true
+    }
+  },
+  "daemon_console": "qh: context: default:all=prefix/loc/~tid,~slog=notice,slog2=warning,stderr=info,~stdout=notice-notice\nqh: context: qh:slog2=warning,stderr=info\nqh: context: slm:slog2=warning,stderr=info\nslm: [COMMAND] startup 'none'\nslm: [COMMAND] start 'all'\nslm: Component 'bw-prerequisite': Mark active\nslm: Set state of component 'bw-prerequisite' to 'starting'\nslm: Component 'bw-session': Mark active\nslm: Component 'bw-stateless': Mark active\nslm: Component 'bw-unspecified': Mark active\nslm: [START] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite': Spawned process with pid 2932758\nslm: Set state of component 'bw-prerequisite' to 'initialized'\nslm: Set state of component 'bw-session' to 'starting'\nslm: Set state of component 'bw-stateless' to 'starting'\nslm: Set state of component 'bw-unspecified' to 'starting'\nslm: [START] Component 'bw-session'\nslm: Component 'bw-session': Spawned process with pid 2936852\nslm: Set state of component 'bw-session' to 'initialized'\nslm: [START] Component 'bw-stateless'\nslm: Component 'bw-stateless': Spawned process with pid 2940946\nslm: Set state of component 'bw-stateless' to 'initialized'\nslm: [START] Component 'bw-unspecified'\nslm: Component 'bw-unspecified': Spawned process with pid 2940952\nslm: Set state of component 'bw-unspecified' to 'initialized'\nslm: [COMMAND] restart 'bw-prerequisite'\nslm: Set state of component 'bw-prerequisite' to 'stopping'\nslm: Set state of component 'bw-session' to 'stopping'\nslm: Set state of component 'bw-unspecified' to 'stopping'\nslm: [STOP] Component 'bw-prerequisite'\nslm: Cannot stop component 'bw-prerequisite' (component 'bw-session' is not dead)\nslm: Component 'bw-prerequisite': Retry stop action\nslm: [STOP] Component 'bw-session'\nslm: Component 'bw-session': Send signal 15 to pid 2936852\nslm: Component 'bw-session': Retry stop action\nslm: Component 'bw-session' (pid 2936852) died\nslm: [STOP] Component 'bw-unspecified'\nslm: Component 'bw-unspecified': Send signal 15 to pid 2940952\nslm: Component 'bw-unspecified': Retry stop action\nslm: Component 'bw-unspecified' (pid 2940952) died\nslm: [DEATH] Component 'bw-session'\nslm: Component 'bw-session' (pid 2936852) terminated by SLM\nslm: Set state of component 'bw-session' to 'dead'\nslm: [DEATH] Component 'bw-unspecified'\nslm: Component 'bw-unspecified' (pid 2940952) terminated by SLM\nslm: Set state of component 'bw-unspecified' to 'dead'\nslm: [STOP] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite': Send signal 15 to pid 2932758\nslm: Component 'bw-prerequisite': Retry stop action\nslm: Component 'bw-prerequisite' (pid 2932758) died\nslm: [STOP] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite': Retry stop action\nslm: [DEATH] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite' (pid 2932758) terminated by SLM\nslm: Set state of component 'bw-prerequisite' to 'dead'\nslm: Set state of component 'bw-prerequisite' to 'starting'\nslm: [START] Component 'bw-prerequisite'\nslm: Component 'bw-prerequisite': Spawned process with pid 3153942\nslm: Set state of component 'bw-prerequisite' to 'initialized'\nslm: Set state of component 'bw-session' to 'starting'\nslm: Set state of component 'bw-unspecified' to 'starting'\nslm: [START] Component 'bw-session'\nslm: Component 'bw-session': Spawned process with pid 3153943\nslm: Set state of component 'bw-session' to 'initialized'\nslm: [START] Component 'bw-unspecified'\nslm: Component 'bw-unspecified': Spawned process with pid 3153944\nslm: Set state of component 'bw-unspecified' to 'initialized'\n",
+  "cleanup_processes": "     pid Arguments\n",
+  "cleanup_endpoint_absent": true,
+  "cleanup_verified": true
+}

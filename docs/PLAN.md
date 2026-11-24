@@ -2,6 +2,8 @@
 
 Working name: **BootWeave — review QNX startup changes before they reach a device.** Category: Developer Tooling & Host Tools. Planning baseline: November 22, 2026.
 
+The [November 23 implementation roadmap](IMPLEMENTATION-ROADMAP.md) is the current delivery sequence, with concrete acceptance gates and dates in Central Time. The original rationale and planning baseline follow below.
+
 ## Decision
 
 | Candidate | Strong demonstration | Delivery constraint | Decision |

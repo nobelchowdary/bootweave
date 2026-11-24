@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "lifecycle-distinct.xml",
+    "sha256": "b8c348f670c27df6f1fbcbf455869b3bd69735f6ac771acf809365313b98860b"
+  },
+  "analysis_complete": true,
+  "components": [
+    {
+      "name": "bw-prerequisite",
+      "line": 2,
+      "command": "sleep",
+      "args": "600",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [],
+      "layer": 0,
+      "properties": [
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 3
+        },
+        {
+          "name": "args",
+          "value": "600",
+          "attributes": {},
+          "line": 3
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 4
+        }
+      ]
+    },
+    {
+      "name": "bw-session",
+      "line": 6,
+      "command": "sleep",
+      "args": "601",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [
+        {
+          "name": "bw-prerequisite",
+          "state": "session",
+          "line": 7
+        }
+      ],
+      "layer": 1,
+      "properties": [
+        {
+          "name": "depend",
+          "value": "bw-prerequisite",
+          "attributes": {
+            "state": "session"
+          },
+          "line": 7
+        },
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 8
+        },
+        {
+          "name": "args",
+          "value": "601",
+          "attributes": {},
+          "line": 8
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 9
+        }
+      ]
+    },
+    {
+      "name": "bw-stateless",
+      "line": 11,
+      "command": "sleep",
+      "args": "602",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [
+        {
+          "name": "bw-prerequisite",
+          "state": "stateless",
+          "line": 12
+        }
+      ],
+      "layer": 1,
+      "properties": [
+        {
+          "name": "depend",
+          "value": "bw-prerequisite",
+          "attributes": {
+            "state": "stateless"
+          },
+          "line": 12
+        },
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 13
+        },
+        {
+          "name": "args",
+          "value": "602",
+          "attributes": {},
+          "line": 13
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 14
+        }
+      ]
+    },
+    {
+      "name": "bw-unspecified",
+      "line": 16,
+      "command": "sleep",
+      "args": "603",
+      "launch": [],
+      "wait": {
+        "mode": "none",
+        "value": "",
+        "poll_ms": null,
+        "timeout_ms": null
+      },
+      "repair": {
+        "mode": "none",
+        "backoff_seconds": null
+      },
+      "dependencies": [
+        {
+          "name": "bw-prerequisite",
+          "state": "unspecified",
+          "line": 17
+        }
+      ],
+      "layer": 1,
+      "properties": [
+        {
+          "name": "depend",
+          "value": "bw-prerequisite",
+          "attributes": {},
+          "line": 17
+        },
+        {
+          "name": "command",
+          "value": "sleep",
+          "attributes": {},
+          "line": 18
+        },
+        {
+          "name": "args",
+          "value": "603",
+          "attributes": {},
+          "line": 18
+        },
+        {
+          "name": "repair",
+          "value": "none",
+          "attributes": {},
+          "line": 19
+        }
+      ]
+    }
+  ],
+  "modules": [],
+  "edges": [
+    {
+      "source": "bw-prerequisite",
+      "target": "bw-session",
+      "state": "session",
+      "line": 7
+    },
+    {
+      "source": "bw-prerequisite",
+      "target": "bw-stateless",
+      "state": "stateless",
+      "line": 12
+    },
+    {
+      "source": "bw-prerequisite",
+      "target": "bw-unspecified",
+      "state": "unspecified",
+      "line": 17
+    }
+  ],
+  "layers": [
+    [
+      "bw-prerequisite"
+    ],
+    [
+      "bw-session",
+      "bw-stateless",
+      "bw-unspecified"
+    ]
+  ],
+  "findings": [
+    {
+      "id": "BW015",
+      "severity": "warning",
+      "component": "bw-unspecified",
+      "line": 17,
+      "title": "Dependency state is unspecified",
+      "detail": "The dependency on 'bw-prerequisite' omits state. This analyzer does not assign a default absent from its cited QNX 8.0 reference.",
+      "recommendation": "Specify session or stateless explicitly after reviewing the client/server relationship.",
+      "doc_url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/s/slm.html"
+    },
+    {
+      "id": "BW019",
+      "severity": "warning",
+      "component": "bw-prerequisite",
+      "line": 2,
+      "title": "Review readiness before dependent launch",
+      "detail": "'bw-prerequisite' has dependents but no readiness wait. A launched process may or may not already be ready for clients.",
+      "recommendation": "Confirm immediate readiness or choose a suitable pathname, blocks or exits condition; absence alone is not a bug.",
+      "doc_url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/s/slm.html"
+    }
+  ],
+  "summary": {
+    "components": 4,
+    "dependencies": 3,
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "valid_graph": true
+  },
+  "impacts": {
+    "bw-prerequisite": {
+      "selected": "bw-prerequisite",
+      "startup_blocked": [
+        "bw-session",
+        "bw-stateless",
+        "bw-unspecified"
+      ],
+      "coupled": [
+        "bw-session"
+      ],
+      "possible": [
+        "bw-unspecified"
+      ],
+      "independent": [
+        "bw-stateless"
+      ],
+      "critical": false,
+      "paths": [
+        {
+          "component": "bw-session",
+          "path": [
+            "bw-prerequisite",
+            "bw-session"
+          ],
+          "certainty": "explicit-session"
+        },
+        {
+          "component": "bw-unspecified",
+          "path": [
+            "bw-prerequisite",
+            "bw-unspecified"
+          ],
+          "certainty": "unspecified-state"
+        }
+      ]
+    },
+    "bw-session": {
+      "selected": "bw-session",
+      "startup_blocked": [],
+      "coupled": [],
+      "possible": [],
+      "independent": [
+        "bw-prerequisite",
+        "bw-stateless",
+        "bw-unspecified"
+      ],
+      "critical": false,
+      "paths": []
+    },
+    "bw-stateless": {
+      "selected": "bw-stateless",
+      "startup_blocked": [],
+      "coupled": [],
+      "possible": [],
+      "independent": [
+        "bw-prerequisite",
+        "bw-session",
+        "bw-unspecified"
+      ],
+      "critical": false,
+      "paths": []
+    },
+    "bw-unspecified": {
+      "selected": "bw-unspecified",
+      "startup_blocked": [],
+      "coupled": [],
+      "possible": [],
+      "independent": [
+        "bw-prerequisite",
+        "bw-session",
+        "bw-stateless"
+      ],
+      "critical": false,
+      "paths": []
+    }
+  }
+}

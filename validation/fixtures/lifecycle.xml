@@ -1,0 +1,21 @@
+<SLM:system>
+  <SLM:component name="bw-prerequisite">
+    <SLM:command>sleep</SLM:command><SLM:args>600</SLM:args>
+    <SLM:repair>none</SLM:repair>
+  </SLM:component>
+  <SLM:component name="bw-session">
+    <SLM:depend state="session">bw-prerequisite</SLM:depend>
+    <SLM:command>sleep</SLM:command><SLM:args>600</SLM:args>
+    <SLM:repair>none</SLM:repair>
+  </SLM:component>
+  <SLM:component name="bw-stateless">
+    <SLM:depend state="stateless">bw-prerequisite</SLM:depend>
+    <SLM:command>sleep</SLM:command><SLM:args>600</SLM:args>
+    <SLM:repair>none</SLM:repair>
+  </SLM:component>
+  <SLM:component name="bw-unspecified">
+    <SLM:depend>bw-prerequisite</SLM:depend>
+    <SLM:command>sleep</SLM:command><SLM:args>600</SLM:args>
+    <SLM:repair>none</SLM:repair>
+  </SLM:component>
+</SLM:system>
