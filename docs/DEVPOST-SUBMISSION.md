@@ -1,6 +1,6 @@
 # BootWeave — Devpost draft
 
-**Submission draft — final entry still pending.** The implementation, browser QA, narrated 2:33 demo and five gallery images are prepared. The [YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public, with signed-out playback verified November 24, 2026. Captions are burned in and an SRT was uploaded; selectable English (United States) captions were also verified in the signed-out player. The video URL is saved in Devpost and renders in the project preview. Both entrant-confirmed personal feedback answers are saved in Devpost; the final agreement and submission remain pending. See [media and captions](media/README.md) and [browser checks](BROWSER-QA.md).
+**Submission draft — DRAFT (4/5), final agreement unchecked.** The implementation, browser QA, current narrated 2:10 demo and five gallery images are prepared. The [YouTube demonstration](https://www.youtube.com/watch?v=DT4t-2V39rI) is public, with signed-out playback verified without error November 24, 2026. Its 27 caption cues are burned in. The English (United States) SRT is published; its selectable caption text and language were verified in the signed-out player. The current story and video URL are saved in Devpost, and the new embed renders in the project preview. All personal feedback ratings are saved; final agreement and submission remain pending. See [current media and captions](media/v2/README.md) and [browser checks](BROWSER-QA.md).
 
 ## Form fields
 
@@ -11,14 +11,14 @@
 | Category | Developer Tooling & Host Tools |
 | Source | https://github.com/nobelchowdary/bootweave |
 | Devpost project | https://devpost.com/software/bootweave-vilw4u — final hackathon entry pending |
-| Demonstration video | https://www.youtube.com/watch?v=m-SxmSBkiLo — 2:33.45; public and signed-out playback verified November 24 |
+| Demonstration video | https://www.youtube.com/watch?v=DT4t-2V39rI — 2:10 (130.021029 seconds local; 130.061 seconds in the public player); public and signed-out playback verified November 24 |
 | Tutorial bonus URL | https://github.com/nobelchowdary/bootweave/blob/main/docs/TUTORIAL.md |
 | Built with — implemented source | Python, JavaScript, HTML, CSS, C, QNX 8.0 SLM, slmctl, QNX message passing, QEMU, Ubuntu |
 | Native workload toolchain | QNX `qcc -Vgcc_ntox86_64`, GCC 12.2.0 target toolchain, C11; cross-compiled on Ubuntu and executed on the recorded QNX x86-64 guest |
 
 ## Public project story
 
-**[Watch the 2:33 demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo)** · [Source and instructions](https://github.com/nobelchowdary/bootweave) · [Tutorial](https://github.com/nobelchowdary/bootweave/blob/main/docs/TUTORIAL.md)
+**[Watch the 2:10 demonstration](https://www.youtube.com/watch?v=DT4t-2V39rI)** · [Source and instructions](https://github.com/nobelchowdary/bootweave) · [Tutorial](https://github.com/nobelchowdary/bootweave/blob/main/docs/TUTORIAL.md)
 
 ## Inspiration
 
@@ -90,9 +90,9 @@ Native workload: QNX 8.0.0 x86-64 under QEMU 8.2.2/KVM, built using QNX `qcc -Vg
 
 ## Final editor checks — do not paste as project claims
 
-- The verified public YouTube URL is saved in Devpost and embedded in its project preview. Burned-in captions and an uploaded SRT are present; selectable English (United States) captions rendered in the signed-out player.
+- The current public YouTube URL and project story are saved in Devpost; its project preview embeds `youtube.com/embed/DT4t-2V39rI`. Signed-out playback worked without error. The 27 burned-in caption cues are present, and selectable English (United States) captions and their rendered text were verified in the signed-out player.
 - Retain the completed browser QA and demonstrated source revision with the release media.
-- The entrant explicitly confirmed “Very likely” for QNX reuse and “Significantly” for skills learned; both were saved and verified in the live form November 24.
+- All entrant-provided personal feedback ratings are saved, including “Very likely” for QNX reuse and “Significantly” for skills learned (November 24).
 - Preserve material limitations and the unresolved operation-specific discrepancy.
-- The entrant confirmed basic eligibility and individual entry. Confirm the completed entry and its final ownership/contribution statements at submission time.
+- The entrant confirmed basic eligibility and individual entry. Devpost remains **DRAFT (4/5)** with the final agreement unchecked. Confirm the completed entry and its final ownership/contribution statements at submission time.
 - Official [submission requirements and judging](https://qnx.devpost.com/rules) govern the entry. No placement or prize is guaranteed.

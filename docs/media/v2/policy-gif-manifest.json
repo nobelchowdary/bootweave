@@ -1,0 +1,41 @@
+{
+  "artifact": "docs/assets/policy-review.gif",
+  "artifact_sha256": "900c4c8eabb60c803a9138f123d776cce002567240ebcf575af63be90974a03a",
+  "bytes": 68597,
+  "duration_seconds": 8,
+  "canvas": [
+    960,
+    363
+  ],
+  "source": "output/submission/media/bootweave-demo.mp4",
+  "source_sha256": "2e03fa96b0acd1be1d11d636d02e9142815bb5e09f7393a958d40b3af5ee76f8",
+  "scenes": [
+    {
+      "name": "fail",
+      "time": 39.5,
+      "crop": [
+        274,
+        376,
+        1136,
+        200
+      ],
+      "label": "New dependency \u2192 review required",
+      "source_frame_sha256": "244fc09d0c1b7a3d1c49f747ed2278cd4388e538186d6678485dfffc9b1e5837",
+      "preview_sha256": "a4274dcf0a25694f376f81dc03f115934e9a50c44baeca5ab8b80bbc98874a2f"
+    },
+    {
+      "name": "pass",
+      "time": 50.0,
+      "crop": [
+        274,
+        376,
+        1136,
+        125
+      ],
+      "label": "Correction \u2192 check passes",
+      "source_frame_sha256": "9a7ae3619be5f87d2777dcac890b73e443063c3bc07621cb963a0b541410e2fd",
+      "preview_sha256": "93898a764321086c610d52e12e59cb5208ae2e273f66e1cdab0be8389fc8ac47"
+    }
+  ],
+  "edits": "Two actual-video freeze frames; crop only to the protected-service result cards. Own labels and separate static-scope band. Four-second holds for fail and pass; infinite loop. No reconstructed UI or live-connection claim."
+}

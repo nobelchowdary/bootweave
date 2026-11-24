@@ -2,7 +2,7 @@
 
 **BootWeave explains which QNX startup edits introduce coupling to protected services, and can reject those changes in CI.**
 
-[Watch the narrated demo](https://www.youtube.com/watch?v=m-SxmSBkiLo) · [Tutorial](docs/TUTORIAL.md) · [Host checks](https://github.com/nobelchowdary/bootweave/actions/workflows/review.yml) · [MIT license](LICENSE)
+[Watch the 2:10 narrated demo](https://www.youtube.com/watch?v=DT4t-2V39rI) · [Tutorial](docs/TUTORIAL.md) · [Host checks](https://github.com/nobelchowdary/bootweave/actions/workflows/review.yml) · [MIT license](LICENSE)
 
 <img src="docs/assets/policy-review.gif" alt="Actual static review: a new controller dependency fails the policy, then its correction passes" width="900">
 
@@ -86,7 +86,9 @@ Semantics are grounded in the [QNX 8.0 SLM reference](https://qnx.com/developers
 
 ## Hackathon status
 
-Working developer tool for **Developer Tooling & Host Tools**, published at [nobelchowdary/bootweave](https://github.com/nobelchowdary/bootweave). The host tool runs on macOS, Linux, and Windows with Python; this does not imply that QNX compiler tools run natively on each host. The [native application experiments](validation/evidence/native-demo/README.md) record automatic failure and plain manual restart separately for both configurations, with actual QNX message passing, independent process/heartbeat observations and verified cleanup. The [six-case validation matrix](validation/matrix/README.md) covers selected graph, module, readiness and unsupported-include cases. These scoped observations do not establish complete SLM compatibility, continuous availability or real-time performance. The [earlier restart-option discrepancy](validation/evidence/2026-11-24/README.md) remains explicit. The [2:33 YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) is public, with signed-out playback verified November 24; [media sources and captions](docs/media/README.md) are available. Both entrant-confirmed personal feedback answers are saved in Devpost; the final agreement and submission remain pending.
+Working developer tool for **Developer Tooling & Host Tools**, published at [nobelchowdary/bootweave](https://github.com/nobelchowdary/bootweave). The host tool runs on macOS, Linux, and Windows with Python; this does not imply that QNX compiler tools run natively on each host. The [native application experiments](validation/evidence/native-demo/README.md) record automatic failure and plain manual restart separately for both configurations, with actual QNX message passing, independent process/heartbeat observations and verified cleanup. The [six-case validation matrix](validation/matrix/README.md) covers selected graph, module, readiness and unsupported-include cases. These scoped observations do not establish complete SLM compatibility, continuous availability or real-time performance. The [earlier restart-option discrepancy](validation/evidence/2026-11-24/README.md) remains explicit.
+
+The [current 2:10 YouTube demonstration](https://www.youtube.com/watch?v=DT4t-2V39rI) is public, with signed-out playback verified November 24. It includes 27 burned-in caption cues; selectable English (United States) captions are published and were verified in the signed-out player. [Current media sources and captions](docs/media/v2/README.md) are retained. The new video is saved and embedded in Devpost, and all personal feedback ratings are saved. The entry remains **DRAFT (4/5)**, with the final agreement unchecked and submission pending.
 
 See [idea research](docs/RESEARCH.md), [the build plan](docs/PLAN.md), [submission checklist](docs/SUBMISSION-CHECKLIST.md), [Ubuntu/AWS host setup](docs/AWS-QNX-HOST.md), [QNX validation procedure](docs/QNX-VALIDATION.md), [demo storyboard](docs/DEMO-SCRIPT.md), and [report schema](docs/report-schema.md).
 

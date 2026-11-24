@@ -1,0 +1,112 @@
+1
+00:00:00,080 --> 00:00:05,098
+In our authored QNX lab, we deliberately couple the controller to optional telemetry.
+
+2
+00:00:06,013 --> 00:00:11,416
+Protect the controller. BootWeave flags the new dependency for review and shows its exact path.
+
+3
+00:00:12,347 --> 00:00:14,827
+Remove the unnecessary telemetry prerequisite.
+
+4
+00:00:14,862 --> 00:00:17,816
+The same protected-service check now passes.
+
+5
+00:00:21,847 --> 00:00:23,790
+The two configurations stay independent.
+
+6
+00:00:23,825 --> 00:00:28,008
+Source hashes and XML differences make the review reproducible.
+
+7
+00:00:28,043 --> 00:00:31,965
+This is a static configuration model, not a restart simulation.
+
+8
+00:00:32,000 --> 00:00:36,296
+Next, compare it with our separately recorded QNX experiment.
+
+9
+00:00:37,213 --> 00:00:44,028
+We cross-compiled these C services with the QNX toolchain and ran them on QNX 8.0
+
+10
+00:00:44,063 --> 00:00:49,565
+in QEMU with KVM. A separate host receiver captured
+process instances and successful message-passing counters.
+
+11
+00:00:49,600 --> 00:00:57,338
+In the risky automatic-failure experiment, killing telemetry caused SLM
+to replace telemetry and the controller. The sensor stayed unchanged.
+
+12
+00:00:58,280 --> 00:01:03,719
+In the revised experiment, telemetry restarted while the
+controller kept its instance and continued successful
+
+13
+00:01:03,754 --> 00:01:06,688
+sensor IPC in the observed windows.
+
+14
+00:01:06,723 --> 00:01:10,731
+Imported recordings are checked against the exact XML hash.
+
+15
+00:01:10,766 --> 00:01:15,131
+A match does not authenticate their origin or prove a fresh execution.
+
+16
+00:01:15,166 --> 00:01:18,458
+Switch configurations and the check is cleared or rejected.
+
+17
+00:01:18,493 --> 00:01:21,070
+Static analysis and recorded observations stay separate.
+
+18
+00:01:22,013 --> 00:01:26,203
+Cycles and missing prerequisites cannot pass as clean results.
+
+19
+00:01:26,238 --> 00:01:29,973
+We also captured scoped native checks for modules,
+
+20
+00:01:30,008 --> 00:01:36,286
+readiness, and include handling. BootWeave rejects
+unsupported includes rather than silently skipping them.
+
+21
+00:01:36,321 --> 00:01:40,057
+An operation-specific SLM discrepancy remains documented.
+
+22
+00:01:40,092 --> 00:01:44,553
+These experiments make no availability, timing, or safety-certification claim.
+
+23
+00:01:45,480 --> 00:01:48,801
+Export the review bundle with its static report,
+
+24
+00:01:48,836 --> 00:01:54,421
+recording, and binding result. The host product needs only Python and a browser.
+
+25
+00:01:54,456 --> 00:01:57,898
+The MIT-licensed repository includes native source, raw evidence,
+
+26
+00:01:57,933 --> 00:02:00,162
+CI checks, and a tutorial.
+
+27
+00:02:00,197 --> 00:02:05,943
+BootWeave turns a hidden lifecycle relationship into a reviewable change and a reproducible experiment.
+

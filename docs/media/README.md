@@ -1,5 +1,15 @@
 # Demonstration media
 
+The **current 2:10 demonstration** is public on [YouTube](https://www.youtube.com/watch?v=DT4t-2V39rI). It opens on the seeded regression in our authored QNX lab, shows the corrected static-policy result by 16.1 seconds, then presents the separately recorded native experiment. Narration is synthetic; static analysis and imported records remain distinct.
+
+[Current MP4](https://github.com/nobelchowdary/bootweave/releases/download/v0.1.1/bootweave-demo-v2.mp4) · [Self-contained source archive](https://github.com/nobelchowdary/bootweave/releases/download/v0.1.1/bootweave-v2-media-source.zip) · [Captions, edit manifest and QA](v2/README.md)
+
+Signed-out playback was verified November 24, 2026, with no player error and a 130.061-second duration. All 27 cues are burned in; selectable English (United States) captions and actual caption text were also verified in the public player. Its metadata includes the title, description, thumbnail, video language, AI disclosure and no paid promotion.
+
+The original edit and its provenance remain below. Both personal feedback ratings are saved in Devpost; final agreement and entry submission remain pending.
+
+# Original demonstration (2:33)
+
 The narrated demonstration is **2:33.45** (153.454 seconds), below the hackathon's three-minute limit. It uses actual browser footage of the functioning host tool and imported records from the separately retained native QNX experiments. Static analysis, recordings and unauthenticated configuration-hash association are distinguished explicitly. Narration is synthetic; no music is used.
 
 [YouTube demonstration](https://www.youtube.com/watch?v=m-SxmSBkiLo) · [Download/watch the MP4](https://github.com/nobelchowdary/bootweave/releases/download/v0.1.0/bootweave-demo.mp4) · [Media source archive](https://github.com/nobelchowdary/bootweave/releases/download/v0.1.0/bootweave-media-sources.zip) · [Captions](bootweave-demo.srt) · [Edit notes](video-editing-notes.md) · [Manifest](video-edit-manifest.json) · [Video QA](video-qa.json)
@@ -8,4 +18,4 @@ The YouTube video was published November 24, 2026. A fresh signed-out browser ta
 
 MP4 SHA-256: `2e03fa96b0acd1be1d11d636d02e9142815bb5e09f7393a958d40b3af5ee76f8`. H.264/AAC, 1440×900, with burned-in captions in a reserved band beneath the unmodified UI footage. Normal motion, disclosed time compression and actual-frame holds are used; edited playback is not a target timing measurement.
 
-[Submission image gallery](../assets/01-bootweave-cover.jpg) includes actual UI screenshots with owned project branding. The [browser checks](../BROWSER-QA.md), [public-checkout checks](../RELEASE-CHECKS.md) and [native evidence](../../validation/evidence/native-demo/README.md) document what was verified. The entrant's two personal feedback answers and final Devpost submission remain pending.
+[Submission image gallery](../assets/01-bootweave-cover.jpg) includes actual UI screenshots with owned project branding. The [browser checks](../BROWSER-QA.md), [public-checkout checks](../RELEASE-CHECKS.md) and [native evidence](../../validation/evidence/native-demo/README.md) document what was verified. Both entrant-confirmed personal feedback answers are saved; final Devpost agreement and submission remain pending.

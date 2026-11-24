@@ -1,0 +1,19 @@
+{
+  "duration_seconds": 130.021029,
+  "video_duration": "130.000000",
+  "audio_duration": "130.000000",
+  "frames": "3900",
+  "canvas": [
+    1440,
+    900
+  ],
+  "fps": "30/1",
+  "bytes": 6544553,
+  "integrated_loudness_lufs": "-16.13",
+  "true_peak_dbtp": "-4.04",
+  "subtitle_cues": 27,
+  "payoff_visual_check": "Seeded authored-lab failure shown immediately, actual failed review visible at8.5s, actual correction/pass visible in16.1s QA frame.",
+  "original_public_video_unchanged": true,
+  "source_and_edit_manifest": "video-edit-manifest-v2.json",
+  "final_sha256": "ae6ab799f5bf36b88b92dfbb4eedd46785c0ab73c997f2443d0cf28a5b9d7a3a"
+}

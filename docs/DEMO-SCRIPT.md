@@ -1,6 +1,8 @@
-# BootWeave demo storyboard — 2 minutes 40 seconds
+# BootWeave demo storyboard
 
-Recording plan, November 24, 2026. The host product, native application contrast and scoped evidence exist. Final browser QA, screen capture and public YouTube upload remain open. Use the verified release build, original title cards and English narration/captions; no music is needed.
+The current [2:10 public demonstration](https://www.youtube.com/watch?v=DT4t-2V39rI) shows the corrected policy by 16.1 seconds, then the separately recorded native evidence. [Exact edit timings and captions](media/v2/README.md) supersede the original recording plan below. Browser QA and public playback/caption checks are complete; final Devpost agreement and submission remain pending.
+
+## Original recording plan — November 24, 2026
 
 The main example is now the **real authored QNX sensor/controller/optional-telemetry workload**. The sensor supplies software counters through native QNX request/reply IPC. It is not a physical robot or sensor. The independent receiver runs outside the tested SLM dependency graph.
 
