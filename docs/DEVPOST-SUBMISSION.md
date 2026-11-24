@@ -66,7 +66,7 @@ Separate plain-manual-restart recordings showed the same configuration contrast.
 
 ## Challenges we ran into
 
-We had to preserve uncertainty. Omitted dependency states remain possible coupling. Unsupported includes cannot silently disappear. An earlier inner-`-s` experiment differed from our reference-based expectation; that operation-specific discrepancy remains documented rather than explained away.
+An early four-process SLM test exposed an unresolved surprise: the stateless dependent kept its PID after `restart bw-prerequisite`, but was replaced after `restart -s bw-prerequisite` on the recorded build. We preserved both command logs and build IDs, then ran the native application’s automatic-failure tests separately rather than treating manual restart as proof of recovery.
 
 ## Accomplishments that we're proud of
 
@@ -80,7 +80,7 @@ Configuration deserves code-level scrutiny. A useful review tool shows why a cha
 
 Test more SLM builds and readiness modes, repeat across fresh VM boots, investigate the option discrepancy, improve large-graph reports, and collect reproduction feedback from QNX engineers. We have not measured customer adoption or time savings.
 
-**Scope:** Native evidence is recorded, not a live connection. These sampled experiments establish no safety, continuous-availability or timing guarantee. XML-hash agreement does not authenticate recording origin. The sensor produces software counters. [Exact builds, raw evidence, reproduction and qualifications](https://github.com/nobelchowdary/bootweave/tree/main/validation/evidence/native-demo) are public; licensed QNX tools are obtained separately. BootWeave is MIT licensed.
+**Scope:** These recordings cover a software sensor lab on one QNX/SLM build, with no safety, availability or timing guarantee; XML hashes do not authenticate origin. BootWeave is MIT licensed; [full evidence and reproduction details](https://github.com/nobelchowdary/bootweave/tree/main/validation/evidence/native-demo) are public, with licensed QNX tools obtained separately.
 
 ## Build and run field
 
